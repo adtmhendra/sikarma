@@ -21,12 +21,17 @@ class DashboardFragment : Fragment() {
         _binding = FragmentDashboardBinding.inflate(inflater, container, false)
 
         goToSymptomsDataFragment()
+        goToTypeDataFragment()
 
         return binding.root
     }
 
     private fun goToSymptomsDataFragment() {
         binding.button.setOnClickListener { findNavController().navigate(R.id.action_dashboardFragment_to_symptomsFragment) }
+    }
+
+    private fun goToTypeDataFragment() {
+        binding.button2.setOnClickListener { findNavController().navigate(R.id.action_dashboardFragment_to_typeDataFragment) }
     }
 
     override fun onDestroy() {
