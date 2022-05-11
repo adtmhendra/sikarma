@@ -8,10 +8,9 @@ import javax.inject.Inject
 class AdminRepositoryImpl @Inject constructor(private val appDatabase: AppDatabase) :
     IAdminRepository {
 
-    override fun readAdminLoginData(adminUsername: String, adminPassword: String): Flow<Admin> {
-        return appDatabase.adminDao.readAdminLoginData(
+    override fun readAdminLoginData(adminUsername: String, adminPassword: String): Flow<Admin> =
+        appDatabase.adminDao.readAdminLoginData(
             adminUsername = adminUsername,
             adminPassword = adminPassword
         )
-    }
 }
