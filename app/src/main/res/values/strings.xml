@@ -6,4 +6,6 @@
     <string name="password">Password</string>
     <string name="login_admin">Login admin</string>
     <string name="sign_in">Sign in</string>
+    <string name="kamu_berhasil_login">Kamu berhasil login!</string>
+    <string name="snackbar_invalid_username_password">Username atau Password salah!</string>
 </resources>
