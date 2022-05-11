@@ -5,6 +5,8 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import androidx.fragment.app.Fragment
+import androidx.navigation.fragment.findNavController
+import com.example.sikarma.R
 import com.example.sikarma.databinding.FragmentDashboardBinding
 
 class DashboardFragment : Fragment() {
@@ -17,7 +19,14 @@ class DashboardFragment : Fragment() {
         savedInstanceState: Bundle?,
     ): View {
         _binding = FragmentDashboardBinding.inflate(inflater, container, false)
+
+        goToSymptomsDataFragment()
+
         return binding.root
+    }
+
+    private fun goToSymptomsDataFragment() {
+        binding.button.setOnClickListener { findNavController().navigate(R.id.action_dashboardFragment_to_symptomsFragment) }
     }
 
     override fun onDestroy() {

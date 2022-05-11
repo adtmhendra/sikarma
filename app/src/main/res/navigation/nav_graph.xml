@@ -27,5 +27,14 @@
         android:id="@+id/dashboardFragment"
         android:name="com.example.sikarma.view.admin.DashboardFragment"
         android:label="Dashboard Admin"
-        tools:layout="@layout/fragment_dashboard" />
+        tools:layout="@layout/fragment_dashboard" >
+        <action
+            android:id="@+id/action_dashboardFragment_to_symptomsFragment"
+            app:destination="@id/symptomsFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/symptomsFragment"
+        android:name="com.example.sikarma.view.admin.SymptomsDataFragment"
+        android:label="Data Gejala"
+        tools:layout="@layout/fragment_data_symptoms" />
 </navigation>
