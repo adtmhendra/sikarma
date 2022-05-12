@@ -41,16 +41,16 @@
     <fragment
         android:id="@+id/symptomsFragment"
         android:name="com.example.sikarma.view.admin.SymptomsDataFragment"
-        android:label="Data Gejala"
+        android:label="Data Gejala Penyakit"
         tools:layout="@layout/fragment_data_symptoms" />
     <fragment
         android:id="@+id/typeDataFragment"
         android:name="com.example.sikarma.view.admin.TypeDataFragment"
-        android:label="fragment_type_data"
+        android:label="Data Jenis Penyakit"
         tools:layout="@layout/fragment_type_data" />
     <fragment
         android:id="@+id/ruleDataFragment"
         android:name="com.example.sikarma.view.admin.RuleDataFragment"
-        android:label="fragment_rule_data"
+        android:label="Data Rule Penyakit"
         tools:layout="@layout/fragment_rule_data" />
 </navigation>
