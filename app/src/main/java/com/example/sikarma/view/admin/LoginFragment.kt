@@ -89,6 +89,7 @@ class LoginFragment : Fragment() {
                     Snackbar.make(binding.btnSignIn,
                         getString(R.string.snackbar_invalid_username_password),
                         Snackbar.LENGTH_SHORT).show()
+                    clearText()
                 }
             }
         }

@@ -24,19 +24,33 @@ class DashboardFragment : Fragment() {
         goToTypeDataFragment()
         goToRuleDataFragment()
 
+        doAdminLogout()
+
         return binding.root
     }
 
     private fun goToSymptomsDataFragment() {
-        binding.button.setOnClickListener { findNavController().navigate(R.id.action_dashboardFragment_to_symptomsDataFragment) }
+        binding.btnGoToSymptomsDataFragment.setOnClickListener {
+            findNavController().navigate(R.id.action_dashboardFragment_to_symptomsDataFragment)
+        }
     }
 
     private fun goToTypeDataFragment() {
-        binding.button2.setOnClickListener { findNavController().navigate(R.id.action_dashboardFragment_to_typeDataFragment) }
+        binding.btnGoToTypeDataFragment.setOnClickListener {
+            findNavController().navigate(R.id.action_dashboardFragment_to_typeDataFragment)
+        }
     }
 
     private fun goToRuleDataFragment() {
-        binding.button3.setOnClickListener { findNavController().navigate(R.id.action_dashboardFragment_to_ruleDataFragment) }
+        binding.btnGoToRuleDataFragment.setOnClickListener {
+            findNavController().navigate(R.id.action_dashboardFragment_to_ruleDataFragment)
+        }
+    }
+
+    private fun doAdminLogout() {
+        binding.btnSignOut.setOnClickListener {
+            findNavController().navigate(R.id.action_dashboardFragment_to_loginFragment)
+        }
     }
 
     override fun onDestroy() {

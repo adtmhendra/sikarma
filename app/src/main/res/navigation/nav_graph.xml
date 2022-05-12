@@ -37,6 +37,11 @@
         <action
             android:id="@+id/action_dashboardFragment_to_ruleDataFragment"
             app:destination="@id/ruleDataFragment" />
+        <action
+            android:id="@+id/action_dashboardFragment_to_loginFragment"
+            app:destination="@id/loginFragment"
+            app:popUpTo="@id/loginFragment"
+            app:popUpToInclusive="true" />
     </fragment>
     <fragment
         android:id="@+id/symptomsDataFragment"

@@ -8,18 +8,18 @@
     tools:context=".view.admin.DashboardFragment">
 
     <com.google.android.material.button.MaterialButton
-        android:id="@+id/button"
+        android:id="@+id/btn_go_to_symptoms_data_fragment"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
         android:layout_marginBottom="8dp"
         android:stateListAnimator="@null"
         android:text="Atur gejala asma"
-        app:layout_constraintBottom_toTopOf="@+id/button2"
-        app:layout_constraintEnd_toEndOf="@+id/button2"
-        app:layout_constraintStart_toStartOf="@+id/button2" />
+        app:layout_constraintBottom_toTopOf="@+id/btn_go_to_type_data_fragment"
+        app:layout_constraintEnd_toEndOf="@+id/btn_go_to_type_data_fragment"
+        app:layout_constraintStart_toStartOf="@+id/btn_go_to_type_data_fragment" />
 
     <com.google.android.material.button.MaterialButton
-        android:id="@+id/button2"
+        android:id="@+id/btn_go_to_type_data_fragment"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:stateListAnimator="@null"
@@ -30,18 +30,18 @@
         app:layout_constraintTop_toTopOf="parent" />
 
     <com.google.android.material.button.MaterialButton
-        android:id="@+id/button3"
+        android:id="@+id/btn_go_to_rule_data_fragment"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
         android:layout_marginTop="8dp"
         android:stateListAnimator="@null"
         android:text="Atur rule gejala asma"
-        app:layout_constraintEnd_toEndOf="@+id/button2"
-        app:layout_constraintStart_toStartOf="@+id/button2"
-        app:layout_constraintTop_toBottomOf="@+id/button2" />
+        app:layout_constraintEnd_toEndOf="@+id/btn_go_to_type_data_fragment"
+        app:layout_constraintStart_toStartOf="@+id/btn_go_to_type_data_fragment"
+        app:layout_constraintTop_toBottomOf="@+id/btn_go_to_type_data_fragment" />
 
     <com.google.android.material.button.MaterialButton
-        android:id="@+id/button4"
+        android:id="@+id/btn_sign_out"
         style="?attr/materialButtonOutlinedStyle"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
