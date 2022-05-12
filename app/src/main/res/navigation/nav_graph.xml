@@ -42,7 +42,7 @@
         android:id="@+id/symptomsDataFragment"
         android:name="com.example.sikarma.view.admin.SymptomsDataFragment"
         android:label="Data Gejala Penyakit"
-        tools:layout="@layout/fragment_data_symptoms" />
+        tools:layout="@layout/fragment_symptoms_data" />
     <fragment
         android:id="@+id/typeDataFragment"
         android:name="com.example.sikarma.view.admin.TypeDataFragment"

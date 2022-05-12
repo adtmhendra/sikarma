@@ -5,19 +5,19 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import androidx.fragment.app.Fragment
-import com.example.sikarma.databinding.FragmentDataSymptomsBinding
+import com.example.sikarma.databinding.FragmentSymptomsDataBinding
 import com.google.android.material.snackbar.Snackbar
 
 class SymptomsDataFragment : Fragment() {
 
-    private var _binding: FragmentDataSymptomsBinding? = null
+    private var _binding: FragmentSymptomsDataBinding? = null
     private val binding get() = _binding!!
 
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?,
     ): View {
-        _binding = FragmentDataSymptomsBinding.inflate(inflater, container, false)
+        _binding = FragmentSymptomsDataBinding.inflate(inflater, container, false)
         return binding.root
     }
 
