@@ -22,6 +22,7 @@ class DashboardFragment : Fragment() {
 
         goToSymptomsDataFragment()
         goToTypeDataFragment()
+        goToRuleDataFragment()
 
         return binding.root
     }
@@ -32,6 +33,10 @@ class DashboardFragment : Fragment() {
 
     private fun goToTypeDataFragment() {
         binding.button2.setOnClickListener { findNavController().navigate(R.id.action_dashboardFragment_to_typeDataFragment) }
+    }
+
+    private fun goToRuleDataFragment() {
+        binding.button3.setOnClickListener { findNavController().navigate(R.id.action_dashboardFragment_to_ruleDataFragment) }
     }
 
     override fun onDestroy() {

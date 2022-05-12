@@ -27,13 +27,16 @@
         android:id="@+id/dashboardFragment"
         android:name="com.example.sikarma.view.admin.DashboardFragment"
         android:label="Dashboard Admin"
-        tools:layout="@layout/fragment_dashboard" >
+        tools:layout="@layout/fragment_dashboard">
         <action
             android:id="@+id/action_dashboardFragment_to_symptomsFragment"
             app:destination="@id/symptomsFragment" />
         <action
             android:id="@+id/action_dashboardFragment_to_typeDataFragment"
             app:destination="@id/typeDataFragment" />
+        <action
+            android:id="@+id/action_dashboardFragment_to_ruleDataFragment"
+            app:destination="@id/ruleDataFragment" />
     </fragment>
     <fragment
         android:id="@+id/symptomsFragment"
@@ -45,4 +48,9 @@
         android:name="com.example.sikarma.view.admin.TypeDataFragment"
         android:label="fragment_type_data"
         tools:layout="@layout/fragment_type_data" />
+    <fragment
+        android:id="@+id/ruleDataFragment"
+        android:name="com.example.sikarma.view.admin.RuleDataFragment"
+        android:label="fragment_rule_data"
+        tools:layout="@layout/fragment_rule_data" />
 </navigation>

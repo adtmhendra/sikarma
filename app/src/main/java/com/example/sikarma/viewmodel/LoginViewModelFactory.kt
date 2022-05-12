@@ -1,10 +1,5 @@
 package com.example.sikarma.viewmodel
 
-import androidx.lifecycle.ViewModel
-import androidx.lifecycle.ViewModelProvider
-import com.example.sikarma.usecase.IAdminUseCase
-import javax.inject.Inject
-
 //class LoginViewModelFactory @Inject constructor(private val useCase: IAdminUseCase) :
 //    ViewModelProvider.Factory {
 //
