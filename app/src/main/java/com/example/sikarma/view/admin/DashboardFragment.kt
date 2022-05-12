@@ -28,7 +28,7 @@ class DashboardFragment : Fragment() {
     }
 
     private fun goToSymptomsDataFragment() {
-        binding.button.setOnClickListener { findNavController().navigate(R.id.action_dashboardFragment_to_symptomsFragment) }
+        binding.button.setOnClickListener { findNavController().navigate(R.id.action_dashboardFragment_to_symptomsDataFragment) }
     }
 
     private fun goToTypeDataFragment() {

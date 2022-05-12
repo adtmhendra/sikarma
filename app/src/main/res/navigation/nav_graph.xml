@@ -29,8 +29,8 @@
         android:label="Dashboard Admin"
         tools:layout="@layout/fragment_dashboard">
         <action
-            android:id="@+id/action_dashboardFragment_to_symptomsFragment"
-            app:destination="@id/symptomsFragment" />
+            android:id="@+id/action_dashboardFragment_to_symptomsDataFragment"
+            app:destination="@id/symptomsDataFragment" />
         <action
             android:id="@+id/action_dashboardFragment_to_typeDataFragment"
             app:destination="@id/typeDataFragment" />
@@ -39,7 +39,7 @@
             app:destination="@id/ruleDataFragment" />
     </fragment>
     <fragment
-        android:id="@+id/symptomsFragment"
+        android:id="@+id/symptomsDataFragment"
         android:name="com.example.sikarma.view.admin.SymptomsDataFragment"
         android:label="Data Gejala Penyakit"
         tools:layout="@layout/fragment_data_symptoms" />
