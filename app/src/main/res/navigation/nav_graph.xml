@@ -47,7 +47,11 @@
         android:id="@+id/symptomsDataFragment"
         android:name="com.example.sikarma.view.admin.SymptomsDataFragment"
         android:label="Data Gejala Penyakit"
-        tools:layout="@layout/fragment_symptoms_data" />
+        tools:layout="@layout/fragment_symptoms_data" >
+        <action
+            android:id="@+id/action_symptomsDataFragment_to_addSymptomsDataFragment"
+            app:destination="@id/addSymptomsDataFragment" />
+    </fragment>
     <fragment
         android:id="@+id/typeDataFragment"
         android:name="com.example.sikarma.view.admin.TypeDataFragment"
@@ -58,4 +62,15 @@
         android:name="com.example.sikarma.view.admin.RuleDataFragment"
         android:label="Data Rule Penyakit"
         tools:layout="@layout/fragment_rule_data" />
+    <fragment
+        android:id="@+id/addSymptomsDataFragment"
+        android:name="com.example.sikarma.view.admin.AddSymptomsDataFragment"
+        android:label="Tambah Data Gejala"
+        tools:layout="@layout/fragment_add_symptoms_data" >
+        <action
+            android:id="@+id/action_addSymptomsDataFragment_to_symptomsDataFragment"
+            app:destination="@id/symptomsDataFragment"
+            app:popUpTo="@id/symptomsDataFragment"
+            app:popUpToInclusive="true" />
+    </fragment>
 </navigation>

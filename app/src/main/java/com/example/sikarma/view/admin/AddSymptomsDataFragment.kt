@@ -7,20 +7,20 @@ import android.view.ViewGroup
 import androidx.fragment.app.Fragment
 import androidx.navigation.fragment.findNavController
 import com.example.sikarma.R
-import com.example.sikarma.databinding.FragmentSymptomsDataBinding
+import com.example.sikarma.databinding.FragmentAddSymptomsDataBinding
 
-class SymptomsDataFragment : Fragment() {
+class AddSymptomsDataFragment : Fragment() {
 
-    private var _binding: FragmentSymptomsDataBinding? = null
+    private var _binding: FragmentAddSymptomsDataBinding? = null
     private val binding get() = _binding!!
 
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?,
     ): View {
-        _binding = FragmentSymptomsDataBinding.inflate(inflater, container, false)
+        _binding = FragmentAddSymptomsDataBinding.inflate(inflater, container, false)
 
-        goToAddSymptomsDataFragment()
+        goToSymptomsDataFragment()
 
         return binding.root
     }
@@ -29,9 +29,9 @@ class SymptomsDataFragment : Fragment() {
         super.onViewCreated(view, savedInstanceState)
     }
 
-    private fun goToAddSymptomsDataFragment() {
-        binding.fab.setOnClickListener {
-            findNavController().navigate(R.id.action_symptomsDataFragment_to_addSymptomsDataFragment)
+    private fun goToSymptomsDataFragment() {
+        binding.btnSave.setOnClickListener {
+            findNavController().navigate(R.id.action_addSymptomsDataFragment_to_symptomsDataFragment)
         }
     }
 
