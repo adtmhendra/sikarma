@@ -1,4 +1,4 @@
-package com.example.sikarma.view.admin
+package com.example.sikarma.presentation.view.admin
 
 import android.os.Bundle
 import android.view.LayoutInflater

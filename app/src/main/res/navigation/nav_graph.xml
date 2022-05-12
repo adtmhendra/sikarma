@@ -7,7 +7,7 @@
 
     <fragment
         android:id="@+id/homeFragment"
-        android:name="com.example.sikarma.view.HomeFragment"
+        android:name="com.example.sikarma.presentation.view.HomeFragment"
         android:label="Sikarma"
         tools:layout="@layout/fragment_home">
         <action
@@ -16,7 +16,7 @@
     </fragment>
     <fragment
         android:id="@+id/loginFragment"
-        android:name="com.example.sikarma.view.admin.LoginFragment"
+        android:name="com.example.sikarma.presentation.view.admin.LoginFragment"
         android:label="Login Admin"
         tools:layout="@layout/fragment_login">
         <action
@@ -25,7 +25,7 @@
     </fragment>
     <fragment
         android:id="@+id/dashboardFragment"
-        android:name="com.example.sikarma.view.admin.DashboardFragment"
+        android:name="com.example.sikarma.presentation.view.admin.DashboardFragment"
         android:label="Dashboard Admin"
         tools:layout="@layout/fragment_dashboard">
         <action
@@ -45,28 +45,28 @@
     </fragment>
     <fragment
         android:id="@+id/symptomsDataFragment"
-        android:name="com.example.sikarma.view.admin.SymptomsDataFragment"
+        android:name="com.example.sikarma.presentation.view.admin.SymptomsDataFragment"
         android:label="Data Gejala Penyakit"
-        tools:layout="@layout/fragment_symptoms_data" >
+        tools:layout="@layout/fragment_symptoms_data">
         <action
             android:id="@+id/action_symptomsDataFragment_to_addSymptomsDataFragment"
             app:destination="@id/addSymptomsDataFragment" />
     </fragment>
     <fragment
         android:id="@+id/typeDataFragment"
-        android:name="com.example.sikarma.view.admin.TypeDataFragment"
+        android:name="com.example.sikarma.presentation.view.admin.TypeDataFragment"
         android:label="Data Jenis Penyakit"
         tools:layout="@layout/fragment_type_data" />
     <fragment
         android:id="@+id/ruleDataFragment"
-        android:name="com.example.sikarma.view.admin.RuleDataFragment"
+        android:name="com.example.sikarma.presentation.view.admin.RuleDataFragment"
         android:label="Data Rule Penyakit"
         tools:layout="@layout/fragment_rule_data" />
     <fragment
         android:id="@+id/addSymptomsDataFragment"
-        android:name="com.example.sikarma.view.admin.AddSymptomsDataFragment"
+        android:name="com.example.sikarma.presentation.view.admin.AddSymptomsDataFragment"
         android:label="Tambah Data Gejala"
-        tools:layout="@layout/fragment_add_symptoms_data" >
+        tools:layout="@layout/fragment_add_symptoms_data">
         <action
             android:id="@+id/action_addSymptomsDataFragment_to_symptomsDataFragment"
             app:destination="@id/symptomsDataFragment"

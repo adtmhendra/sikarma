@@ -7,14 +7,14 @@
 
         <variable
             name="homeFragment"
-            type="com.example.sikarma.view.HomeFragment" />
+            type="com.example.sikarma.presentation.view.HomeFragment" />
     </data>
 
     <androidx.constraintlayout.widget.ConstraintLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:padding="64dp"
-        tools:context=".view.HomeFragment">
+        tools:context=".presentation.view.HomeFragment">
 
         <com.google.android.material.button.MaterialButton
             android:id="@+id/materialButton"

@@ -1,8 +1,9 @@
 package com.example.sikarma.di
 
 import com.example.sikarma.data.database.AppDatabase
-import com.example.sikarma.repository.AdminRepositoryImpl
-import com.example.sikarma.usecase.AdminUseCaseImpl
+import com.example.sikarma.data.repository.AdminRepositoryImpl
+import com.example.sikarma.domain.repository.IAdminRepository
+import com.example.sikarma.domain.usecase.AdminUseCaseImpl
 import dagger.Module
 import dagger.Provides
 import dagger.hilt.InstallIn
@@ -15,11 +16,11 @@ object AdminModule {
 
     @Provides
     @Singleton
-    fun provideAdminRepository(appDatabase: AppDatabase): AdminRepositoryImpl =
+    fun provideAdminRepository(appDatabase: AppDatabase): IAdminRepository =
         AdminRepositoryImpl(appDatabase)
 
     @Provides
     @Singleton
-    fun provideAdminUseCase(adminRepositoryImpl: AdminRepositoryImpl): AdminUseCaseImpl =
-        AdminUseCaseImpl(adminRepositoryImpl)
+    fun provideAdminUseCase(iAdminRepository: IAdminRepository): AdminUseCaseImpl =
+        AdminUseCaseImpl(iAdminRepository)
 }

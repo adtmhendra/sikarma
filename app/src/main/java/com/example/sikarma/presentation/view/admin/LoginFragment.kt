@@ -1,4 +1,4 @@
-package com.example.sikarma.view.admin
+package com.example.sikarma.presentation.view.admin
 
 import android.content.Context
 import android.os.Bundle
@@ -15,7 +15,7 @@ import androidx.lifecycle.lifecycleScope
 import androidx.navigation.fragment.findNavController
 import com.example.sikarma.R
 import com.example.sikarma.databinding.FragmentLoginBinding
-import com.example.sikarma.viewmodel.LoginViewModel
+import com.example.sikarma.presentation.viewmodel.LoginViewModel
 import com.google.android.material.snackbar.Snackbar
 import com.google.android.material.textfield.TextInputEditText
 import dagger.hilt.android.AndroidEntryPoint

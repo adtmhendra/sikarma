@@ -1,9 +1,10 @@
-package com.example.sikarma.view.admin
+package com.example.sikarma.presentation.view.admin
 
 import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import android.widget.Toast
 import androidx.fragment.app.Fragment
 import androidx.navigation.fragment.findNavController
 import com.example.sikarma.R
@@ -32,6 +33,7 @@ class AddSymptomsDataFragment : Fragment() {
     private fun goToSymptomsDataFragment() {
         binding.btnSave.setOnClickListener {
             findNavController().navigate(R.id.action_addSymptomsDataFragment_to_symptomsDataFragment)
+            Toast.makeText(requireContext(), "Data berhasil disimpan", Toast.LENGTH_SHORT).show()
         }
     }
 
