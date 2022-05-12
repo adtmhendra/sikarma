@@ -19,7 +19,7 @@ object DatabaseModule {
     fun provideDatabase(@ApplicationContext context: Context): AppDatabase =
         Room.databaseBuilder(context.applicationContext,
             AppDatabase::class.java,
-            "item_database")
+            "db_expert_system")
             .fallbackToDestructiveMigration()
             .allowMainThreadQueries()
             .build()

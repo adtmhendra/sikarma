@@ -8,6 +8,6 @@ import kotlinx.coroutines.flow.Flow
 @Dao
 interface AdminDao {
 
-    @Query("SELECT * FROM admin WHERE admin_username LIKE :adminUsername AND admin_password LIKE :adminPassword")
+    @Query("SELECT * FROM tb_admin WHERE admin_username LIKE :adminUsername AND admin_password LIKE :adminPassword")
     fun readAdminLoginData(adminUsername: String, adminPassword: String): Flow<Admin>
 }
