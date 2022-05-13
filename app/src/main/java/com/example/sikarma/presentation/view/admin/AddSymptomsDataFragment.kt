@@ -1,19 +1,22 @@
 package com.example.sikarma.presentation.view.admin
 
+import android.content.Context
 import android.os.Bundle
 import android.text.Editable
 import android.text.TextWatcher
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import android.view.inputmethod.InputMethodManager
 import android.widget.Toast
 import androidx.fragment.app.Fragment
-import androidx.fragment.app.viewModels
+import androidx.fragment.app.activityViewModels
 import androidx.navigation.fragment.findNavController
 import com.example.sikarma.R
 import com.example.sikarma.databinding.FragmentAddSymptomsDataBinding
 import com.example.sikarma.presentation.viewmodel.SymptomsViewModel
 import com.google.android.material.button.MaterialButton
+import com.google.android.material.snackbar.Snackbar
 import com.google.android.material.textfield.TextInputEditText
 import dagger.hilt.android.AndroidEntryPoint
 
@@ -23,7 +26,7 @@ class AddSymptomsDataFragment : Fragment() {
     private var _binding: FragmentAddSymptomsDataBinding? = null
     private val binding get() = _binding!!
 
-    private val viewModel: SymptomsViewModel by viewModels()
+    private val viewModel: SymptomsViewModel by activityViewModels()
 
     private lateinit var edtSymptomName: TextInputEditText
     private lateinit var btnSave: MaterialButton
@@ -48,19 +51,22 @@ class AddSymptomsDataFragment : Fragment() {
         btnSave.setOnClickListener { goToSymptomsDataFragment() }
     }
 
-    // Go back to symptoms main page when data is successfully added
+    // Go back to symptoms main page if data is successfully added
     private fun goToSymptomsDataFragment() {
-        if (isNotBlank()) {
-            viewModel.addNewSymptoms(edtSymptomName.text.toString())
+        if (!isDataExist(edtSymptomName.text.toString().trim().lowercase())) {
+            viewModel.addNewSymptoms(edtSymptomName.text.toString().trim().lowercase())
             findNavController().navigate(R.id.action_addSymptomsDataFragment_to_symptomsDataFragment)
-            Toast.makeText(requireContext(), "Data berhasil disimpan", Toast.LENGTH_SHORT).show()
-        } else
-            Toast.makeText(requireContext(), "Field tidak boleh kosong", Toast.LENGTH_SHORT).show()
+            Toast.makeText(requireContext(), "Data berhasil disimpan", Toast.LENGTH_SHORT)
+                .show()
+        } else {
+            hideKeyboard()
+            Snackbar.make(btnSave, "Data telah tersedia", Snackbar.LENGTH_SHORT).show()
+        }
     }
 
-    // Check is symptoms edit text empty?
-    private fun isNotBlank() =
-        viewModel.isNotBlank(edtSymptomName.text.toString())
+    // Check is data exists?
+    private fun isDataExist(symptoms: String) =
+        viewModel.checkData(symptoms)
 
     // Disable save button when symptoms edit text is empty
     private val addSymptomsTextWatcher = object : TextWatcher {
@@ -72,8 +78,18 @@ class AddSymptomsDataFragment : Fragment() {
         override fun afterTextChanged(p0: Editable?) {}
     }
 
+    private fun hideKeyboard() {
+        val view = activity?.currentFocus
+        if (view != null) {
+            val inputMethodManager =
+                activity?.getSystemService(Context.INPUT_METHOD_SERVICE) as InputMethodManager
+            inputMethodManager.hideSoftInputFromWindow(view.windowToken, 0)
+        }
+    }
+
     override fun onDestroy() {
         super.onDestroy()
+        hideKeyboard()
         _binding = null
     }
 }

@@ -5,14 +5,22 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import androidx.fragment.app.Fragment
+import androidx.fragment.app.activityViewModels
 import androidx.navigation.fragment.findNavController
+import androidx.recyclerview.widget.LinearLayoutManager
 import com.example.sikarma.R
 import com.example.sikarma.databinding.FragmentSymptomsDataBinding
+import com.example.sikarma.presentation.adapter.SymptomsDataFragmentAdapter
+import com.example.sikarma.presentation.viewmodel.SymptomsViewModel
 
 class SymptomsDataFragment : Fragment() {
 
     private var _binding: FragmentSymptomsDataBinding? = null
     private val binding get() = _binding!!
+
+    private val viewModel: SymptomsViewModel by activityViewModels()
+
+    private lateinit var adapter: SymptomsDataFragmentAdapter
 
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
@@ -20,19 +28,33 @@ class SymptomsDataFragment : Fragment() {
     ): View {
         _binding = FragmentSymptomsDataBinding.inflate(inflater, container, false)
 
-        goToAddSymptomsDataFragment()
+        binding.rvSymptomsData.setHasFixedSize(true)
+        adapter = SymptomsDataFragmentAdapter()
 
         return binding.root
     }
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
+
+        binding.apply {
+            rvSymptomsData.layoutManager = LinearLayoutManager(this@SymptomsDataFragment.context)
+            rvSymptomsData.adapter = adapter
+
+            fab.setOnClickListener { goToAddSymptomsDataFragment() }
+        }
+
+        getListSymptomsData()
+    }
+
+    private fun getListSymptomsData() {
+        viewModel.getListSymptomsData.observe(this.viewLifecycleOwner) { listSymptoms ->
+            listSymptoms.let { adapter.submitList(listSymptoms) }
+        }
     }
 
     private fun goToAddSymptomsDataFragment() {
-        binding.fab.setOnClickListener {
-            findNavController().navigate(R.id.action_symptomsDataFragment_to_addSymptomsDataFragment)
-        }
+        findNavController().navigate(R.id.action_symptomsDataFragment_to_addSymptomsDataFragment)
     }
 
     override fun onDestroy() {

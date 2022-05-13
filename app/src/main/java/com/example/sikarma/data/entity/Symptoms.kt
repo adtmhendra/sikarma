@@ -7,7 +7,6 @@ import androidx.room.PrimaryKey
 
 @Entity(tableName = "tb_symptoms")
 data class Symptoms(
-
     @ColumnInfo(name = "id_symptoms")
     @PrimaryKey(autoGenerate = true)
     @NonNull
