@@ -1,23 +1,23 @@
-package com.example.sikarma.presentation.view.admin
+package com.example.sikarma.presentation.view.admin.rule
 
 import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import androidx.fragment.app.Fragment
-import com.example.sikarma.databinding.FragmentTypeDataBinding
+import com.example.sikarma.databinding.FragmentRuleDataBinding
 import com.google.android.material.snackbar.Snackbar
 
-class TypeDataFragment : Fragment() {
+class RuleDataFragment : Fragment() {
 
-    private var _binding: FragmentTypeDataBinding? = null
+    private var _binding: FragmentRuleDataBinding? = null
     private val binding get() = _binding!!
 
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?,
     ): View {
-        _binding = FragmentTypeDataBinding.inflate(inflater, container, false)
+        _binding = FragmentRuleDataBinding.inflate(inflater, container, false)
         return binding.root
     }
 

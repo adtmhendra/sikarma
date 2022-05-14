@@ -1,4 +1,4 @@
-package com.example.sikarma.domain.usecase
+package com.example.sikarma.domain.usecase.symptom
 
 import com.example.sikarma.data.entity.Symptoms
 import com.example.sikarma.domain.repository.ISymptomsRepository

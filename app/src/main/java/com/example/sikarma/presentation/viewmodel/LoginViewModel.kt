@@ -2,7 +2,7 @@ package com.example.sikarma.presentation.viewmodel
 
 import androidx.lifecycle.ViewModel
 import com.example.sikarma.data.entity.Admin
-import com.example.sikarma.domain.usecase.AdminUseCaseImpl
+import com.example.sikarma.domain.usecase.admin.AdminUseCaseImpl
 import dagger.hilt.android.lifecycle.HiltViewModel
 import kotlinx.coroutines.flow.Flow
 import javax.inject.Inject

@@ -3,7 +3,7 @@ package com.example.sikarma.di
 import com.example.sikarma.data.database.AppDatabase
 import com.example.sikarma.data.repository.AdminRepositoryImpl
 import com.example.sikarma.domain.repository.IAdminRepository
-import com.example.sikarma.domain.usecase.AdminUseCaseImpl
+import com.example.sikarma.domain.usecase.admin.AdminUseCaseImpl
 import dagger.Module
 import dagger.Provides
 import dagger.hilt.InstallIn

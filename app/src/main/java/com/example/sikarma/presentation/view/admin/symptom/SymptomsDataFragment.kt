@@ -1,4 +1,4 @@
-package com.example.sikarma.presentation.view.admin
+package com.example.sikarma.presentation.view.admin.symptom
 
 import android.os.Bundle
 import android.view.LayoutInflater
@@ -12,6 +12,7 @@ import androidx.recyclerview.widget.LinearLayoutManager
 import com.example.sikarma.data.entity.Symptoms
 import com.example.sikarma.databinding.FragmentSymptomsDataBinding
 import com.example.sikarma.presentation.adapter.SymptomsDataFragmentAdapter
+import com.example.sikarma.presentation.contract.OnClickListener
 import com.example.sikarma.presentation.viewmodel.SymptomsViewModel
 import com.google.android.material.dialog.MaterialAlertDialogBuilder
 
@@ -21,8 +22,6 @@ class SymptomsDataFragment : Fragment() {
     private val binding get() = _binding!!
 
     private val viewModel: SymptomsViewModel by activityViewModels()
-
-    private lateinit var symptom: Symptoms
 
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
@@ -45,7 +44,7 @@ class SymptomsDataFragment : Fragment() {
 
     private fun getListSymptomsData() {
         val adapter =
-            SymptomsDataFragmentAdapter(object : SymptomsDataFragmentAdapter.OnClickListener {
+            SymptomsDataFragmentAdapter(object : OnClickListener {
                 override fun onUpdate(symptoms: Symptoms) {
                     findNavController().navigate(SymptomsDataFragmentDirections.actionSymptomsDataFragmentToAddSymptomsDataFragment(
                         idSymptoms = symptoms.id_symptoms,
@@ -75,12 +74,11 @@ class SymptomsDataFragment : Fragment() {
 
     private fun showConfirmationDialog(symptoms: Symptoms) {
         MaterialAlertDialogBuilder(requireContext())
-            .setTitle("Konfirmasi")
-            .setMessage("Gejala : ${symptoms.symptoms}\n\n" +
-                    "Lanjutkan penghapusan?")
+            .setTitle("Konfirmasi Penghapusan")
+            .setMessage("Gejala : ${symptoms.symptoms}")
             .setCancelable(false)
-            .setNegativeButton("Tidak") { _, _ -> }
-            .setPositiveButton("Ya") { _, _ ->
+            .setNegativeButton("Batal") { _, _ -> }
+            .setPositiveButton("Hapus") { _, _ ->
                 deleteItem(symptoms)
                 Toast.makeText(requireContext(), "Data berhasil dihapus", Toast.LENGTH_SHORT).show()
             }

@@ -6,7 +6,7 @@ import com.example.sikarma.domain.repository.ISymptomsRepository
 import kotlinx.coroutines.flow.Flow
 import javax.inject.Inject
 
-class SymptomsRepository @Inject constructor(private val appDatabase: AppDatabase) :
+class SymptomsRepositoryImpl @Inject constructor(private val appDatabase: AppDatabase) :
     ISymptomsRepository {
 
     override suspend fun insert(symptoms: Symptoms) =

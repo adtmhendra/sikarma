@@ -9,6 +9,7 @@ import androidx.recyclerview.widget.RecyclerView
 import com.example.sikarma.R
 import com.example.sikarma.data.entity.Symptoms
 import com.example.sikarma.databinding.ListSymptomsBinding
+import com.example.sikarma.presentation.contract.OnClickListener
 
 class SymptomsDataFragmentAdapter(var listener: OnClickListener) :
     ListAdapter<Symptoms, SymptomsDataFragmentAdapter.SymptomsDataFragmentViewHolder>(DiffCallback) {
@@ -37,11 +38,6 @@ class SymptomsDataFragmentAdapter(var listener: OnClickListener) :
             btnUpdateSymptoms.setOnClickListener { listener.onUpdate(symptom) }
             btnDeleteSymptoms.setOnClickListener { listener.onDelete(symptom) }
         }
-    }
-
-    interface OnClickListener {
-        fun onUpdate(symptoms: Symptoms)
-        fun onDelete(symptoms: Symptoms)
     }
 
     companion object {

@@ -45,7 +45,7 @@
     </fragment>
     <fragment
         android:id="@+id/symptomsDataFragment"
-        android:name="com.example.sikarma.presentation.view.admin.SymptomsDataFragment"
+        android:name="com.example.sikarma.presentation.view.admin.symptom.SymptomsDataFragment"
         android:label="Data Gejala Penyakit"
         tools:layout="@layout/fragment_symptoms_data">
         <action
@@ -54,17 +54,17 @@
     </fragment>
     <fragment
         android:id="@+id/typeDataFragment"
-        android:name="com.example.sikarma.presentation.view.admin.TypeDataFragment"
+        android:name="com.example.sikarma.presentation.view.admin.type.TypeDataFragment"
         android:label="Data Jenis Penyakit"
         tools:layout="@layout/fragment_type_data" />
     <fragment
         android:id="@+id/ruleDataFragment"
-        android:name="com.example.sikarma.presentation.view.admin.RuleDataFragment"
+        android:name="com.example.sikarma.presentation.view.admin.rule.RuleDataFragment"
         android:label="Data Rule Penyakit"
         tools:layout="@layout/fragment_rule_data" />
     <fragment
         android:id="@+id/addSymptomsDataFragment"
-        android:name="com.example.sikarma.presentation.view.admin.AddSymptomsDataFragment"
+        android:name="com.example.sikarma.presentation.view.admin.symptom.AddSymptomsDataFragment"
         android:label="{title}"
         tools:layout="@layout/fragment_add_symptoms_data">
         <action

@@ -1,4 +1,4 @@
-package com.example.sikarma.domain.usecase
+package com.example.sikarma.domain.usecase.admin
 
 import com.example.sikarma.data.entity.Admin
 import com.example.sikarma.domain.repository.IAdminRepository

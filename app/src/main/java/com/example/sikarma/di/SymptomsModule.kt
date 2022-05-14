@@ -1,9 +1,9 @@
 package com.example.sikarma.di
 
 import com.example.sikarma.data.database.AppDatabase
-import com.example.sikarma.data.repository.SymptomsRepository
+import com.example.sikarma.data.repository.SymptomsRepositoryImpl
 import com.example.sikarma.domain.repository.ISymptomsRepository
-import com.example.sikarma.domain.usecase.SymptomsUseCaseImpl
+import com.example.sikarma.domain.usecase.symptom.SymptomsUseCaseImpl
 import dagger.Module
 import dagger.Provides
 import dagger.hilt.InstallIn
@@ -17,7 +17,7 @@ object SymptomsModule {
     @Provides
     @Singleton
     fun provideSymptomsRepository(appDatabase: AppDatabase): ISymptomsRepository =
-        SymptomsRepository(appDatabase)
+        SymptomsRepositoryImpl(appDatabase)
 
     @Provides
     @Singleton

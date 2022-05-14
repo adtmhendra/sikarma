@@ -1,4 +1,4 @@
-package com.example.sikarma.presentation.view.admin
+package com.example.sikarma.presentation.view.admin.symptom
 
 import android.content.Context
 import android.os.Bundle
