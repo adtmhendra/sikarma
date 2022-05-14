@@ -4,6 +4,7 @@ import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import android.widget.Toast
 import androidx.fragment.app.Fragment
 import androidx.fragment.app.activityViewModels
 import androidx.navigation.fragment.findNavController
@@ -12,6 +13,7 @@ import com.example.sikarma.data.entity.Symptoms
 import com.example.sikarma.databinding.FragmentSymptomsDataBinding
 import com.example.sikarma.presentation.adapter.SymptomsDataFragmentAdapter
 import com.example.sikarma.presentation.viewmodel.SymptomsViewModel
+import com.google.android.material.dialog.MaterialAlertDialogBuilder
 
 class SymptomsDataFragment : Fragment() {
 
@@ -52,7 +54,7 @@ class SymptomsDataFragment : Fragment() {
                 }
 
                 override fun onDelete(symptoms: Symptoms) {
-                    viewModel.deleteSymptoms(symptoms)
+                    showConfirmationDialog(symptoms)
                 }
             })
 
@@ -69,6 +71,24 @@ class SymptomsDataFragment : Fragment() {
     private fun goToAddSymptomsDataFragment() {
         findNavController().navigate(SymptomsDataFragmentDirections.actionSymptomsDataFragmentToAddSymptomsDataFragment(
             "Tambah Data Gejala"))
+    }
+
+    private fun showConfirmationDialog(symptoms: Symptoms) {
+        MaterialAlertDialogBuilder(requireContext())
+            .setTitle("Konfirmasi")
+            .setMessage("Gejala : ${symptoms.symptoms}\n\n" +
+                    "Lanjutkan penghapusan?")
+            .setCancelable(false)
+            .setNegativeButton("Tidak") { _, _ -> }
+            .setPositiveButton("Ya") { _, _ ->
+                deleteItem(symptoms)
+                Toast.makeText(requireContext(), "Data berhasil dihapus", Toast.LENGTH_SHORT).show()
+            }
+            .show()
+    }
+
+    private fun deleteItem(symptoms: Symptoms) {
+        viewModel.deleteSymptoms(symptoms)
     }
 
     override fun onDestroy() {
