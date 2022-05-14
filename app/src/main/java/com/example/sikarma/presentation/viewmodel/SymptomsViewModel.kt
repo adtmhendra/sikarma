@@ -16,8 +16,13 @@ class SymptomsViewModel @Inject constructor(private val useCase: SymptomsUseCase
 
     val getListSymptomsData: LiveData<List<Symptoms>> = useCase.getSymptoms().asLiveData()
 
+    fun retrieveSymptoms(id: Int): LiveData<Symptoms> = useCase.getSymptomsId(id).asLiveData()
+
     private fun insertSymptoms(symptoms: Symptoms) =
         viewModelScope.launch { useCase.insert(symptoms = symptoms) }
+
+    private fun updateSymptoms(symptoms: Symptoms) =
+        viewModelScope.launch { useCase.update(symptoms = symptoms) }
 
     fun deleteSymptoms(symptoms: Symptoms) =
         viewModelScope.launch { useCase.delete(symptoms = symptoms) }
@@ -28,9 +33,17 @@ class SymptomsViewModel @Inject constructor(private val useCase: SymptomsUseCase
     private fun getNewSymptomsEntry(symptoms: String) =
         Symptoms(symptoms = symptoms)
 
+    private fun getUpdatedSymptomsEntry(id: Int, symptomsName: String) =
+        Symptoms(id_symptoms = id, symptoms = symptomsName)
+
     fun addNewSymptoms(symptoms: String) {
         val newSymptoms = getNewSymptomsEntry(symptoms)
         insertSymptoms(newSymptoms)
+    }
+
+    fun updateSymptoms(id: Int, symptomsName: String) {
+        val updateSymptoms = getUpdatedSymptomsEntry(id, symptomsName)
+        updateSymptoms(updateSymptoms)
     }
 
     fun checkData(newSymptoms: String) =

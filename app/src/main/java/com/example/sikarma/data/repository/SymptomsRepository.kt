@@ -15,6 +15,9 @@ class SymptomsRepository @Inject constructor(private val appDatabase: AppDatabas
     override suspend fun delete(symptoms: Symptoms) =
         appDatabase.symptomsDao.delete(symptoms = symptoms)
 
+    override suspend fun update(symptoms: Symptoms) =
+        appDatabase.symptomsDao.update(symptoms = symptoms)
+
     override fun getSymptoms(): Flow<List<Symptoms>> =
         appDatabase.symptomsDao.getSymptoms()
 

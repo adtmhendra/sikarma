@@ -65,12 +65,19 @@
     <fragment
         android:id="@+id/addSymptomsDataFragment"
         android:name="com.example.sikarma.presentation.view.admin.AddSymptomsDataFragment"
-        android:label="Tambah Data Gejala"
+        android:label="{title}"
         tools:layout="@layout/fragment_add_symptoms_data">
         <action
             android:id="@+id/action_addSymptomsDataFragment_to_symptomsDataFragment"
             app:destination="@id/symptomsDataFragment"
             app:popUpTo="@id/symptomsDataFragment"
             app:popUpToInclusive="true" />
+        <argument
+            android:name="id_symptoms"
+            android:defaultValue="-1"
+            app:argType="integer" />
+        <argument
+            android:name="title"
+            app:argType="string" />
     </fragment>
 </navigation>

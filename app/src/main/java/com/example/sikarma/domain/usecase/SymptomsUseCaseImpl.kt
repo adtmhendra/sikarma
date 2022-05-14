@@ -14,6 +14,9 @@ class SymptomsUseCaseImpl @Inject constructor(private val iSymptomsRepository: I
     override suspend fun delete(symptoms: Symptoms) =
         iSymptomsRepository.delete(symptoms = symptoms)
 
+    override suspend fun update(symptoms: Symptoms) =
+        iSymptomsRepository.update(symptoms = symptoms)
+
     override fun getSymptoms(): Flow<List<Symptoms>> =
         iSymptomsRepository.getSymptoms()
 

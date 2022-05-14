@@ -8,7 +8,7 @@ import androidx.fragment.app.Fragment
 import androidx.fragment.app.activityViewModels
 import androidx.navigation.fragment.findNavController
 import androidx.recyclerview.widget.LinearLayoutManager
-import com.example.sikarma.R
+import com.example.sikarma.data.entity.Symptoms
 import com.example.sikarma.databinding.FragmentSymptomsDataBinding
 import com.example.sikarma.presentation.adapter.SymptomsDataFragmentAdapter
 import com.example.sikarma.presentation.viewmodel.SymptomsViewModel
@@ -19,6 +19,8 @@ class SymptomsDataFragment : Fragment() {
     private val binding get() = _binding!!
 
     private val viewModel: SymptomsViewModel by activityViewModels()
+
+    private lateinit var symptom: Symptoms
 
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
@@ -40,9 +42,19 @@ class SymptomsDataFragment : Fragment() {
     }
 
     private fun getListSymptomsData() {
-        val adapter = SymptomsDataFragmentAdapter {
-            viewModel.deleteSymptoms(it)
-        }
+        val adapter =
+            SymptomsDataFragmentAdapter(object : SymptomsDataFragmentAdapter.OnClickListener {
+                override fun onUpdate(symptoms: Symptoms) {
+                    findNavController().navigate(SymptomsDataFragmentDirections.actionSymptomsDataFragmentToAddSymptomsDataFragment(
+                        idSymptoms = symptoms.id_symptoms,
+                        title = "Ubah Data Gejala"
+                    ))
+                }
+
+                override fun onDelete(symptoms: Symptoms) {
+                    viewModel.deleteSymptoms(symptoms)
+                }
+            })
 
         binding.rvSymptomsData.apply {
             layoutManager = LinearLayoutManager(this@SymptomsDataFragment.context)
@@ -55,7 +67,8 @@ class SymptomsDataFragment : Fragment() {
     }
 
     private fun goToAddSymptomsDataFragment() {
-        findNavController().navigate(R.id.action_symptomsDataFragment_to_addSymptomsDataFragment)
+        findNavController().navigate(SymptomsDataFragmentDirections.actionSymptomsDataFragmentToAddSymptomsDataFragment(
+            "Tambah Data Gejala"))
     }
 
     override fun onDestroy() {

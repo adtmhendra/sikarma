@@ -34,7 +34,7 @@
                 android:layout_height="wrap_content"
                 android:layout_alignParentStart="true"
                 android:layout_marginEnd="8dp"
-                android:layout_toStartOf="@+id/img_btn_edit"
+                android:layout_toStartOf="@+id/img_btn_update"
                 android:ellipsize="end"
                 android:gravity="center_vertical"
                 android:maxLines="2"
@@ -54,7 +54,7 @@
                 app:tint="@color/white" />
 
             <ImageButton
-                android:id="@+id/img_btn_edit"
+                android:id="@+id/img_btn_update"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_centerVertical="true"
