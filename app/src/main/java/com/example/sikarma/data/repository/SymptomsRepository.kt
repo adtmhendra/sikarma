@@ -12,9 +12,15 @@ class SymptomsRepository @Inject constructor(private val appDatabase: AppDatabas
     override suspend fun insert(symptoms: Symptoms) =
         appDatabase.symptomsDao.insert(symptoms = symptoms)
 
+    override suspend fun delete(symptoms: Symptoms) =
+        appDatabase.symptomsDao.delete(symptoms = symptoms)
+
     override fun getSymptoms(): Flow<List<Symptoms>> =
         appDatabase.symptomsDao.getSymptoms()
 
     override fun getSymptomsName(symptomsName: String): Boolean =
         appDatabase.symptomsDao.getSymptomsName(symptomsName)
+
+    override fun getSymptomsId(symptomsId: Int): Flow<Symptoms> =
+        appDatabase.symptomsDao.getSymptomsId(symptomsId)
 }

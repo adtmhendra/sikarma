@@ -21,4 +21,7 @@ interface SymptomsDao {
 
     @Query("SELECT EXISTS(SELECT * FROM tb_symptoms WHERE symptoms_name = :symptomsName)")
     fun getSymptomsName(symptomsName: String): Boolean
+
+    @Query("SELECT * FROM tb_symptoms WHERE id_symptoms = :symptomsId")
+    fun getSymptomsId(symptomsId: Int): Flow<Symptoms>
 }

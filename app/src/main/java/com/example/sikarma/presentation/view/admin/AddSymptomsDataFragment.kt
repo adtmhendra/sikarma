@@ -46,6 +46,8 @@ class AddSymptomsDataFragment : Fragment() {
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
 
+        edtSymptomName.requestFocus()
+
         edtSymptomName.addTextChangedListener(addSymptomsTextWatcher)
 
         btnSave.setOnClickListener { goToSymptomsDataFragment() }

@@ -19,6 +19,9 @@ class SymptomsViewModel @Inject constructor(private val useCase: SymptomsUseCase
     private fun insertSymptoms(symptoms: Symptoms) =
         viewModelScope.launch { useCase.insert(symptoms = symptoms) }
 
+    fun deleteSymptoms(symptoms: Symptoms) =
+        viewModelScope.launch { useCase.delete(symptoms = symptoms) }
+
     private fun getSymptomsName(symptoms: String) =
         useCase.getSymptomsName(symptomsName = symptoms)
 
@@ -26,7 +29,7 @@ class SymptomsViewModel @Inject constructor(private val useCase: SymptomsUseCase
         Symptoms(symptoms = symptoms)
 
     fun addNewSymptoms(symptoms: String) {
-        val newSymptoms = getNewSymptomsEntry(symptoms = symptoms)
+        val newSymptoms = getNewSymptomsEntry(symptoms)
         insertSymptoms(newSymptoms)
     }
 

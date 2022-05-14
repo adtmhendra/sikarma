@@ -20,8 +20,6 @@ class SymptomsDataFragment : Fragment() {
 
     private val viewModel: SymptomsViewModel by activityViewModels()
 
-    private lateinit var adapter: SymptomsDataFragmentAdapter
-
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?,
@@ -29,7 +27,6 @@ class SymptomsDataFragment : Fragment() {
         _binding = FragmentSymptomsDataBinding.inflate(inflater, container, false)
 
         binding.rvSymptomsData.setHasFixedSize(true)
-        adapter = SymptomsDataFragmentAdapter()
 
         return binding.root
     }
@@ -37,18 +34,22 @@ class SymptomsDataFragment : Fragment() {
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
 
-        binding.apply {
-            rvSymptomsData.layoutManager = LinearLayoutManager(this@SymptomsDataFragment.context)
-            rvSymptomsData.adapter = adapter
-
-            fab.setOnClickListener { goToAddSymptomsDataFragment() }
-        }
-
         getListSymptomsData()
+
+        binding.fab.setOnClickListener { goToAddSymptomsDataFragment() }
     }
 
     private fun getListSymptomsData() {
-        viewModel.getListSymptomsData.observe(this.viewLifecycleOwner) { listSymptoms ->
+        val adapter = SymptomsDataFragmentAdapter {
+            viewModel.deleteSymptoms(it)
+        }
+
+        binding.rvSymptomsData.apply {
+            layoutManager = LinearLayoutManager(this@SymptomsDataFragment.context)
+            this.adapter = adapter
+        }
+
+        viewModel.getListSymptomsData.observe(viewLifecycleOwner) { listSymptoms ->
             listSymptoms.let { adapter.submitList(listSymptoms) }
         }
     }
