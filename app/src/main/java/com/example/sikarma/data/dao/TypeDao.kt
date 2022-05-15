@@ -16,7 +16,7 @@ interface TypeDao {
     @Delete
     suspend fun delete(type: Type)
 
-    @Query("SELECT * FROM tb_type ORDER BY type_name ASC")
+    @Query("SELECT * FROM tb_type ORDER BY type_code ASC")
     fun getTypes(): Flow<List<Type>>
 
     @Query("SELECT EXISTS(SELECT * FROM tb_type WHERE type_code = :typeCode OR type_name = :typeName)")
