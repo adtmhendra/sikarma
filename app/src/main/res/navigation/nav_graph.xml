@@ -56,7 +56,11 @@
         android:id="@+id/typeDataFragment"
         android:name="com.example.sikarma.presentation.view.admin.type.TypeDataFragment"
         android:label="Data Jenis Penyakit"
-        tools:layout="@layout/fragment_type_data" />
+        tools:layout="@layout/fragment_type_data">
+        <action
+            android:id="@+id/action_typeDataFragment_to_addTypeDataFragment"
+            app:destination="@id/addTypeDataFragment" />
+    </fragment>
     <fragment
         android:id="@+id/ruleDataFragment"
         android:name="com.example.sikarma.presentation.view.admin.rule.RuleDataFragment"
@@ -79,5 +83,23 @@
         <argument
             android:name="title"
             app:argType="string" />
+    </fragment>
+    <fragment
+        android:id="@+id/addTypeDataFragment"
+        android:name="com.example.sikarma.presentation.view.admin.type.AddTypeDataFragment"
+        android:label="{title}"
+        tools:layout="@layout/fragment_add_type_data">
+        <argument
+            android:name="id_type"
+            android:defaultValue="-1"
+            app:argType="integer" />
+        <argument
+            android:name="title"
+            app:argType="string" />
+        <action
+            android:id="@+id/action_addTypeDataFragment_to_typeDataFragment"
+            app:destination="@id/typeDataFragment"
+            app:popUpTo="@id/typeDataFragment"
+            app:popUpToInclusive="true" />
     </fragment>
 </navigation>

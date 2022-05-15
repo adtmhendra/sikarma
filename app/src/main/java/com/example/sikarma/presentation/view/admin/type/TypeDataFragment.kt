@@ -5,8 +5,8 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import androidx.fragment.app.Fragment
+import androidx.navigation.fragment.findNavController
 import com.example.sikarma.databinding.FragmentTypeDataBinding
-import com.google.android.material.snackbar.Snackbar
 
 class TypeDataFragment : Fragment() {
 
@@ -25,10 +25,14 @@ class TypeDataFragment : Fragment() {
         super.onViewCreated(view, savedInstanceState)
 
         binding.fab.setOnClickListener {
-            Snackbar.make(view, "Here's a Snackbar", Snackbar.LENGTH_LONG)
-                .setAction("Action", null)
-                .show()
+            goToAddTypeDataFragment()
         }
+    }
+
+    private fun goToAddTypeDataFragment() {
+        findNavController().navigate(TypeDataFragmentDirections.actionTypeDataFragmentToAddTypeDataFragment(
+            title = "Tambah Data Jenis"
+        ))
     }
 
     override fun onDestroy() {
