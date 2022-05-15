@@ -1,0 +1,80 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:padding="16dp"
+    tools:context=".presentation.view.admin.type.DetailTypeDataFragment">
+
+    <TextView
+        android:id="@+id/tv_type_code"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:gravity="center_vertical"
+        android:minHeight="48dp"
+        android:text="Type code"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <TextView
+        android:id="@+id/tv_type_name"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:gravity="center_vertical"
+        android:minHeight="48dp"
+        android:text="Type name"
+        app:layout_constraintEnd_toEndOf="@+id/tv_type_code"
+        app:layout_constraintStart_toStartOf="@+id/tv_type_code"
+        app:layout_constraintTop_toBottomOf="@+id/tv_type_code" />
+
+    <TextView
+        android:id="@+id/tv_type_description"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:gravity="center_vertical"
+        android:minHeight="48dp"
+        android:text="Type description"
+        app:layout_constraintEnd_toEndOf="@+id/tv_type_code"
+        app:layout_constraintStart_toStartOf="@+id/tv_type_code"
+        app:layout_constraintTop_toBottomOf="@+id/tv_type_name" />
+
+    <TextView
+        android:id="@+id/tv_type_solution"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:gravity="center_vertical"
+        android:minHeight="48dp"
+        android:text="Type solution"
+        app:layout_constraintEnd_toEndOf="@+id/tv_type_code"
+        app:layout_constraintStart_toStartOf="@+id/tv_type_code"
+        app:layout_constraintTop_toBottomOf="@+id/tv_type_description" />
+
+    <com.google.android.material.button.MaterialButton
+        android:id="@+id/btn_update"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="8dp"
+        android:layout_marginTop="24dp"
+        android:stateListAnimator="@null"
+        android:text="Ubah"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.5"
+        app:layout_constraintStart_toEndOf="@+id/btn_delete"
+        app:layout_constraintTop_toBottomOf="@+id/tv_type_solution" />
+
+    <com.google.android.material.button.MaterialButton
+        android:id="@+id/btn_delete"
+        style="?attr/materialButtonOutlinedStyle"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="24dp"
+        android:layout_marginEnd="8dp"
+        android:stateListAnimator="@null"
+        android:text="Hapus"
+        app:layout_constraintEnd_toStartOf="@+id/btn_update"
+        app:layout_constraintHorizontal_bias="0.5"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/tv_type_solution" />
+</androidx.constraintlayout.widget.ConstraintLayout>

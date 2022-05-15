@@ -10,7 +10,7 @@ import com.example.sikarma.data.entity.Symptoms
 import com.example.sikarma.data.entity.Type
 
 @Database(entities = [Admin::class, Symptoms::class, Type::class],
-    version = 2,
+    version = 1,
     exportSchema = false)
 abstract class AppDatabase : RoomDatabase() {
 
