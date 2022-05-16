@@ -41,6 +41,7 @@ class DetailTypeDataFragment : Fragment() {
         getItemDetail(id)
 
         binding.btnDelete.setOnClickListener { showConfirmationDialog(type) }
+        binding.btnUpdate.setOnClickListener { goToAddSymptomsDataFragment(id) }
     }
 
     private fun deleteItem(type: Type) {
@@ -72,6 +73,12 @@ class DetailTypeDataFragment : Fragment() {
                 Toast.makeText(requireContext(), "Data berhasil dihapus", Toast.LENGTH_SHORT).show()
             }
             .show()
+    }
+
+    private fun goToAddSymptomsDataFragment(id: Int) {
+        findNavController().navigate(DetailTypeDataFragmentDirections.actionDetailTypeDataFragmentToAddTypeDataFragment(
+            title = "Ubah Jenis Penyakit", idType = id
+        ))
     }
 
     override fun onDestroy() {

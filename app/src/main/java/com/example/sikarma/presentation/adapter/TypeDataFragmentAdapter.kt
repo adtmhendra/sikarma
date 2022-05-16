@@ -37,7 +37,7 @@ class TypeDataFragmentAdapter(private val onItemClicked: (Type) -> Unit) :
     companion object {
         private val DiffCallback = object : DiffUtil.ItemCallback<Type>() {
             override fun areItemsTheSame(oldItem: Type, newItem: Type) =
-                oldItem.type_code == newItem.type_code
+                oldItem == newItem
 
             override fun areContentsTheSame(oldItem: Type, newItem: Type): Boolean =
                 oldItem.type_code == newItem.type_code

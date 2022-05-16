@@ -8,10 +8,13 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import android.view.inputmethod.InputMethodManager
+import android.widget.TextView
 import android.widget.Toast
 import androidx.fragment.app.Fragment
 import androidx.fragment.app.activityViewModels
 import androidx.navigation.fragment.findNavController
+import androidx.navigation.fragment.navArgs
+import com.example.sikarma.data.entity.Type
 import com.example.sikarma.databinding.FragmentAddTypeDataBinding
 import com.example.sikarma.presentation.viewmodel.TypeViewModel
 import com.google.android.material.button.MaterialButton
@@ -37,6 +40,10 @@ class AddTypeDataFragment : Fragment() {
 
     private lateinit var prefix: String
     private lateinit var getTypeCode: String
+
+    private val navigationArgs: AddTypeDataFragmentArgs by navArgs()
+
+    private lateinit var type: Type
 
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
@@ -64,7 +71,23 @@ class AddTypeDataFragment : Fragment() {
         edtTypeCode.addTextChangedListener(addTypeTextWatcher)
         edtTypeName.addTextChangedListener(addTypeTextWatcher)
 
-        binding.btnSave.setOnClickListener { addNewType() }
+        val id = navigationArgs.idType
+        if (id > 0) {
+            edtTypeCode.isEnabled = false
+            typeCode.prefixText = ""
+            viewModel.retrieveType(id).observe(this.viewLifecycleOwner) {
+                type = it
+                bind(type, id)
+            }
+        } else {
+            binding.btnSave.setOnClickListener { addNewType() }
+        }
+    }
+
+    private fun bind(type: Type, id: Int) {
+        edtTypeCode.setText(type.type_code, TextView.BufferType.SPANNABLE)
+        edtTypeName.setText(type.type_name, TextView.BufferType.SPANNABLE)
+        btnSave.setOnClickListener { updateType(id) }
     }
 
     private fun addNewType() {
@@ -77,6 +100,24 @@ class AddTypeDataFragment : Fragment() {
                 edtTypeSolution.text.toString().trim().lowercase(),
             )
             Toast.makeText(activity, "Data berhasil disimpan", Toast.LENGTH_SHORT).show()
+            findNavController().navigate(AddTypeDataFragmentDirections.actionAddTypeDataFragmentToTypeDataFragment())
+        } else {
+            hideKeyboard()
+            Snackbar.make(btnSave, "Data telah tersedia", Snackbar.LENGTH_SHORT).show()
+        }
+    }
+
+    private fun updateType(typeId: Int) {
+        getTypeCode = edtTypeCode.text.toString()
+        if (isDataExists(getTypeCode, edtTypeName.text.toString().trim().lowercase())) {
+            viewModel.updateType(
+                typeId,
+                getTypeCode,
+                edtTypeName.text.toString().trim().lowercase(),
+                edtTypeDesc.text.toString().trim().lowercase(),
+                edtTypeSolution.text.toString().trim().lowercase(),
+            )
+            Toast.makeText(activity, "Berhasil memperbarui data", Toast.LENGTH_SHORT).show()
             findNavController().navigate(AddTypeDataFragmentDirections.actionAddTypeDataFragmentToTypeDataFragment())
         } else {
             hideKeyboard()

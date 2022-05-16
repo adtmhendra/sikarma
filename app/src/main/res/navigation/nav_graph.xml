@@ -63,6 +63,9 @@
         <action
             android:id="@+id/action_typeDataFragment_to_detailTypeDataFragment"
             app:destination="@id/detailTypeDataFragment" />
+        <action
+            android:id="@+id/action_typeDataFragment_to_dashboardFragment"
+            app:destination="@id/dashboardFragment" />
     </fragment>
     <fragment
         android:id="@+id/ruleDataFragment"
@@ -112,7 +115,7 @@
         android:id="@+id/detailTypeDataFragment"
         android:name="com.example.sikarma.presentation.view.admin.type.DetailTypeDataFragment"
         android:label="Detail Jenis Penyakit"
-        tools:layout="@layout/fragment_detail_type_data" >
+        tools:layout="@layout/fragment_detail_type_data">
         <action
             android:id="@+id/action_detailTypeDataFragment_to_addTypeDataFragment"
             app:destination="@id/addTypeDataFragment" />
@@ -122,6 +125,8 @@
             android:defaultValue="-1" />
         <action
             android:id="@+id/action_detailTypeDataFragment_to_typeDataFragment"
-            app:destination="@id/typeDataFragment" />
+            app:destination="@id/typeDataFragment"
+            app:popUpTo="@id/typeDataFragment"
+            app:popUpToInclusive="true" />
     </fragment>
 </navigation>
