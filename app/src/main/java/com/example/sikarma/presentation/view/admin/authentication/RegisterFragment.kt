@@ -45,6 +45,8 @@ class RegisterFragment : Fragment() {
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
 
+        edtUsername.requestFocus()
+
         edtUsername.addTextChangedListener(registerTextWatcher)
         edtPassword.addTextChangedListener(registerTextWatcher)
 

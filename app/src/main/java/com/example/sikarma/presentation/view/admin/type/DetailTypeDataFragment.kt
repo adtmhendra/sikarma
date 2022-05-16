@@ -64,8 +64,8 @@ class DetailTypeDataFragment : Fragment() {
     private fun showConfirmationDialog(type: Type) {
         MaterialAlertDialogBuilder(requireContext())
             .setTitle("Yakin ingin menghapus?")
-            .setMessage("Kode Penyakit : ${type.type_code}\n" +
-                    "Nama Penyakit : ${type.type_name}\n\n")
+            .setMessage("Kode penyakit : ${type.type_code}\n" +
+                    "Nama penyakit : ${type.type_name}\n\n")
             .setCancelable(false)
             .setNegativeButton("Batal") { _, _ -> }
             .setPositiveButton("Hapus") { _, _ ->

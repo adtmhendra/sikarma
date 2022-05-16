@@ -75,7 +75,7 @@ class SymptomsDataFragment : Fragment() {
     private fun showConfirmationDialog(symptoms: Symptoms) {
         MaterialAlertDialogBuilder(requireContext())
             .setTitle("Yakin ingin menghapus?")
-            .setMessage("Nama Gejala : ${symptoms.symptoms}")
+            .setMessage("Nama gejala : ${symptoms.symptoms}")
             .setCancelable(false)
             .setNegativeButton("Batal") { _, _ -> }
             .setPositiveButton("Hapus") { _, _ ->

@@ -73,9 +73,9 @@ class AddSymptomsDataFragment : Fragment() {
         val symptomName = edtSymptomName.text.toString().trim().lowercase()
         if (!isDataExist(symptomName)) {
             viewModel.addNewSymptoms(symptomName)
-            findNavController().navigate(R.id.action_addSymptomsDataFragment_to_symptomsDataFragment)
-            Toast.makeText(requireContext(), "Data berhasil disimpan", Toast.LENGTH_SHORT)
+            Toast.makeText(activity, "Data berhasil disimpan", Toast.LENGTH_SHORT)
                 .show()
+            findNavController().navigate(R.id.action_addSymptomsDataFragment_to_symptomsDataFragment)
         } else {
             hideKeyboard()
             Snackbar.make(btnSave, "Data telah tersedia", Snackbar.LENGTH_SHORT).show()
