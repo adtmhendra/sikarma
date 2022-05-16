@@ -1,4 +1,4 @@
-package com.example.sikarma.presentation.view.admin
+package com.example.sikarma.presentation.view.admin.authentication
 
 import android.content.Context
 import android.os.Bundle
@@ -16,6 +16,7 @@ import androidx.navigation.fragment.findNavController
 import com.example.sikarma.R
 import com.example.sikarma.databinding.FragmentLoginBinding
 import com.example.sikarma.presentation.viewmodel.LoginViewModel
+import com.google.android.material.button.MaterialButton
 import com.google.android.material.snackbar.Snackbar
 import com.google.android.material.textfield.TextInputEditText
 import dagger.hilt.android.AndroidEntryPoint
@@ -32,6 +33,7 @@ class LoginFragment : Fragment() {
 
     private lateinit var edtUsername: TextInputEditText
     private lateinit var edtPassword: TextInputEditText
+    private lateinit var btnRegister: MaterialButton
 
     private lateinit var getAdminUsername: String
     private lateinit var getAdminPassword: String
@@ -45,6 +47,7 @@ class LoginFragment : Fragment() {
 
         edtUsername = binding.edtUsername
         edtPassword = binding.edtPassword
+        btnRegister = binding.btnRegister
 
         return binding.root
     }
@@ -58,6 +61,13 @@ class LoginFragment : Fragment() {
         edtUsername.requestFocus()
 
         doAdminLogin()
+
+        doAdminRegister()
+    }
+
+    // Admin register
+    private fun doAdminRegister() {
+        btnRegister.setOnClickListener { goToRegisterFragment() }
     }
 
     // Admin login
@@ -97,6 +107,10 @@ class LoginFragment : Fragment() {
 
     private fun goToDashboardAdmin() {
         findNavController().navigate(R.id.action_loginFragment_to_dashboardFragment)
+    }
+
+    private fun goToRegisterFragment() {
+        findNavController().navigate(R.id.action_loginFragment_to_registerFragment)
     }
 
     private val loginTextWatcher = object : TextWatcher {
