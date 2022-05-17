@@ -27,25 +27,25 @@ class SymptomsViewModel @Inject constructor(private val useCase: SymptomsUseCase
     fun deleteSymptoms(symptoms: Symptoms) =
         viewModelScope.launch { useCase.delete(symptoms = symptoms) }
 
-    private fun getSymptomsName(symptoms: String) =
-        useCase.getSymptomsName(symptomsName = symptoms)
+    private fun getSymptomsName(symptomsCode: String, symptomsName: String) =
+        useCase.getSymptomsName(symptomsCode = symptomsCode, symptomsName = symptomsName)
 
-    private fun getNewSymptomsEntry(symptoms: String) =
-        Symptoms(symptoms = symptoms)
+    private fun getNewSymptomsEntry(symptomsCode: String, symptomsName: String) =
+        Symptoms(symptoms_code = symptomsCode, symptoms_name = symptomsName)
 
-    private fun getUpdatedSymptomsEntry(id: Int, symptomsName: String) =
-        Symptoms(id_symptoms = id, symptoms = symptomsName)
+    private fun getUpdatedSymptomsEntry(id: Int, symptomsCode: String, symptomsName: String) =
+        Symptoms(id_symptoms = id, symptoms_code = symptomsCode, symptoms_name = symptomsName)
 
-    fun addNewSymptoms(symptoms: String) {
-        val newSymptoms = getNewSymptomsEntry(symptoms)
+    fun addNewSymptoms(symptomsCode: String, symptomsName: String) {
+        val newSymptoms = getNewSymptomsEntry(symptomsCode, symptomsName)
         insertSymptoms(newSymptoms)
     }
 
-    fun updateSymptoms(id: Int, symptomsName: String) {
-        val updateSymptoms = getUpdatedSymptomsEntry(id, symptomsName)
+    fun updateSymptoms(id: Int, symptomsCode: String, symptomsName: String) {
+        val updateSymptoms = getUpdatedSymptomsEntry(id, symptomsCode, symptomsName)
         updateSymptoms(updateSymptoms)
     }
 
-    fun checkData(newSymptoms: String) =
-        getSymptomsName(newSymptoms)
+    fun checkData(symptomsCode: String, symptomsName: String) =
+        getSymptomsName(symptomsCode, symptomsName)
 }

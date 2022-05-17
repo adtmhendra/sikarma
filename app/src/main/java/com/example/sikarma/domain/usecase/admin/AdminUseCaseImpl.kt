@@ -6,6 +6,7 @@ import javax.inject.Inject
 
 class AdminUseCaseImpl @Inject constructor(private val iAdminRepository: IAdminRepository) :
     IAdminUseCase {
+
     override suspend fun insert(admin: Admin) =
         iAdminRepository.insert(admin = admin)
 

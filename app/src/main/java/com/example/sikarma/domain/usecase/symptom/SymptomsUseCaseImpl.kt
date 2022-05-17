@@ -20,8 +20,8 @@ class SymptomsUseCaseImpl @Inject constructor(private val iSymptomsRepository: I
     override fun getSymptoms(): Flow<List<Symptoms>> =
         iSymptomsRepository.getSymptoms()
 
-    override fun getSymptomsName(symptomsName: String): Boolean =
-        iSymptomsRepository.getSymptomsName(symptomsName = symptomsName)
+    override fun getSymptomsName(symptomsCode: String, symptomsName: String): Boolean =
+        iSymptomsRepository.getSymptomsName(symptomsCode, symptomsName)
 
     override fun getSymptomsId(symptomsId: Int): Flow<Symptoms> =
         iSymptomsRepository.getSymptomsId(symptomsId)

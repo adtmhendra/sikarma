@@ -9,7 +9,7 @@ import androidx.room.PrimaryKey
 data class Admin(
     @PrimaryKey(autoGenerate = true)
     @ColumnInfo(name = "admin_id")
-    val id: Int? = 0,
+    val id: Int = 0,
     @ColumnInfo(name = "admin_username")
     @NonNull
     val username: String,

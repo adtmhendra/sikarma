@@ -11,7 +11,10 @@ data class Symptoms(
     @PrimaryKey(autoGenerate = true)
     @NonNull
     val id_symptoms: Int = 0,
+    @ColumnInfo(name = "symptoms_code")
+    @NonNull
+    val symptoms_code: String,
     @ColumnInfo(name = "symptoms_name")
     @NonNull
-    val symptoms: String,
+    val symptoms_name: String,
 )

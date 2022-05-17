@@ -4,6 +4,7 @@ import android.content.Context
 import android.os.Bundle
 import android.text.Editable
 import android.text.TextWatcher
+import android.util.Log
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
@@ -54,14 +55,15 @@ class RegisterFragment : Fragment() {
     }
 
     private fun addNewAdmin() {
-        if (!isDataExists(edtUsername.text.toString().trim())) {
+        if (!isDataExists(edtUsername.text.toString().trim().lowercase())) {
             viewModel.addNewAdmin(
                 edtUsername.text.toString().trim().lowercase(),
                 edtPassword.text.toString().trim().lowercase()
             )
             Toast.makeText(activity,
-                "Register akun berhasil. Silahkan login menggunakan akun yang telah dibuat",
+                "Register akun berhasil. Silahkan login menggunakan akun yang telah terdaftar",
                 Toast.LENGTH_SHORT).show()
+            Log.d("RegisterFragment", "Berhasil registrasi akun")
             findNavController().navigate(RegisterFragmentDirections.actionRegisterFragmentToLoginFragment())
         } else {
             hideKeyboard()

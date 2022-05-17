@@ -8,6 +8,6 @@ interface ISymptomsUseCase {
     suspend fun delete(symptoms: Symptoms)
     suspend fun update(symptoms: Symptoms)
     fun getSymptoms(): Flow<List<Symptoms>>
-    fun getSymptomsName(symptomsName: String): Boolean
+    fun getSymptomsName(symptomsCode: String, symptomsName: String): Boolean
     fun getSymptomsId(symptomsId: Int): Flow<Symptoms>
 }

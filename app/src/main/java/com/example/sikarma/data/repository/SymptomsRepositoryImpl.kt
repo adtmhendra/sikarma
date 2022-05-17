@@ -21,8 +21,8 @@ class SymptomsRepositoryImpl @Inject constructor(private val appDatabase: AppDat
     override fun getSymptoms(): Flow<List<Symptoms>> =
         appDatabase.symptomsDao.getSymptoms()
 
-    override fun getSymptomsName(symptomsName: String): Boolean =
-        appDatabase.symptomsDao.getSymptomsName(symptomsName)
+    override fun getSymptomsName(symptomsCode: String, symptomsName: String): Boolean =
+        appDatabase.symptomsDao.getSymptomsName(symptomsCode, symptomsName)
 
     override fun getSymptomsId(symptomsId: Int): Flow<Symptoms> =
         appDatabase.symptomsDao.getSymptomsId(symptomsId)

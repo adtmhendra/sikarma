@@ -17,7 +17,8 @@ class SymptomsDataFragmentAdapter(var listener: OnClickListener) :
     class SymptomsDataFragmentViewHolder(private val binding: ListSymptomsBinding) :
         RecyclerView.ViewHolder(binding.root) {
         fun bind(symptoms: Symptoms) {
-            binding.tvSymptomName.text = symptoms.symptoms
+            binding.tvSymptomCode.text = symptoms.symptoms_code
+            binding.tvSymptomName.text = symptoms.symptoms_name
         }
 
         val btnDeleteSymptoms: ImageButton = itemView.findViewById(R.id.img_btn_delete)
@@ -35,6 +36,7 @@ class SymptomsDataFragmentAdapter(var listener: OnClickListener) :
 
         holder.apply {
             bind(symptom)
+
             btnUpdateSymptoms.setOnClickListener { listener.onUpdate(symptom) }
             btnDeleteSymptoms.setOnClickListener { listener.onDelete(symptom) }
         }
@@ -43,10 +45,10 @@ class SymptomsDataFragmentAdapter(var listener: OnClickListener) :
     companion object {
         private val DiffCallback = object : DiffUtil.ItemCallback<Symptoms>() {
             override fun areItemsTheSame(oldItem: Symptoms, newItem: Symptoms) =
-                oldItem.symptoms == newItem.symptoms
+                oldItem == newItem
 
             override fun areContentsTheSame(oldItem: Symptoms, newItem: Symptoms) =
-                oldItem.symptoms == newItem.symptoms
+                oldItem.symptoms_name == newItem.symptoms_name
         }
     }
 }

@@ -16,11 +16,11 @@ interface SymptomsDao {
     @Delete
     suspend fun delete(symptoms: Symptoms)
 
-    @Query("SELECT * FROM tb_symptoms ORDER BY symptoms_name ASC")
+    @Query("SELECT * FROM tb_symptoms ORDER BY symptoms_code ASC")
     fun getSymptoms(): Flow<List<Symptoms>>
 
-    @Query("SELECT EXISTS(SELECT * FROM tb_symptoms WHERE symptoms_name = :symptomsName)")
-    fun getSymptomsName(symptomsName: String): Boolean
+    @Query("SELECT EXISTS(SELECT * FROM tb_symptoms WHERE symptoms_code = :symptomsCode OR symptoms_name = :symptomsName)")
+    fun getSymptomsName(symptomsCode: String, symptomsName: String): Boolean
 
     @Query("SELECT * FROM tb_symptoms WHERE id_symptoms = :symptomsId")
     fun getSymptomsId(symptomsId: Int): Flow<Symptoms>
