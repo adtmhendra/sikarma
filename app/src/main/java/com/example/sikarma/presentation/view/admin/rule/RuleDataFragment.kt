@@ -5,8 +5,8 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import androidx.fragment.app.Fragment
+import androidx.navigation.fragment.findNavController
 import com.example.sikarma.databinding.FragmentRuleDataBinding
-import com.google.android.material.snackbar.Snackbar
 
 class RuleDataFragment : Fragment() {
 
@@ -24,11 +24,11 @@ class RuleDataFragment : Fragment() {
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
 
-        binding.fab.setOnClickListener {
-            Snackbar.make(view, "Here's a Snackbar", Snackbar.LENGTH_LONG)
-                .setAction("Action", null)
-                .show()
-        }
+        binding.fab.setOnClickListener { goToAddRuleDataFragment() }
+    }
+
+    private fun goToAddRuleDataFragment() {
+        findNavController().navigate(RuleDataFragmentDirections.actionRuleDataFragmentToAddRuleDataFragment())
     }
 
     override fun onDestroy() {

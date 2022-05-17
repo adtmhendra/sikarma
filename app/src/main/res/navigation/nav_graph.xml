@@ -74,7 +74,11 @@
         android:id="@+id/ruleDataFragment"
         android:name="com.example.sikarma.presentation.view.admin.rule.RuleDataFragment"
         android:label="Data Rule Penyakit"
-        tools:layout="@layout/fragment_rule_data" />
+        tools:layout="@layout/fragment_rule_data" >
+        <action
+            android:id="@+id/action_ruleDataFragment_to_addRuleDataFragment"
+            app:destination="@id/addRuleDataFragment" />
+    </fragment>
     <fragment
         android:id="@+id/addSymptomsDataFragment"
         android:name="com.example.sikarma.presentation.view.admin.symptom.AddSymptomsDataFragment"
@@ -143,4 +147,9 @@
             app:popUpTo="@id/loginFragment"
             app:popUpToInclusive="true" />
     </fragment>
+    <fragment
+        android:id="@+id/addRuleDataFragment"
+        android:name="com.example.sikarma.presentation.view.admin.rule.AddRuleDataFragment"
+        android:label="Tambah data rule"
+        tools:layout="@layout/fragment_add_rule_data" />
 </navigation>
