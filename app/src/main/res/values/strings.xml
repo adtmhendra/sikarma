@@ -8,4 +8,5 @@
     <string name="sign_in">Sign in</string>
     <string name="kamu_berhasil_login">Kamu berhasil login!</string>
     <string name="snackbar_invalid_username_password">Username atau Password salah!</string>
+    <string name="symptoms_code_and_name">%s - %s</string>
 </resources>

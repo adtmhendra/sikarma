@@ -6,7 +6,7 @@
         <entry key="..\:/AndroidProject/Sikarma/app/src/main/res/layout/activity_main.xml" value="0.23802083333333332" />
         <entry key="..\:/AndroidProject/Sikarma/app/src/main/res/layout/fragment_home.xml" value="0.23802083333333332" />
         <entry key="..\:/AndroidProject/Sikarma/app/src/main/res/layout/fragment_login.xml" value="0.2290748898678414" />
-        <entry key="..\:/AndroidProject/sikarma-app/app/src/main/res/layout/fragment_add_rule_data.xml" value="0.23802083333333332" />
+        <entry key="..\:/AndroidProject/sikarma-app/app/src/main/res/layout/fragment_add_rule_data.xml" value="0.2" />
         <entry key="..\:/AndroidProject/sikarma-app/app/src/main/res/layout/fragment_add_symptoms_data.xml" value="0.23802083333333332" />
         <entry key="..\:/AndroidProject/sikarma-app/app/src/main/res/layout/fragment_add_type_data.xml" value="0.2" />
         <entry key="..\:/AndroidProject/sikarma-app/app/src/main/res/layout/fragment_asthma_symptoms.xml" value="0.23802083333333332" />
@@ -23,6 +23,7 @@
         <entry key="..\:/AndroidProject/sikarma-app/app/src/main/res/layout/list_rule_check_box.xml" value="0.23697916666666666" />
         <entry key="..\:/AndroidProject/sikarma-app/app/src/main/res/layout/list_symptoms.xml" value="0.4" />
         <entry key="..\:/AndroidProject/sikarma-app/app/src/main/res/layout/list_type.xml" value="0.4" />
+        <entry key="..\:/AndroidProject/sikarma-app/app/src/main/res/layout/list_type_dropdown.xml" value="0.23697916666666666" />
       </map>
     </option>
   </component>

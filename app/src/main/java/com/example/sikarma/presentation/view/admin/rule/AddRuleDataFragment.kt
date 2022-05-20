@@ -4,19 +4,29 @@ import android.content.Context
 import android.os.Bundle
 import android.text.Editable
 import android.text.TextWatcher
+import android.util.Log
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import android.view.inputmethod.InputMethodManager
+import android.widget.ArrayAdapter
+import android.widget.AutoCompleteTextView
 import androidx.fragment.app.Fragment
+import androidx.fragment.app.activityViewModels
 import androidx.recyclerview.widget.LinearLayoutManager
+import com.example.sikarma.R
 import com.example.sikarma.databinding.FragmentAddRuleDataBinding
 import com.example.sikarma.presentation.adapter.SymptomNameListAdapter
+import com.example.sikarma.presentation.viewmodel.RuleViewModel
 
 class AddRuleDataFragment : Fragment() {
 
     private var _binding: FragmentAddRuleDataBinding? = null
     private val binding get() = _binding!!
+
+    private val viewModel: RuleViewModel by activityViewModels()
+
+    private var typeList = mutableListOf<List<String>>()
 
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
@@ -29,18 +39,25 @@ class AddRuleDataFragment : Fragment() {
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
 
-        val symptoms = listOf<Symptom>(
-            Symptom("batuk berdahak"),
-            Symptom("batuk kering"),
-            Symptom("keringat dingin"),
-            Symptom("panas"))
+        viewModel.getTypes.observe(this.viewLifecycleOwner) {
+            Log.d("AddRuleDataFragment", it.toString())
 
-        val adapter = SymptomNameListAdapter(symptoms)
+            (binding.acTvType as? AutoCompleteTextView)?.setAdapter(ArrayAdapter(requireContext(),
+                R.layout.list_type_dropdown,
+                R.id.tv_dropdown,
+                it.map { it.type_name }))
+        }
 
-        binding.rvListSymptomName.setHasFixedSize(true)
-        binding.rvListSymptomName.layoutManager =
-            LinearLayoutManager(requireContext(), LinearLayoutManager.VERTICAL, false)
-        binding.rvListSymptomName.adapter = adapter
+        viewModel.getSymptoms.observe(this.viewLifecycleOwner) {
+            Log.d("AddRuleDataFragment", it.toString())
+
+            val adapter = SymptomNameListAdapter(requireContext(), it)
+
+            binding.rvListSymptomName.setHasFixedSize(true)
+            binding.rvListSymptomName.layoutManager =
+                LinearLayoutManager(requireContext(), LinearLayoutManager.VERTICAL, false)
+            binding.rvListSymptomName.adapter = adapter
+        }
     }
 
     // Disable save button when symptoms edit text is empty
@@ -66,7 +83,3 @@ class AddRuleDataFragment : Fragment() {
         _binding = null
     }
 }
-
-data class Symptom(
-    val symptomName: String,
-)

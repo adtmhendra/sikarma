@@ -30,22 +30,20 @@
 
     <com.google.android.material.textfield.TextInputLayout
         android:id="@+id/tv_type_name"
-        style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
-        android:layout_width="match_parent"
+        style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox.ExposedDropdownMenu"
+        android:layout_width="245dp"
         android:layout_height="wrap_content"
         android:layout_marginTop="16dp"
-        android:hint="Pilih nama penyakit"
-        app:endIconMode="clear_text"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
+        android:hint="Pilih jenis penyakit"
+        app:layout_constraintStart_toStartOf="@+id/tv_rule_code"
         app:layout_constraintTop_toBottomOf="@+id/tv_rule_code">
 
-        <com.google.android.material.textfield.TextInputEditText
-            android:id="@+id/edt_type_name"
+        <AutoCompleteTextView
+            android:id="@+id/ac_tv_type"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:imeOptions="actionDone"
-            android:inputType="text" />
+            android:inputType="none"
+            tools:ignore="LabelFor" />
 
     </com.google.android.material.textfield.TextInputLayout>
 
@@ -59,15 +57,35 @@
         app:layout_constraintStart_toStartOf="@+id/tv_type_name"
         app:layout_constraintTop_toBottomOf="@+id/tv_type_name" />
 
-    <androidx.recyclerview.widget.RecyclerView
-        android:id="@+id/rv_list_symptom_name"
+    <RelativeLayout
+        android:id="@+id/rl_list_symptoms"
         android:layout_width="match_parent"
-        android:layout_height="0dp"
+        android:layout_height="250dp"
         android:layout_marginTop="16dp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/tv_symptom_list"
-        tools:itemCount="5"
-        tools:listitem="@layout/list_rule_check_box" />
+        app:layout_constraintTop_toBottomOf="@+id/tv_symptom_list">
+
+        <androidx.recyclerview.widget.RecyclerView
+            android:id="@+id/rv_list_symptom_name"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            tools:itemCount="5"
+            tools:listitem="@layout/list_rule_check_box" />
+
+    </RelativeLayout>
+
+    <com.google.android.material.button.MaterialButton
+        android:id="@+id/btn_save"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="24dp"
+        android:enabled="false"
+        android:text="Simpan Data"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/rl_list_symptoms" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>
