@@ -13,6 +13,12 @@
         <action
             android:id="@+id/action_homeFragment_to_loginFragment"
             app:destination="@id/loginFragment" />
+        <action
+            android:id="@+id/action_homeFragment_to_patientTypeFragment"
+            app:destination="@id/patientTypeFragment" />
+        <action
+            android:id="@+id/action_homeFragment_to_consultationFragment"
+            app:destination="@id/consultationFragment" />
     </fragment>
     <fragment
         android:id="@+id/loginFragment"
@@ -74,7 +80,7 @@
         android:id="@+id/ruleDataFragment"
         android:name="com.example.sikarma.presentation.view.admin.rule.RuleDataFragment"
         android:label="Data Rule Penyakit"
-        tools:layout="@layout/fragment_rule_data" >
+        tools:layout="@layout/fragment_rule_data">
         <action
             android:id="@+id/action_ruleDataFragment_to_addRuleDataFragment"
             app:destination="@id/addRuleDataFragment" />
@@ -128,8 +134,8 @@
             app:destination="@id/addTypeDataFragment" />
         <argument
             android:name="id_type"
-            app:argType="integer"
-            android:defaultValue="-1" />
+            android:defaultValue="-1"
+            app:argType="integer" />
         <action
             android:id="@+id/action_detailTypeDataFragment_to_typeDataFragment"
             app:destination="@id/typeDataFragment"
@@ -152,4 +158,14 @@
         android:name="com.example.sikarma.presentation.view.admin.rule.AddRuleDataFragment"
         android:label="Tambah data rule"
         tools:layout="@layout/fragment_add_rule_data" />
+    <fragment
+        android:id="@+id/patientTypeFragment"
+        android:name="com.example.sikarma.presentation.view.patient.PatientTypeFragment"
+        android:label="Daftar Jenis Penyakit Asma"
+        tools:layout="@layout/fragment_patient_type" />
+    <fragment
+        android:id="@+id/consultationFragment"
+        android:name="com.example.sikarma.presentation.view.patient.ConsultationFragment"
+        android:label="Konsultasi Penyakit"
+        tools:layout="@layout/fragment_consultation" />
 </navigation>

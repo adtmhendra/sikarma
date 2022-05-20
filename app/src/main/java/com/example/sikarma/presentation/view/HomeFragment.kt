@@ -31,6 +31,14 @@ class HomeFragment : Fragment() {
         findNavController().navigate(R.id.action_homeFragment_to_loginFragment)
     }
 
+    fun goToPatientTypeFragment() {
+        findNavController().navigate(R.id.action_homeFragment_to_patientTypeFragment)
+    }
+
+    fun goToConsultationFragment() {
+        findNavController().navigate(R.id.action_homeFragment_to_consultationFragment)
+    }
+
     override fun onDestroy() {
         super.onDestroy()
         _binding = null
