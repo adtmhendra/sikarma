@@ -1,14 +1,12 @@
 package com.example.sikarma.presentation.view.admin.rule
 
 import android.os.Bundle
-import android.util.Log
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import androidx.fragment.app.Fragment
 import androidx.fragment.app.activityViewModels
 import androidx.navigation.fragment.findNavController
-import com.example.sikarma.data.entity.Type
 import com.example.sikarma.databinding.FragmentRuleDataBinding
 import com.example.sikarma.presentation.viewmodel.RuleViewModel
 

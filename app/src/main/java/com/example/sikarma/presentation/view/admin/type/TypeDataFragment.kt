@@ -39,7 +39,7 @@ class TypeDataFragment : Fragment() {
     }
 
     private fun getListTypeData() {
-        val adapter = TypeDataFragmentAdapter {
+        val adapter = TypeDataFragmentAdapter(1) {
             findNavController().navigate(TypeDataFragmentDirections.actionTypeDataFragmentToDetailTypeDataFragment(
                 idType = it.id_type
             ))

@@ -1,8 +1,6 @@
 package com.example.sikarma.domain.usecase.rule
 
 import com.example.sikarma.data.entity.Rule
-import com.example.sikarma.data.entity.Type
-import com.example.sikarma.data.entity.TypeSymptom
 import com.example.sikarma.data.entity.TypeWithSymptoms
 import kotlinx.coroutines.flow.Flow
 

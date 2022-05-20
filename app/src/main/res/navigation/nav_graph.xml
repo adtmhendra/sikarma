@@ -162,10 +162,24 @@
         android:id="@+id/patientTypeFragment"
         android:name="com.example.sikarma.presentation.view.patient.PatientTypeFragment"
         android:label="Daftar Jenis Penyakit Asma"
-        tools:layout="@layout/fragment_patient_type" />
+        tools:layout="@layout/fragment_patient_type">
+        <action
+            android:id="@+id/action_patientTypeFragment_to_detailPatientTypeFragment"
+            app:destination="@id/detailPatientTypeFragment" />
+    </fragment>
     <fragment
         android:id="@+id/consultationFragment"
         android:name="com.example.sikarma.presentation.view.patient.ConsultationFragment"
         android:label="Konsultasi Penyakit"
         tools:layout="@layout/fragment_consultation" />
+    <fragment
+        android:id="@+id/detailPatientTypeFragment"
+        android:name="com.example.sikarma.presentation.view.patient.DetailPatientTypeFragment"
+        android:label="Detail Jenis Penyakit"
+        tools:layout="@layout/fragment_detail_patient_type">
+        <argument
+            android:name="id_type"
+            app:argType="integer"
+            android:defaultValue="-1" />
+    </fragment>
 </navigation>

@@ -13,6 +13,7 @@
         <entry key="..\:/AndroidProject/sikarma-app/app/src/main/res/layout/fragment_consultation.xml" value="0.23802083333333332" />
         <entry key="..\:/AndroidProject/sikarma-app/app/src/main/res/layout/fragment_dashboard.xml" value="0.2" />
         <entry key="..\:/AndroidProject/sikarma-app/app/src/main/res/layout/fragment_data_symptoms.xml" value="0.23802083333333332" />
+        <entry key="..\:/AndroidProject/sikarma-app/app/src/main/res/layout/fragment_detail_patient_type.xml" value="0.23802083333333332" />
         <entry key="..\:/AndroidProject/sikarma-app/app/src/main/res/layout/fragment_detail_type_data.xml" value="0.23802083333333332" />
         <entry key="..\:/AndroidProject/sikarma-app/app/src/main/res/layout/fragment_home.xml" value="0.264" />
         <entry key="..\:/AndroidProject/sikarma-app/app/src/main/res/layout/fragment_login.xml" value="0.176" />
@@ -24,8 +25,9 @@
         <entry key="..\:/AndroidProject/sikarma-app/app/src/main/res/layout/list_rule.xml" value="0.4" />
         <entry key="..\:/AndroidProject/sikarma-app/app/src/main/res/layout/list_rule_check_box.xml" value="0.23697916666666666" />
         <entry key="..\:/AndroidProject/sikarma-app/app/src/main/res/layout/list_symptoms.xml" value="0.4" />
-        <entry key="..\:/AndroidProject/sikarma-app/app/src/main/res/layout/list_type.xml" value="0.4" />
+        <entry key="..\:/AndroidProject/sikarma-app/app/src/main/res/layout/list_type.xml" value="0.264" />
         <entry key="..\:/AndroidProject/sikarma-app/app/src/main/res/layout/list_type_dropdown.xml" value="0.23697916666666666" />
+        <entry key="..\:/AndroidProject/sikarma-app/app/src/main/res/layout/list_type_patient.xml" value="0.23697916666666666" />
       </map>
     </option>
   </component>
