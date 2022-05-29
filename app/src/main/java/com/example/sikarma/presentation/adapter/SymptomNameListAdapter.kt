@@ -17,7 +17,7 @@ class SymptomNameListAdapter(
     inner class SymptomNameViewHolder(private val binding: ListRuleCheckBoxBinding) :
         RecyclerView.ViewHolder(binding.root) {
         fun bind(symptoms: Symptoms) {
-            binding.cbSymptomName.text = context.getString(R.string.symptoms_code_and_name,
+            binding.cbSymptomName.text = context.getString(R.string.label_symptoms_code_and_name,
                 symptoms.symptoms_code,
                 symptoms.symptoms_name)
         }

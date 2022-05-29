@@ -4,6 +4,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:animateLayoutChanges="true"
     android:padding="24dp"
     tools:context=".presentation.view.admin.symptom.AddSymptomsDataFragment">
 
@@ -12,12 +13,12 @@
         style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
         android:layout_width="245dp"
         android:layout_height="wrap_content"
-        android:hint="Masukkan kode gejala"
+        android:hint="@string/label_hint_input_symptom_code"
         app:endIconMode="clear_text"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
         app:prefixText="G0"
-        app:prefixTextColor="@color/purple_500">
+        app:prefixTextColor="@color/red_900">
 
         <com.google.android.material.textfield.TextInputEditText
             android:id="@+id/edt_symptom_code"
@@ -34,7 +35,7 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_marginTop="16dp"
-        android:hint="Masukkan gejala"
+        android:hint="@string/label_hint_input_symptom_name"
         app:endIconMode="clear_text"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
@@ -55,7 +56,9 @@
         android:layout_height="wrap_content"
         android:layout_marginTop="24dp"
         android:enabled="false"
-        android:text="Simpan gejala"
+        android:stateListAnimator="@null"
+        android:text="@string/label_save_data"
+        app:cornerRadius="20dp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/symptom_name" />

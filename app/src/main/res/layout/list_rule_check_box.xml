@@ -6,9 +6,12 @@
 
     <CheckBox
         android:id="@+id/cb_symptom_name"
+        style="@style/TextAppearance.MaterialComponents.Body2"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="Symptom 1"
+        android:gravity="center"
+        android:minHeight="48dp"
+        android:text="@string/title_symptom_name"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
 

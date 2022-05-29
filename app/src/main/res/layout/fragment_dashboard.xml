@@ -13,7 +13,7 @@
         android:layout_height="wrap_content"
         android:layout_marginBottom="8dp"
         android:stateListAnimator="@null"
-        android:text="Atur gejala asma"
+        android:text="@string/label_set_symptom"
         app:layout_constraintBottom_toTopOf="@+id/btn_go_to_type_data_fragment"
         app:layout_constraintEnd_toEndOf="@+id/btn_go_to_type_data_fragment"
         app:layout_constraintStart_toStartOf="@+id/btn_go_to_type_data_fragment" />
@@ -23,7 +23,7 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:stateListAnimator="@null"
-        android:text="Atur jenis penyakit asma"
+        android:text="@string/label_set_type"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
@@ -35,7 +35,7 @@
         android:layout_height="wrap_content"
         android:layout_marginTop="8dp"
         android:stateListAnimator="@null"
-        android:text="Atur rule gejala asma"
+        android:text="@string/label_set_rule"
         app:layout_constraintEnd_toEndOf="@+id/btn_go_to_type_data_fragment"
         app:layout_constraintStart_toStartOf="@+id/btn_go_to_type_data_fragment"
         app:layout_constraintTop_toBottomOf="@+id/btn_go_to_type_data_fragment" />
@@ -45,7 +45,8 @@
         style="?attr/borderlessButtonStyle"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="Keluar"
+        android:text="@string/label_sign_out"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
+
 </androidx.constraintlayout.widget.ConstraintLayout>

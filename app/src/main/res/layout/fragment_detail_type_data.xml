@@ -8,48 +8,91 @@
     tools:context=".presentation.view.admin.type.DetailTypeDataFragment">
 
     <TextView
-        android:id="@+id/tv_type_code"
-        android:layout_width="0dp"
+        android:id="@+id/tv_code_title"
+        style="@style/TextAppearance.MaterialComponents.Headline6"
+        android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:gravity="center_vertical"
+        android:gravity="center"
         android:minHeight="48dp"
-        android:text="Type code"
-        app:layout_constraintEnd_toEndOf="parent"
+        android:text="@string/title_type_code"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
 
     <TextView
-        android:id="@+id/tv_type_name"
+        android:id="@+id/tv_type_code"
+        style="@style/TextAppearance.MaterialComponents.Body1"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
-        android:gravity="center_vertical"
+        android:text="@string/title_type_code"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="@+id/tv_code_title"
+        app:layout_constraintTop_toBottomOf="@+id/tv_code_title" />
+
+    <TextView
+        android:id="@+id/textView"
+        style="@style/TextAppearance.MaterialComponents.Headline6"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="8dp"
+        android:gravity="center"
         android:minHeight="48dp"
-        android:text="Type name"
-        app:layout_constraintEnd_toEndOf="@+id/tv_type_code"
-        app:layout_constraintStart_toStartOf="@+id/tv_type_code"
+        android:text="@string/title_type_name"
+        app:layout_constraintStart_toStartOf="@+id/tv_code_title"
         app:layout_constraintTop_toBottomOf="@+id/tv_type_code" />
 
     <TextView
-        android:id="@+id/tv_type_description"
+        android:id="@+id/tv_type_name"
+        style="@style/TextAppearance.MaterialComponents.Body1"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
-        android:gravity="center_vertical"
+        android:text="@string/title_type_name"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="@+id/textView"
+        app:layout_constraintTop_toBottomOf="@+id/textView" />
+
+    <TextView
+        android:id="@+id/textView2"
+        style="@style/TextAppearance.MaterialComponents.Headline6"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="8dp"
+        android:gravity="center"
         android:minHeight="48dp"
-        android:text="Type description"
-        app:layout_constraintEnd_toEndOf="@+id/tv_type_code"
-        app:layout_constraintStart_toStartOf="@+id/tv_type_code"
+        android:text="@string/title_description"
+        app:layout_constraintStart_toStartOf="@+id/textView"
         app:layout_constraintTop_toBottomOf="@+id/tv_type_name" />
 
     <TextView
-        android:id="@+id/tv_type_solution"
+        android:id="@+id/tv_type_description"
+        style="@style/TextAppearance.MaterialComponents.Body1"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
-        android:gravity="center_vertical"
+        android:text="@string/title_description"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="@+id/textView2"
+        app:layout_constraintTop_toBottomOf="@+id/textView2" />
+
+    <TextView
+        android:id="@+id/textView3"
+        style="@style/TextAppearance.MaterialComponents.Headline6"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="8dp"
+        android:gravity="center"
         android:minHeight="48dp"
-        android:text="Type solution"
-        app:layout_constraintEnd_toEndOf="@+id/tv_type_code"
-        app:layout_constraintStart_toStartOf="@+id/tv_type_code"
+        android:text="@string/title_solution"
+        app:layout_constraintStart_toStartOf="@+id/textView2"
         app:layout_constraintTop_toBottomOf="@+id/tv_type_description" />
+
+    <TextView
+        android:id="@+id/tv_type_solution"
+        style="@style/TextAppearance.MaterialComponents.Body1"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:text="@string/title_solution"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="@+id/textView3"
+        app:layout_constraintTop_toBottomOf="@+id/textView3" />
 
     <com.google.android.material.button.MaterialButton
         android:id="@+id/btn_update"
@@ -58,7 +101,7 @@
         android:layout_marginStart="8dp"
         android:layout_marginTop="24dp"
         android:stateListAnimator="@null"
-        android:text="Ubah"
+        android:text="@string/label_edit_data"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.5"
         app:layout_constraintStart_toEndOf="@+id/btn_delete"
@@ -72,9 +115,10 @@
         android:layout_marginTop="24dp"
         android:layout_marginEnd="8dp"
         android:stateListAnimator="@null"
-        android:text="Hapus"
+        android:text="@string/label_delete_data"
         app:layout_constraintEnd_toStartOf="@+id/btn_update"
         app:layout_constraintHorizontal_bias="0.5"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/tv_type_solution" />
+
 </androidx.constraintlayout.widget.ConstraintLayout>

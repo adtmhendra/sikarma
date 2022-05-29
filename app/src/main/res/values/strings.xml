@@ -1,12 +1,45 @@
 <resources>
     <string name="app_name">Sikarma</string>
-    <!-- TODO: Remove or change this placeholder text -->
-    <string name="hello_blank_fragment">Hello blank fragment</string>
-    <string name="username">Username</string>
-    <string name="password">Password</string>
-    <string name="login_admin">Login admin</string>
-    <string name="sign_in">Sign in</string>
-    <string name="kamu_berhasil_login">Kamu berhasil login!</string>
-    <string name="snackbar_invalid_username_password">Username atau Password salah!</string>
-    <string name="symptoms_code_and_name">%s - %s</string>
+
+    <string name="title_symptom_code">Kode gejala</string>
+    <string name="title_symptom_name">Nama gejala</string>
+    <string name="title_type_code">Kode penyakit</string>
+    <string name="title_type_name">Jenis penyakit</string>
+    <string name="title_rule_code">Kode rule</string>
+    <string name="title_description">Deskripsi</string>
+    <string name="title_solution">Solusi</string>
+    <string name="title_symptom_list">List gejala penyakit</string>
+
+    <string name="label_login_admin">Masuk admin</string>
+    <string name="label_register_admin">Daftar admin</string>
+    <string name="label_consultation">Konsultasi penyakit</string>
+    <string name="label_types">Lihat jenis penyakit</string>
+    <string name="label_consultation_image">Gambar ilustrasi konsultasi</string>
+    <string name="label_username">Username</string>
+    <string name="label_password">Password</string>
+    <string name="label_sign_in">Masuk</string>
+    <string name="label_sign_out">Masuk</string>
+    <string name="label_register">Daftar</string>
+    <string name="label_sign_in_success">Kamu berhasil login!</string>
+    <string name="label_sign_in_failed">Username atau Password salah!</string>
+    <string name="label_symptoms_code_and_name">%s - %s</string>
+    <string name="label_set_symptom">Atur gejala asma</string>
+    <string name="label_set_type">Atur jenis penyakit asma</string>
+    <string name="label_set_rule">Atur rule gejala asma</string>
+    <string name="label_button_set_symptom">Button atur gejala asma</string>
+    <string name="label_button_set_type">Button atur jenis asma</string>
+    <string name="label_button_set_rule">Button atur rule asma</string>
+    <string name="label_button_delete_data">Button hapus data</string>
+    <string name="label_button_edit_data">Button edit data</string>
+    <string name="label_hint_input_symptom_code">Masukkan kode gejala</string>
+    <string name="label_hint_input_symptom_name">Masukkan gejala</string>
+    <string name="label_save_data">Simpan data</string>
+    <string name="label_edit_data">Ubah</string>
+    <string name="label_delete_data">Hapus</string>
+    <string name="label_hint_input_type_code">Masukkan kode jenis</string>
+    <string name="label_hint_input_type_name">Masukkan jenis asma</string>
+    <string name="label_hint_input_description">Masukkan deskripsi</string>
+    <string name="label_hint_input_solution">Masukkan solusi</string>
+    <string name="label_hint_input_rule_code">Masukkan kode rule</string>
+    <string name="label_hint_choose_type">Pilih jenis penyakit</string>
 </resources>

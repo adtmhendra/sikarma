@@ -97,7 +97,7 @@ class LoginFragment : Fragment() {
                     Log.d(TAG, "Selamat datang, ${admin.username}")
                 } catch (e: Exception) {
                     Snackbar.make(binding.btnSignIn,
-                        getString(R.string.snackbar_invalid_username_password),
+                        getString(R.string.label_sign_in_failed),
                         Snackbar.LENGTH_SHORT).show()
                     clearText()
                 }
