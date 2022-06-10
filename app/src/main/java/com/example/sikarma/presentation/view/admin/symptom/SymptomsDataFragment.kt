@@ -9,6 +9,7 @@ import androidx.fragment.app.Fragment
 import androidx.fragment.app.activityViewModels
 import androidx.navigation.fragment.findNavController
 import androidx.recyclerview.widget.LinearLayoutManager
+import com.example.sikarma.R
 import com.example.sikarma.data.entity.Symptoms
 import com.example.sikarma.databinding.FragmentSymptomsDataBinding
 import com.example.sikarma.presentation.adapter.SymptomsDataFragmentAdapter
@@ -48,7 +49,7 @@ class SymptomsDataFragment : Fragment() {
                 override fun onUpdate(symptoms: Symptoms) {
                     findNavController().navigate(SymptomsDataFragmentDirections.actionSymptomsDataFragmentToAddSymptomsDataFragment(
                         idSymptoms = symptoms.id_symptoms,
-                        title = "Ubah Data Gejala"
+                        title = getString(R.string.title_edit_symptom_data)
                     ))
                 }
 
@@ -69,7 +70,7 @@ class SymptomsDataFragment : Fragment() {
 
     private fun goToAddSymptomsDataFragment() {
         findNavController().navigate(SymptomsDataFragmentDirections.actionSymptomsDataFragmentToAddSymptomsDataFragment(
-            "Tambah Data Gejala"))
+            getString(R.string.title_add_symptom_data)))
     }
 
     private fun showConfirmationDialog(symptoms: Symptoms) {

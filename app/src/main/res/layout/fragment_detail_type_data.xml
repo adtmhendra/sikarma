@@ -4,16 +4,16 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:padding="16dp"
+    android:padding="@dimen/dimen_16dp"
     tools:context=".presentation.view.admin.type.DetailTypeDataFragment">
 
     <TextView
         android:id="@+id/tv_code_title"
-        style="@style/TextAppearance.MaterialComponents.Headline6"
+        style="@style/TextAppearance.MaterialComponents.Body2"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:gravity="center"
-        android:minHeight="48dp"
+        android:minHeight="@dimen/dimen_48dp"
         android:text="@string/title_type_code"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
@@ -21,7 +21,7 @@
     <TextView
         android:id="@+id/tv_type_code"
         style="@style/TextAppearance.MaterialComponents.Body1"
-        android:layout_width="0dp"
+        android:layout_width="@dimen/dimen_0dp"
         android:layout_height="wrap_content"
         android:text="@string/title_type_code"
         app:layout_constraintEnd_toEndOf="parent"
@@ -30,12 +30,12 @@
 
     <TextView
         android:id="@+id/textView"
-        style="@style/TextAppearance.MaterialComponents.Headline6"
+        style="@style/TextAppearance.MaterialComponents.Body2"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginTop="8dp"
+        android:layout_marginTop="@dimen/dimen_8dp"
         android:gravity="center"
-        android:minHeight="48dp"
+        android:minHeight="@dimen/dimen_48dp"
         android:text="@string/title_type_name"
         app:layout_constraintStart_toStartOf="@+id/tv_code_title"
         app:layout_constraintTop_toBottomOf="@+id/tv_type_code" />
@@ -43,7 +43,7 @@
     <TextView
         android:id="@+id/tv_type_name"
         style="@style/TextAppearance.MaterialComponents.Body1"
-        android:layout_width="0dp"
+        android:layout_width="@dimen/dimen_0dp"
         android:layout_height="wrap_content"
         android:text="@string/title_type_name"
         app:layout_constraintEnd_toEndOf="parent"
@@ -52,12 +52,12 @@
 
     <TextView
         android:id="@+id/textView2"
-        style="@style/TextAppearance.MaterialComponents.Headline6"
+        style="@style/TextAppearance.MaterialComponents.Body2"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginTop="8dp"
+        android:layout_marginTop="@dimen/dimen_8dp"
         android:gravity="center"
-        android:minHeight="48dp"
+        android:minHeight="@dimen/dimen_48dp"
         android:text="@string/title_description"
         app:layout_constraintStart_toStartOf="@+id/textView"
         app:layout_constraintTop_toBottomOf="@+id/tv_type_name" />
@@ -65,7 +65,7 @@
     <TextView
         android:id="@+id/tv_type_description"
         style="@style/TextAppearance.MaterialComponents.Body1"
-        android:layout_width="0dp"
+        android:layout_width="@dimen/dimen_0dp"
         android:layout_height="wrap_content"
         android:text="@string/title_description"
         app:layout_constraintEnd_toEndOf="parent"
@@ -74,12 +74,12 @@
 
     <TextView
         android:id="@+id/textView3"
-        style="@style/TextAppearance.MaterialComponents.Headline6"
+        style="@style/TextAppearance.MaterialComponents.Body2"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginTop="8dp"
+        android:layout_marginTop="@dimen/dimen_8dp"
         android:gravity="center"
-        android:minHeight="48dp"
+        android:minHeight="@dimen/dimen_48dp"
         android:text="@string/title_solution"
         app:layout_constraintStart_toStartOf="@+id/textView2"
         app:layout_constraintTop_toBottomOf="@+id/tv_type_description" />
@@ -87,7 +87,7 @@
     <TextView
         android:id="@+id/tv_type_solution"
         style="@style/TextAppearance.MaterialComponents.Body1"
-        android:layout_width="0dp"
+        android:layout_width="@dimen/dimen_0dp"
         android:layout_height="wrap_content"
         android:text="@string/title_solution"
         app:layout_constraintEnd_toEndOf="parent"
@@ -96,10 +96,10 @@
 
     <com.google.android.material.button.MaterialButton
         android:id="@+id/btn_update"
-        android:layout_width="0dp"
+        android:layout_width="@dimen/dimen_0dp"
         android:layout_height="wrap_content"
-        android:layout_marginStart="8dp"
-        android:layout_marginTop="24dp"
+        android:layout_marginStart="@dimen/dimen_8dp"
+        android:layout_marginTop="@dimen/dimen_24dp"
         android:stateListAnimator="@null"
         android:text="@string/label_edit_data"
         app:layout_constraintEnd_toEndOf="parent"
@@ -110,10 +110,10 @@
     <com.google.android.material.button.MaterialButton
         android:id="@+id/btn_delete"
         style="?attr/materialButtonOutlinedStyle"
-        android:layout_width="0dp"
+        android:layout_width="@dimen/dimen_0dp"
         android:layout_height="wrap_content"
-        android:layout_marginTop="24dp"
-        android:layout_marginEnd="8dp"
+        android:layout_marginTop="@dimen/dimen_24dp"
+        android:layout_marginEnd="@dimen/dimen_8dp"
         android:stateListAnimator="@null"
         android:text="@string/label_delete_data"
         app:layout_constraintEnd_toStartOf="@+id/btn_update"

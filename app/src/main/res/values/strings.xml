@@ -1,6 +1,11 @@
 <resources>
     <string name="app_name">Sikarma</string>
 
+    <string name="title_add_symptom_data">Tambah Data Gejala</string>
+    <string name="title_edit_symptom_data">Ubah Data Gejala</string>
+    <string name="title_add_type_data">Tambah Data Penyakit</string>
+    <string name="title_edit_type_data">Ubah Data Penyakit</string>
+    <string name="title_add_rule_data">Tambah Data Rule</string>
     <string name="title_symptom_code">Kode gejala</string>
     <string name="title_symptom_name">Nama gejala</string>
     <string name="title_type_code">Kode penyakit</string>
@@ -18,14 +23,14 @@
     <string name="label_username">Username</string>
     <string name="label_password">Password</string>
     <string name="label_sign_in">Masuk</string>
-    <string name="label_sign_out">Masuk</string>
+    <string name="label_sign_out">Keluar</string>
     <string name="label_register">Daftar</string>
     <string name="label_sign_in_success">Kamu berhasil login!</string>
     <string name="label_sign_in_failed">Username atau Password salah!</string>
     <string name="label_symptoms_code_and_name">%s - %s</string>
-    <string name="label_set_symptom">Atur gejala asma</string>
-    <string name="label_set_type">Atur jenis penyakit asma</string>
-    <string name="label_set_rule">Atur rule gejala asma</string>
+    <string name="label_set_symptom">Atur gejala penyakit</string>
+    <string name="label_set_type">Atur jenis penyakit</string>
+    <string name="label_set_rule">Atur rule penyakit</string>
     <string name="label_button_set_symptom">Button atur gejala asma</string>
     <string name="label_button_set_type">Button atur jenis asma</string>
     <string name="label_button_set_rule">Button atur rule asma</string>

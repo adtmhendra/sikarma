@@ -8,6 +8,7 @@ import androidx.fragment.app.Fragment
 import androidx.fragment.app.activityViewModels
 import androidx.navigation.fragment.findNavController
 import androidx.recyclerview.widget.LinearLayoutManager
+import com.example.sikarma.R
 import com.example.sikarma.databinding.FragmentTypeDataBinding
 import com.example.sikarma.presentation.adapter.TypeDataFragmentAdapter
 import com.example.sikarma.presentation.viewmodel.TypeViewModel
@@ -58,7 +59,7 @@ class TypeDataFragment : Fragment() {
 
     private fun goToAddTypeDataFragment() {
         findNavController().navigate(TypeDataFragmentDirections.actionTypeDataFragmentToAddTypeDataFragment(
-            title = "Tambah Jenis Penyakit"
+            getString(R.string.title_add_type_data)
         ))
     }
 

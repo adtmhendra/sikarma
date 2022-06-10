@@ -12,13 +12,25 @@
         tools:layout="@layout/fragment_home">
         <action
             android:id="@+id/action_homeFragment_to_loginFragment"
-            app:destination="@id/loginFragment" />
+            app:destination="@id/loginFragment"
+            app:enterAnim="@anim/anim_slide_in_right"
+            app:exitAnim="@anim/anim_slide_out_left"
+            app:popEnterAnim="@anim/anim_slide_in_left"
+            app:popExitAnim="@anim/anim_slide_out_right" />
         <action
             android:id="@+id/action_homeFragment_to_patientTypeFragment"
-            app:destination="@id/patientTypeFragment" />
+            app:destination="@id/patientTypeFragment"
+            app:enterAnim="@anim/anim_slide_in_right"
+            app:exitAnim="@anim/anim_slide_out_left"
+            app:popEnterAnim="@anim/anim_slide_in_left"
+            app:popExitAnim="@anim/anim_slide_out_right" />
         <action
             android:id="@+id/action_homeFragment_to_consultationFragment"
-            app:destination="@id/consultationFragment" />
+            app:destination="@id/consultationFragment"
+            app:enterAnim="@anim/anim_slide_in_right"
+            app:exitAnim="@anim/anim_slide_out_left"
+            app:popEnterAnim="@anim/anim_slide_in_left"
+            app:popExitAnim="@anim/anim_slide_out_right" />
     </fragment>
     <fragment
         android:id="@+id/loginFragment"
@@ -27,10 +39,18 @@
         tools:layout="@layout/fragment_login">
         <action
             android:id="@+id/action_loginFragment_to_dashboardFragment"
-            app:destination="@id/dashboardFragment" />
+            app:destination="@id/dashboardFragment"
+            app:enterAnim="@anim/anim_slide_in_right"
+            app:exitAnim="@anim/anim_slide_out_left"
+            app:popEnterAnim="@anim/anim_slide_in_left"
+            app:popExitAnim="@anim/anim_slide_out_right" />
         <action
             android:id="@+id/action_loginFragment_to_registerFragment"
-            app:destination="@id/registerFragment" />
+            app:destination="@id/registerFragment"
+            app:enterAnim="@anim/anim_slide_in_right"
+            app:exitAnim="@anim/anim_slide_out_left"
+            app:popEnterAnim="@anim/anim_slide_in_left"
+            app:popExitAnim="@anim/anim_slide_out_right" />
     </fragment>
     <fragment
         android:id="@+id/dashboardFragment"
@@ -39,16 +59,32 @@
         tools:layout="@layout/fragment_dashboard">
         <action
             android:id="@+id/action_dashboardFragment_to_symptomsDataFragment"
-            app:destination="@id/symptomsDataFragment" />
+            app:destination="@id/symptomsDataFragment"
+            app:enterAnim="@anim/anim_slide_in_right"
+            app:exitAnim="@anim/anim_slide_out_left"
+            app:popEnterAnim="@anim/anim_slide_in_left"
+            app:popExitAnim="@anim/anim_slide_out_right" />
         <action
             android:id="@+id/action_dashboardFragment_to_typeDataFragment"
-            app:destination="@id/typeDataFragment" />
+            app:destination="@id/typeDataFragment"
+            app:enterAnim="@anim/anim_slide_in_right"
+            app:exitAnim="@anim/anim_slide_out_left"
+            app:popEnterAnim="@anim/anim_slide_in_left"
+            app:popExitAnim="@anim/anim_slide_out_right" />
         <action
             android:id="@+id/action_dashboardFragment_to_ruleDataFragment"
-            app:destination="@id/ruleDataFragment" />
+            app:destination="@id/ruleDataFragment"
+            app:enterAnim="@anim/anim_slide_in_right"
+            app:exitAnim="@anim/anim_slide_out_left"
+            app:popEnterAnim="@anim/anim_slide_in_left"
+            app:popExitAnim="@anim/anim_slide_out_right" />
         <action
             android:id="@+id/action_dashboardFragment_to_loginFragment"
             app:destination="@id/loginFragment"
+            app:enterAnim="@anim/anim_slide_in_right"
+            app:exitAnim="@anim/anim_slide_out_left"
+            app:popEnterAnim="@anim/anim_slide_in_left"
+            app:popExitAnim="@anim/anim_slide_out_right"
             app:popUpTo="@id/loginFragment"
             app:popUpToInclusive="true" />
     </fragment>
@@ -59,7 +95,11 @@
         tools:layout="@layout/fragment_symptoms_data">
         <action
             android:id="@+id/action_symptomsDataFragment_to_addSymptomsDataFragment"
-            app:destination="@id/addSymptomsDataFragment" />
+            app:destination="@id/addSymptomsDataFragment"
+            app:enterAnim="@anim/anim_slide_in_right"
+            app:exitAnim="@anim/anim_slide_out_left"
+            app:popEnterAnim="@anim/anim_slide_in_left"
+            app:popExitAnim="@anim/anim_slide_out_right" />
     </fragment>
     <fragment
         android:id="@+id/typeDataFragment"
@@ -68,13 +108,25 @@
         tools:layout="@layout/fragment_type_data">
         <action
             android:id="@+id/action_typeDataFragment_to_addTypeDataFragment"
-            app:destination="@id/addTypeDataFragment" />
+            app:destination="@id/addTypeDataFragment"
+            app:enterAnim="@anim/anim_slide_in_right"
+            app:exitAnim="@anim/anim_slide_out_left"
+            app:popEnterAnim="@anim/anim_slide_in_left"
+            app:popExitAnim="@anim/anim_slide_out_right" />
         <action
             android:id="@+id/action_typeDataFragment_to_detailTypeDataFragment"
-            app:destination="@id/detailTypeDataFragment" />
+            app:destination="@id/detailTypeDataFragment"
+            app:enterAnim="@anim/anim_slide_in_right"
+            app:exitAnim="@anim/anim_slide_out_left"
+            app:popEnterAnim="@anim/anim_slide_in_left"
+            app:popExitAnim="@anim/anim_slide_out_right" />
         <action
             android:id="@+id/action_typeDataFragment_to_dashboardFragment"
-            app:destination="@id/dashboardFragment" />
+            app:destination="@id/dashboardFragment"
+            app:enterAnim="@anim/anim_slide_in_right"
+            app:exitAnim="@anim/anim_slide_out_left"
+            app:popEnterAnim="@anim/anim_slide_in_left"
+            app:popExitAnim="@anim/anim_slide_out_right" />
     </fragment>
     <fragment
         android:id="@+id/ruleDataFragment"
@@ -83,7 +135,11 @@
         tools:layout="@layout/fragment_rule_data">
         <action
             android:id="@+id/action_ruleDataFragment_to_addRuleDataFragment"
-            app:destination="@id/addRuleDataFragment" />
+            app:destination="@id/addRuleDataFragment"
+            app:enterAnim="@anim/anim_slide_in_right"
+            app:exitAnim="@anim/anim_slide_out_left"
+            app:popEnterAnim="@anim/anim_slide_in_left"
+            app:popExitAnim="@anim/anim_slide_out_right" />
     </fragment>
     <fragment
         android:id="@+id/addSymptomsDataFragment"
@@ -93,6 +149,10 @@
         <action
             android:id="@+id/action_addSymptomsDataFragment_to_symptomsDataFragment"
             app:destination="@id/symptomsDataFragment"
+            app:enterAnim="@anim/anim_slide_in_right"
+            app:exitAnim="@anim/anim_slide_out_left"
+            app:popEnterAnim="@anim/anim_slide_in_left"
+            app:popExitAnim="@anim/anim_slide_out_right"
             app:popUpTo="@id/symptomsDataFragment"
             app:popUpToInclusive="true" />
         <argument
@@ -118,11 +178,19 @@
         <action
             android:id="@+id/action_addTypeDataFragment_to_typeDataFragment"
             app:destination="@id/typeDataFragment"
+            app:enterAnim="@anim/anim_slide_in_right"
+            app:exitAnim="@anim/anim_slide_out_left"
+            app:popEnterAnim="@anim/anim_slide_in_left"
+            app:popExitAnim="@anim/anim_slide_out_right"
             app:popUpTo="@id/typeDataFragment"
             app:popUpToInclusive="true" />
         <action
             android:id="@+id/action_addTypeDataFragment_to_detailTypeDataFragment"
-            app:destination="@id/detailTypeDataFragment" />
+            app:destination="@id/detailTypeDataFragment"
+            app:enterAnim="@anim/anim_slide_in_right"
+            app:exitAnim="@anim/anim_slide_out_left"
+            app:popEnterAnim="@anim/anim_slide_in_left"
+            app:popExitAnim="@anim/anim_slide_out_right" />
     </fragment>
     <fragment
         android:id="@+id/detailTypeDataFragment"
@@ -131,7 +199,11 @@
         tools:layout="@layout/fragment_detail_type_data">
         <action
             android:id="@+id/action_detailTypeDataFragment_to_addTypeDataFragment"
-            app:destination="@id/addTypeDataFragment" />
+            app:destination="@id/addTypeDataFragment"
+            app:enterAnim="@anim/anim_slide_in_right"
+            app:exitAnim="@anim/anim_slide_out_left"
+            app:popEnterAnim="@anim/anim_slide_in_left"
+            app:popExitAnim="@anim/anim_slide_out_right" />
         <argument
             android:name="id_type"
             android:defaultValue="-1"
@@ -139,6 +211,10 @@
         <action
             android:id="@+id/action_detailTypeDataFragment_to_typeDataFragment"
             app:destination="@id/typeDataFragment"
+            app:enterAnim="@anim/anim_slide_in_right"
+            app:exitAnim="@anim/anim_slide_out_left"
+            app:popEnterAnim="@anim/anim_slide_in_left"
+            app:popExitAnim="@anim/anim_slide_out_right"
             app:popUpTo="@id/typeDataFragment"
             app:popUpToInclusive="true" />
     </fragment>
@@ -150,13 +226,17 @@
         <action
             android:id="@+id/action_registerFragment_to_loginFragment"
             app:destination="@id/loginFragment"
+            app:enterAnim="@anim/anim_slide_in_right"
+            app:exitAnim="@anim/anim_slide_out_left"
+            app:popEnterAnim="@anim/anim_slide_in_left"
+            app:popExitAnim="@anim/anim_slide_out_right"
             app:popUpTo="@id/loginFragment"
             app:popUpToInclusive="true" />
     </fragment>
     <fragment
         android:id="@+id/addRuleDataFragment"
         android:name="com.example.sikarma.presentation.view.admin.rule.AddRuleDataFragment"
-        android:label="Tambah data rule"
+        android:label="@string/title_add_rule_data"
         tools:layout="@layout/fragment_add_rule_data" />
     <fragment
         android:id="@+id/patientTypeFragment"
@@ -165,7 +245,11 @@
         tools:layout="@layout/fragment_patient_type">
         <action
             android:id="@+id/action_patientTypeFragment_to_detailPatientTypeFragment"
-            app:destination="@id/detailPatientTypeFragment" />
+            app:destination="@id/detailPatientTypeFragment"
+            app:enterAnim="@anim/anim_slide_in_right"
+            app:exitAnim="@anim/anim_slide_out_left"
+            app:popEnterAnim="@anim/anim_slide_in_left"
+            app:popExitAnim="@anim/anim_slide_out_right" />
     </fragment>
     <fragment
         android:id="@+id/consultationFragment"
@@ -179,7 +263,7 @@
         tools:layout="@layout/fragment_detail_patient_type">
         <argument
             android:name="id_type"
-            app:argType="integer"
-            android:defaultValue="-1" />
+            android:defaultValue="-1"
+            app:argType="integer" />
     </fragment>
 </navigation>

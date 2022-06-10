@@ -5,7 +5,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:animateLayoutChanges="true"
-    android:padding="24dp"
+    android:padding="@dimen/dimen_24dp"
     tools:context=".presentation.view.admin.rule.AddRuleDataFragment">
 
     <com.google.android.material.textfield.TextInputLayout
@@ -18,7 +18,7 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
         app:prefixText="R0"
-        app:prefixTextColor="@color/red_900">
+        app:prefixTextColor="?attr/colorPrimaryVariant">
 
         <com.google.android.material.textfield.TextInputEditText
             android:id="@+id/edt_rule_code"
@@ -34,7 +34,7 @@
         style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox.ExposedDropdownMenu"
         android:layout_width="245dp"
         android:layout_height="wrap_content"
-        android:layout_marginTop="16dp"
+        android:layout_marginTop="@dimen/dimen_16dp"
         android:hint="@string/label_hint_choose_type"
         app:layout_constraintStart_toStartOf="@+id/tv_rule_code"
         app:layout_constraintTop_toBottomOf="@+id/tv_rule_code">
@@ -53,7 +53,7 @@
         style="@style/TextAppearance.MaterialComponents.Body1"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginTop="24dp"
+        android:layout_marginTop="@dimen/dimen_24dp"
         android:text="@string/title_symptom_list"
         app:layout_constraintStart_toStartOf="@+id/tv_type_name"
         app:layout_constraintTop_toBottomOf="@+id/tv_type_name" />
@@ -62,7 +62,7 @@
         android:id="@+id/rl_list_symptoms"
         android:layout_width="match_parent"
         android:layout_height="250dp"
-        android:layout_marginTop="16dp"
+        android:layout_marginTop="@dimen/dimen_16dp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/tv_symptom_list">
@@ -82,11 +82,11 @@
         android:id="@+id/btn_save"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_marginTop="24dp"
+        android:layout_marginTop="@dimen/dimen_24dp"
         android:enabled="false"
         android:stateListAnimator="@null"
         android:text="@string/label_save_data"
-        app:cornerRadius="20dp"
+        app:cornerRadius="@dimen/dimen_20dp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/rl_list_symptoms" />

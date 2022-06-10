@@ -9,6 +9,7 @@ import androidx.fragment.app.Fragment
 import androidx.fragment.app.activityViewModels
 import androidx.navigation.fragment.findNavController
 import androidx.navigation.fragment.navArgs
+import com.example.sikarma.R
 import com.example.sikarma.data.entity.Type
 import com.example.sikarma.databinding.FragmentDetailTypeDataBinding
 import com.example.sikarma.presentation.viewmodel.TypeViewModel
@@ -36,12 +37,10 @@ class DetailTypeDataFragment : Fragment() {
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
 
-        val id = navigationArgs.idType
-
-        getItemDetail(id)
+        getItemDetail(navigationArgs.idType)
 
         binding.btnDelete.setOnClickListener { showConfirmationDialog(type) }
-        binding.btnUpdate.setOnClickListener { goToAddSymptomsDataFragment(id) }
+        binding.btnUpdate.setOnClickListener { goToAddSymptomsDataFragment(navigationArgs.idType) }
     }
 
     private fun deleteItem(type: Type) {
@@ -77,7 +76,8 @@ class DetailTypeDataFragment : Fragment() {
 
     private fun goToAddSymptomsDataFragment(id: Int) {
         findNavController().navigate(DetailTypeDataFragmentDirections.actionDetailTypeDataFragmentToAddTypeDataFragment(
-            title = "Ubah Jenis Penyakit", idType = id
+            idType = id,
+            title = getString(R.string.title_edit_type_data)
         ))
     }
 

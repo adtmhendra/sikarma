@@ -4,7 +4,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:padding="16dp"
+    android:padding="@dimen/dimen_16dp"
     tools:context=".presentation.view.admin.rule.RuleDataFragment">
 
     <com.google.android.material.floatingactionbutton.FloatingActionButton
@@ -12,9 +12,11 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_gravity="end|bottom"
-        android:layout_margin="16dp"
+        android:layout_margin="@dimen/dimen_16dp"
         android:contentDescription="@string/label_button_set_rule"
         android:src="@drawable/ic_add"
+        android:stateListAnimator="@null"
+        app:elevation="@dimen/dimen_0dp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         tools:layout_editor_absoluteY="16dp" />
@@ -22,8 +24,8 @@
     <androidx.recyclerview.widget.RecyclerView
         android:id="@+id/rv_rule_data"
         android:layout_width="match_parent"
-        android:layout_height="0dp"
-        android:layout_marginBottom="16dp"
+        android:layout_height="@dimen/dimen_0dp"
+        android:layout_marginBottom="@dimen/dimen_16dp"
         app:layout_constraintBottom_toTopOf="@+id/fab"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"

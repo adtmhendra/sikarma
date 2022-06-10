@@ -3,69 +3,89 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
-    android:padding="8dp">
+    android:padding="@dimen/dimen_8dp">
 
     <com.google.android.material.card.MaterialCardView
         android:id="@+id/material_list_rule"
         android:layout_width="match_parent"
-        android:layout_height="0dp"
-        android:backgroundTint="@android:color/holo_blue_dark"
+        android:layout_height="@dimen/dimen_0dp"
+        android:backgroundTint="?attr/colorPrimaryVariant"
         android:clickable="true"
-        android:elevation="4dp"
+        android:elevation="@dimen/dimen_4dp"
         android:focusable="true"
-        app:elevation="4dp"
+        app:cardCornerRadius="@dimen/dimen_8dp"
+        app:elevation="@dimen/dimen_4dp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
         app:rippleColor="@android:color/white">
 
-        <RelativeLayout
-            android:id="@+id/rl_list_rule"
+        <com.google.android.material.card.MaterialCardView
             android:layout_width="match_parent"
-            android:layout_height="match_parent"
-            android:padding="16dp">
+            android:layout_height="wrap_content"
+            android:layout_marginVertical="@dimen/dimen_1dp"
+            android:layout_marginStart="@dimen/dimen_8dp"
+            android:layout_marginEnd="@dimen/dimen_1dp"
+            app:cardCornerRadius="@dimen/dimen_8dp">
 
-            <TextView
-                android:id="@+id/tv_rule_code"
+            <RelativeLayout
+                android:id="@+id/rl_list_rule"
                 android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_alignParentStart="true"
-                android:layout_marginEnd="8dp"
-                android:ellipsize="end"
-                android:gravity="center_vertical"
-                android:maxLines="1"
-                android:text="@string/title_rule_code"
-                android:textColor="@color/white" />
+                android:layout_height="match_parent"
+                android:padding="@dimen/dimen_16dp">
 
-            <TextView
-                android:id="@+id/tv_type_name"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_below="@+id/tv_rule_code"
-                android:layout_alignParentStart="true"
-                android:layout_marginTop="16dp"
-                android:layout_marginEnd="8dp"
-                android:ellipsize="end"
-                android:gravity="center_vertical"
-                android:maxLines="1"
-                android:text="@string/title_type_name"
-                android:textColor="@color/white" />
+                <TextView
+                    android:id="@+id/tv_rule_code"
+                    style="@style/TextAppearance.MaterialComponents.Body2"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_alignParentStart="true"
+                    android:layout_marginEnd="@dimen/dimen_8dp"
+                    android:ellipsize="end"
+                    android:gravity="center_vertical"
+                    android:maxLines="1"
+                    android:text="@string/title_rule_code" />
 
-            <TextView
-                android:id="@+id/tv_symptom_code"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_below="@+id/tv_type_name"
-                android:layout_alignParentStart="true"
-                android:layout_marginTop="16dp"
-                android:layout_marginEnd="8dp"
-                android:ellipsize="end"
-                android:gravity="center_vertical"
-                android:maxLines="1"
-                android:text="@string/title_symptom_code"
-                android:textColor="@color/white" />
+                <TextView
+                    android:id="@+id/tv_type_name"
+                    style="@style/TextAppearance.MaterialComponents.Body2"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_below="@+id/tv_rule_code"
+                    android:layout_alignParentStart="true"
+                    android:layout_marginTop="@dimen/dimen_16dp"
+                    android:layout_marginEnd="@dimen/dimen_8dp"
+                    android:ellipsize="end"
+                    android:gravity="center_vertical"
+                    android:maxLines="1"
+                    android:text="@string/title_type_name" />
 
-        </RelativeLayout>
+                <TextView
+                    android:id="@+id/tv_symptom_code"
+                    style="@style/TextAppearance.MaterialComponents.Body2"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_below="@+id/tv_type_name"
+                    android:layout_alignParentStart="true"
+                    android:layout_marginTop="@dimen/dimen_16dp"
+                    android:layout_marginEnd="@dimen/dimen_8dp"
+                    android:ellipsize="end"
+                    android:gravity="center_vertical"
+                    android:maxLines="1"
+                    android:text="@string/title_symptom_code" />
+
+                <ImageButton
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_alignParentEnd="true"
+                    android:layout_centerVertical="true"
+                    android:background="?attr/selectableItemBackgroundBorderless"
+                    android:src="@drawable/ic_round_chevron_right"
+                    app:tint="?attr/colorPrimaryVariant" />
+
+            </RelativeLayout>
+
+        </com.google.android.material.card.MaterialCardView>
 
     </com.google.android.material.card.MaterialCardView>
 

@@ -5,16 +5,16 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:animateLayoutChanges="true"
-    android:padding="16dp"
+    android:padding="@dimen/dimen_16dp"
     tools:context=".presentation.view.patient.DetailPatientTypeFragment">
 
     <TextView
         android:id="@+id/tv_type_title"
-        style="@style/TextAppearance.MaterialComponents.Headline6"
+        style="@style/TextAppearance.MaterialComponents.Body2"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:gravity="center"
-        android:minHeight="48dp"
+        android:minHeight="@dimen/dimen_48dp"
         android:text="@string/title_type_name"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
@@ -22,7 +22,7 @@
     <TextView
         android:id="@+id/tv_type_name"
         style="@style/TextAppearance.MaterialComponents.Body1"
-        android:layout_width="0dp"
+        android:layout_width="@dimen/dimen_0dp"
         android:layout_height="wrap_content"
         android:text="@string/title_type_name"
         app:layout_constraintEnd_toEndOf="parent"
@@ -31,12 +31,12 @@
 
     <TextView
         android:id="@+id/tv_desc_title"
-        style="@style/TextAppearance.MaterialComponents.Headline6"
+        style="@style/TextAppearance.MaterialComponents.Body2"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginTop="8dp"
+        android:layout_marginTop="@dimen/dimen_8dp"
         android:gravity="center"
-        android:minHeight="48dp"
+        android:minHeight="@dimen/dimen_48dp"
         android:text="@string/title_description"
         app:layout_constraintStart_toStartOf="@+id/tv_type_name"
         app:layout_constraintTop_toBottomOf="@+id/tv_type_name" />
@@ -44,7 +44,7 @@
     <TextView
         android:id="@+id/tv_type_description"
         style="@style/TextAppearance.MaterialComponents.Body1"
-        android:layout_width="0dp"
+        android:layout_width="@dimen/dimen_0dp"
         android:layout_height="wrap_content"
         android:text="@string/title_description"
         app:layout_constraintEnd_toEndOf="parent"
@@ -53,12 +53,12 @@
 
     <TextView
         android:id="@+id/tv_solution_title"
-        style="@style/TextAppearance.MaterialComponents.Headline6"
+        style="@style/TextAppearance.MaterialComponents.Body2"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginTop="8dp"
+        android:layout_marginTop="@dimen/dimen_8dp"
         android:gravity="center"
-        android:minHeight="48dp"
+        android:minHeight="@dimen/dimen_48dp"
         android:text="@string/title_solution"
         app:layout_constraintStart_toStartOf="@+id/tv_type_description"
         app:layout_constraintTop_toBottomOf="@+id/tv_type_description" />
@@ -66,7 +66,7 @@
     <TextView
         android:id="@+id/tv_type_solution"
         style="@style/TextAppearance.MaterialComponents.Body1"
-        android:layout_width="0dp"
+        android:layout_width="@dimen/dimen_0dp"
         android:layout_height="wrap_content"
         android:text="@string/title_solution"
         app:layout_constraintEnd_toEndOf="@+id/tv_type_description"
