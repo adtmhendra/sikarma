@@ -11,13 +11,20 @@ import android.view.ViewGroup
 import android.view.inputmethod.InputMethodManager
 import android.widget.ArrayAdapter
 import android.widget.AutoCompleteTextView
+import android.widget.Toast
 import androidx.fragment.app.Fragment
 import androidx.fragment.app.activityViewModels
+import androidx.lifecycle.asLiveData
+import androidx.navigation.fragment.findNavController
 import androidx.recyclerview.widget.LinearLayoutManager
 import com.example.sikarma.R
 import com.example.sikarma.databinding.FragmentAddRuleDataBinding
 import com.example.sikarma.presentation.adapter.SymptomNameListAdapter
 import com.example.sikarma.presentation.viewmodel.RuleViewModel
+import com.google.android.material.button.MaterialButton
+import com.google.android.material.snackbar.Snackbar
+import com.google.android.material.textfield.TextInputEditText
+import com.google.android.material.textfield.TextInputLayout
 
 class AddRuleDataFragment : Fragment() {
 
@@ -26,44 +33,105 @@ class AddRuleDataFragment : Fragment() {
 
     private val viewModel: RuleViewModel by activityViewModels()
 
-    private var typeList = mutableListOf<List<String>>()
+    private lateinit var ruleCode: TextInputLayout
+    private lateinit var acTvType: AutoCompleteTextView
+    private lateinit var edtRuleCode: TextInputEditText
+    private lateinit var btnSave: MaterialButton
+
+    private lateinit var prefix: String
+    private lateinit var getRuleCode: String
+
+    private lateinit var selectedItem: MutableList<String>
+    private lateinit var typeName: String
 
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?,
     ): View {
         _binding = FragmentAddRuleDataBinding.inflate(inflater, container, false)
+
+        ruleCode = binding.tvRuleCode
+        acTvType = binding.acTvType
+        edtRuleCode = binding.edtRuleCode
+        btnSave = binding.btnSave
+        prefix = ruleCode.prefixText.toString()
+
         return binding.root
     }
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
 
-        viewModel.getTypes.observe(this.viewLifecycleOwner) {
-            Log.d("AddRuleDataFragment", it.toString())
+        binding.edtRuleCode.addTextChangedListener(addRuleTextWatcher)
 
-            (binding.acTvType as? AutoCompleteTextView)?.setAdapter(ArrayAdapter(requireContext(),
-                R.layout.list_type_dropdown,
-                R.id.tv_dropdown,
-                it.map { it.type_name }))
-        }
+        getTypesAndRules()
 
-        viewModel.getSymptoms.observe(this.viewLifecycleOwner) {
-            Log.d("AddRuleDataFragment", it.toString())
+        getRuleWithSymptoms()
 
-            val adapter = SymptomNameListAdapter(requireContext(), it)
-
-            binding.rvListSymptomName.setHasFixedSize(true)
-            binding.rvListSymptomName.layoutManager =
-                LinearLayoutManager(requireContext(), LinearLayoutManager.VERTICAL, false)
-            binding.rvListSymptomName.adapter = adapter
+        btnSave.setOnClickListener {
+            viewModel.getTypeDescription(typeName).asLiveData()
+                .observe(viewLifecycleOwner) { typeDesc ->
+                    Log.d("CheckDesc", typeDesc)
+                    addNewRule(typeName, selectedItem.joinToString { it }, typeDesc)
+                }
         }
     }
 
-    // Disable save button when symptoms edit text is empty
-    private val addSymptomsTextWatcher = object : TextWatcher {
+    private fun addNewRule(typeName: String, symptomName: String, description: String) {
+        getRuleCode = prefix + binding.edtRuleCode.text.toString()
+        if (!isDataExist(getRuleCode, binding.acTvType.text.toString().trim().lowercase())) {
+            viewModel.addNewRule(typeName, symptomName, getRuleCode, description)
+            Toast.makeText(activity, "Data berhasil disimpan", Toast.LENGTH_SHORT)
+                .show()
+            findNavController().navigate(R.id.action_addRuleDataFragment_to_ruleDataFragment)
+        } else {
+            hideKeyboard()
+            Snackbar.make(btnSave, "Data telah tersedia", Snackbar.LENGTH_SHORT).show()
+        }
+    }
+
+    private fun getTypesAndRules() {
+        viewModel.getTypesAndRules.observe(this.viewLifecycleOwner) { data ->
+            (acTvType as? AutoCompleteTextView)?.setAdapter(ArrayAdapter(requireContext(),
+                R.layout.list_type_dropdown,
+                R.id.tv_dropdown,
+                data.map { typeName ->
+                    typeName.type?.type_name
+                }))
+
+            acTvType.setOnItemClickListener { adapterView, _, i, _ ->
+                typeName = adapterView.getItemAtPosition(i).toString()
+            }
+        }
+    }
+
+    private fun getRuleWithSymptoms() {
+        viewModel.getRuleWithSymptoms.observe(this.viewLifecycleOwner) { data ->
+            val adapter = SymptomNameListAdapter(
+                requireContext(),
+                data.map { symptoms ->
+                    symptoms.symptoms
+                })
+
+            binding.apply {
+                rvListSymptomName.setHasFixedSize(true)
+                rvListSymptomName.layoutManager =
+                    LinearLayoutManager(requireContext(), LinearLayoutManager.VERTICAL, false)
+                rvListSymptomName.adapter = adapter
+            }
+
+            selectedItem = adapter.getSelectedItem()
+        }
+    }
+
+    private fun isDataExist(ruleCode: String, typeId: String) =
+        viewModel.checkData(ruleCode, typeId)
+
+    // Disable save button when rule code edit text is empty
+    private val addRuleTextWatcher = object : TextWatcher {
         override fun beforeTextChanged(p0: CharSequence?, p1: Int, p2: Int, p3: Int) {}
         override fun onTextChanged(p0: CharSequence?, p1: Int, p2: Int, p3: Int) {
+            btnSave.isEnabled = edtRuleCode.text!!.isNotEmpty()
         }
 
         override fun afterTextChanged(p0: Editable?) {}

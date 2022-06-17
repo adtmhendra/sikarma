@@ -11,7 +11,7 @@ import com.example.sikarma.data.entity.Symptoms
 import com.example.sikarma.databinding.ListSymptomsBinding
 import com.example.sikarma.presentation.contract.OnClickListener
 
-class SymptomsDataFragmentAdapter(var listener: OnClickListener) :
+class SymptomsDataFragmentAdapter(private var listener: OnClickListener) :
     ListAdapter<Symptoms, SymptomsDataFragmentAdapter.SymptomsDataFragmentViewHolder>(DiffCallback) {
 
     class SymptomsDataFragmentViewHolder(private val binding: ListSymptomsBinding) :

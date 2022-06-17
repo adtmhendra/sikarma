@@ -6,10 +6,16 @@ import com.example.sikarma.data.dao.AdminDao
 import com.example.sikarma.data.dao.RuleDao
 import com.example.sikarma.data.dao.SymptomsDao
 import com.example.sikarma.data.dao.TypeDao
-import com.example.sikarma.data.entity.*
+import com.example.sikarma.data.entity.Admin
+import com.example.sikarma.data.entity.Rule
+import com.example.sikarma.data.entity.Symptoms
+import com.example.sikarma.data.entity.Type
 
-@Database(entities = [Admin::class, Symptoms::class, Type::class, Rule::class, TypeSymptomCrossRef::class],
-    version = 1,
+@Database(entities = [Admin::class,
+    Symptoms::class,
+    Type::class,
+    Rule::class],
+    version = 2,
     exportSchema = false)
 abstract class AppDatabase : RoomDatabase() {
 

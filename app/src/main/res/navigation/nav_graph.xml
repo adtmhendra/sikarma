@@ -237,7 +237,13 @@
         android:id="@+id/addRuleDataFragment"
         android:name="com.example.sikarma.presentation.view.admin.rule.AddRuleDataFragment"
         android:label="@string/title_add_rule_data"
-        tools:layout="@layout/fragment_add_rule_data" />
+        tools:layout="@layout/fragment_add_rule_data" >
+        <action
+            android:id="@+id/action_addRuleDataFragment_to_ruleDataFragment"
+            app:destination="@id/ruleDataFragment"
+            app:popUpTo="@id/ruleDataFragment"
+            app:popUpToInclusive="true" />
+    </fragment>
     <fragment
         android:id="@+id/patientTypeFragment"
         android:name="com.example.sikarma.presentation.view.patient.PatientTypeFragment"

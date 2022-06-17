@@ -5,8 +5,6 @@ import androidx.lifecycle.asLiveData
 import androidx.lifecycle.viewModelScope
 import com.example.sikarma.data.entity.Rule
 import com.example.sikarma.domain.usecase.rule.RuleUseCaseImpl
-import com.example.sikarma.domain.usecase.symptom.SymptomsUseCaseImpl
-import com.example.sikarma.domain.usecase.type.TypeUseCaseImpl
 import dagger.hilt.android.lifecycle.HiltViewModel
 import kotlinx.coroutines.launch
 import javax.inject.Inject
@@ -14,9 +12,11 @@ import javax.inject.Inject
 @HiltViewModel
 class RuleViewModel @Inject constructor(
     private val useCase: RuleUseCaseImpl,
-    private val typeUseCase: TypeUseCaseImpl,
-    private val symptomUseCase: SymptomsUseCaseImpl,
 ) : ViewModel() {
+
+    val getTypesAndRules = useCase.getTypesAndRules().asLiveData()
+
+    val getRuleWithSymptoms = useCase.getRuleWithSymptoms().asLiveData()
 
     private fun insertRule(rule: Rule) =
         viewModelScope.launch { useCase.insertRule(rule) }
@@ -27,11 +27,33 @@ class RuleViewModel @Inject constructor(
     private fun deleteRule(rule: Rule) =
         viewModelScope.launch { useCase.deleteRule(rule) }
 
-    val getTypes = typeUseCase.getTypes().asLiveData()
+    private fun getNewRuleEntry(
+        idType: String,
+        idSymptoms: String,
+        ruleCode: String,
+        descriprion: String,
+    ) =
+        Rule(
+            id_type = idType,
+            id_symptoms = idSymptoms,
+            rule_code = ruleCode,
+            description = descriprion
+        )
 
-    val getSymptoms = symptomUseCase.getSymptoms().asLiveData()
+    private fun getRuleName(ruleCode: String, typeId: String) =
+        useCase.getRuleName(ruleCode, typeId)
 
-    val getTypeWithSymptoms = useCase.getTypeWithSymptoms().asLiveData()
+    fun addNewRule(idType: String, idSymptoms: String, ruleCode: String, descriprion: String) {
+        val newRule = getNewRuleEntry(
+            idType = idType,
+            idSymptoms = idSymptoms,
+            ruleCode = ruleCode,
+            descriprion = descriprion
+        )
+        insertRule(newRule)
+    }
 
-//    fun getRuleAndType() = useCase.getRuleAndType().asLiveData()
+    fun getTypeDescription(typeName: String) = useCase.getTypeDescription(typeName)
+
+    fun checkData(ruleCode: String, typeId: String) = getRuleName(ruleCode, typeId)
 }

@@ -2,7 +2,9 @@ package com.example.sikarma.data.repository
 
 import com.example.sikarma.data.database.AppDatabase
 import com.example.sikarma.data.entity.Rule
-import com.example.sikarma.data.entity.TypeWithSymptoms
+import com.example.sikarma.data.entity.SymptomsWithRule
+import com.example.sikarma.data.entity.Type
+import com.example.sikarma.data.entity.TypeAndRule
 import com.example.sikarma.domain.repository.IRuleRepository
 import kotlinx.coroutines.flow.Flow
 import javax.inject.Inject
@@ -19,9 +21,15 @@ class RuleRepositoryImpl @Inject constructor(private val appDatabase: AppDatabas
     override suspend fun deleteRule(rule: Rule) =
         appDatabase.ruleDao.deleteRule(rule)
 
-    override fun getTypeWithSymptoms(): Flow<List<TypeWithSymptoms>> =
-        appDatabase.ruleDao.getTypeWithSymptoms()
+    override fun getTypesAndRules(): Flow<List<TypeAndRule>> =
+        appDatabase.ruleDao.getTypesAndRules()
 
-//    override fun getRuleAndType(): Flow<List<RuleAndType>> =
-//        appDatabase.ruleDao.getRuleAndType()
+    override fun getRuleWithSymptoms(): Flow<List<SymptomsWithRule>> =
+        appDatabase.ruleDao.getRuleWithSymptoms()
+
+    override fun getRuleName(ruleCode: String, typeId: String): Boolean =
+        appDatabase.ruleDao.getRuleName(ruleCode, typeId)
+
+    override fun getTypeDescription(typeName: String): Flow<String> =
+        appDatabase.ruleDao.getTypeDescription(typeName)
 }

@@ -9,14 +9,17 @@ import androidx.room.PrimaryKey
 data class Rule(
     @PrimaryKey(autoGenerate = true)
     @ColumnInfo(name = "id_rule")
+    @NonNull
     val id_rule: Int = 0,
+    @ColumnInfo(name = "id_type")
+    @NonNull
+    val id_type: String,
+    @ColumnInfo(name = "id_symptoms")
+    @NonNull
+    val id_symptoms: String,
     @ColumnInfo(name = "rule_code")
     @NonNull
     val rule_code: String,
-    @ColumnInfo(name = "type_code")
-    @NonNull
-    val type_code: String,
-    @ColumnInfo(name = "symptoms_name")
-    @NonNull
-    val symptoms_name: String,
+    @ColumnInfo(name = "description")
+    val description: String,
 )

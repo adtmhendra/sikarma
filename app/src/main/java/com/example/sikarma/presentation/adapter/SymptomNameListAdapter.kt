@@ -10,17 +10,21 @@ import com.example.sikarma.databinding.ListRuleCheckBoxBinding
 
 class SymptomNameListAdapter(
     private val context: Context,
-    private val listSymptom: List<Symptoms>,
+    private val listSymptom: List<Symptoms?>,
 ) :
     RecyclerView.Adapter<SymptomNameListAdapter.SymptomNameViewHolder>() {
 
+    private val selectedItem = mutableListOf<String>()
+
     inner class SymptomNameViewHolder(private val binding: ListRuleCheckBoxBinding) :
         RecyclerView.ViewHolder(binding.root) {
-        fun bind(symptoms: Symptoms) {
+        fun bind(symptoms: Symptoms?) {
             binding.cbSymptomName.text = context.getString(R.string.label_symptoms_code_and_name,
-                symptoms.symptoms_code,
-                symptoms.symptoms_name)
+                symptoms?.symptoms_code,
+                symptoms?.symptoms_name)
         }
+
+        val cbSymptomsName = binding.cbSymptomName
     }
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): SymptomNameViewHolder =
@@ -30,9 +34,18 @@ class SymptomNameListAdapter(
         holder: SymptomNameListAdapter.SymptomNameViewHolder,
         position: Int,
     ) {
-        val typeSymptom = listSymptom[position]
-        holder.bind(typeSymptom)
+        val symptom = listSymptom[position]
+        holder.bind(symptom)
+        holder.cbSymptomsName.setOnClickListener {
+            if (holder.cbSymptomsName.isChecked) {
+                selectedItem.add(symptom!!.symptoms_name)
+            } else {
+                selectedItem.remove(symptom!!.symptoms_name)
+            }
+        }
     }
 
     override fun getItemCount() = listSymptom.size
+
+    fun getSelectedItem() = selectedItem
 }

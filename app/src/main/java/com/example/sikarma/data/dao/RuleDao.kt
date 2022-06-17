@@ -2,8 +2,8 @@ package com.example.sikarma.data.dao
 
 import androidx.room.*
 import com.example.sikarma.data.entity.Rule
-import com.example.sikarma.data.entity.TypeSymptom
-import com.example.sikarma.data.entity.TypeWithSymptoms
+import com.example.sikarma.data.entity.SymptomsWithRule
+import com.example.sikarma.data.entity.TypeAndRule
 import kotlinx.coroutines.flow.Flow
 
 @Dao
@@ -20,10 +20,15 @@ interface RuleDao {
 
     @Transaction
     @Query("SELECT * FROM tb_type")
-    fun getTypeWithSymptoms(): Flow<List<TypeWithSymptoms>>
+    fun getTypesAndRules(): Flow<List<TypeAndRule>>
 
-    @Query("SELECT tb_type.type_name AS type_name, tb_symptoms.symptoms_name AS symptom_name " +
-            "FROM tb_type, tb_symptoms " +
-            "WHERE tb_type.id_type = tb_symptoms.id_symptoms")
-    fun loadTypeAndSymptomName(): Flow<List<TypeSymptom>>
+    @Transaction
+    @Query("SELECT * FROM tb_symptoms")
+    fun getRuleWithSymptoms(): Flow<List<SymptomsWithRule>>
+
+    @Query("SELECT EXISTS(SELECT * FROM tb_rule WHERE rule_code = :ruleCode OR id_type =:typeId)")
+    fun getRuleName(ruleCode: String, typeId: String): Boolean
+
+    @Query("SELECT type_description FROM tb_type WHERE type_name = :typeName")
+    fun getTypeDescription(typeName: String): Flow<String>
 }
