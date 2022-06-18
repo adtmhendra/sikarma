@@ -34,4 +34,7 @@ class RuleRepositoryImpl @Inject constructor(private val appDatabase: AppDatabas
 
     override fun getRules(): Flow<List<Rule>> =
         appDatabase.ruleDao.getRules()
+
+    override fun getRuleId(ruleId: Int): Flow<Rule> =
+        appDatabase.ruleDao.getRuleId(ruleId)
 }

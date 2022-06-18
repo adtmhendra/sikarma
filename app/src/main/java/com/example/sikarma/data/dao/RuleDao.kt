@@ -21,6 +21,9 @@ interface RuleDao {
     @Query("SELECT * FROM tb_rule ORDER BY rule_code ASC")
     fun getRules(): Flow<List<Rule>>
 
+    @Query("SELECT * FROM tb_rule WHERE id_rule = :ruleId")
+    fun getRuleId(ruleId: Int): Flow<Rule>
+
     @Transaction
     @Query("SELECT * FROM tb_type")
     fun getTypesAndRules(): Flow<List<TypeAndRule>>

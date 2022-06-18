@@ -1,5 +1,6 @@
 package com.example.sikarma.presentation.viewmodel
 
+import androidx.lifecycle.LiveData
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.asLiveData
 import androidx.lifecycle.viewModelScope
@@ -20,13 +21,15 @@ class RuleViewModel @Inject constructor(
 
     val getRuleWithSymptoms = useCase.getRuleWithSymptoms().asLiveData()
 
+    fun retrieveRule(id: Int): LiveData<Rule> = useCase.getRuleId(id).asLiveData()
+
     private fun insertRule(rule: Rule) =
         viewModelScope.launch { useCase.insertRule(rule) }
 
     private fun updateRule(rule: Rule) =
         viewModelScope.launch { useCase.updateRule(rule) }
 
-    private fun deleteRule(rule: Rule) =
+    fun deleteRule(rule: Rule) =
         viewModelScope.launch { useCase.deleteRule(rule) }
 
     private fun getNewRuleEntry(

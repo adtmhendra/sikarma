@@ -14,4 +14,5 @@ interface IRuleRepository {
     fun getRuleName(ruleCode: String, typeId: String): Boolean
     fun getTypeDescription(typeName: String): Flow<String>
     fun getRules(): Flow<List<Rule>>
+    fun getRuleId(ruleId: Int): Flow<Rule>
 }

@@ -33,4 +33,7 @@ class RuleUseCaseImpl @Inject constructor(private val iRuleRepository: IRuleRepo
 
     override fun getRules(): Flow<List<Rule>> =
         iRuleRepository.getRules()
+
+    override fun getRuleId(ruleId: Int): Flow<Rule> =
+        iRuleRepository.getRuleId(ruleId)
 }
