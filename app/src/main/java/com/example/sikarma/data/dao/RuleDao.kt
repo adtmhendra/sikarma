@@ -2,8 +2,8 @@ package com.example.sikarma.data.dao
 
 import androidx.room.*
 import com.example.sikarma.data.entity.Rule
-import com.example.sikarma.data.entity.SymptomsWithRule
-import com.example.sikarma.data.entity.TypeAndRule
+import com.example.sikarma.data.entity.relations.SymptomsWithRule
+import com.example.sikarma.data.entity.relations.TypeAndRule
 import kotlinx.coroutines.flow.Flow
 
 @Dao

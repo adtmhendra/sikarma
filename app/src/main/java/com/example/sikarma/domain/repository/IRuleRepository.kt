@@ -1,8 +1,8 @@
 package com.example.sikarma.domain.repository
 
 import com.example.sikarma.data.entity.Rule
-import com.example.sikarma.data.entity.SymptomsWithRule
-import com.example.sikarma.data.entity.TypeAndRule
+import com.example.sikarma.data.entity.relations.SymptomsWithRule
+import com.example.sikarma.data.entity.relations.TypeAndRule
 import kotlinx.coroutines.flow.Flow
 
 interface IRuleRepository {

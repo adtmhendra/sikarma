@@ -1,9 +1,8 @@
 package com.example.sikarma.domain.usecase.rule
 
 import com.example.sikarma.data.entity.Rule
-import com.example.sikarma.data.entity.SymptomsWithRule
-import com.example.sikarma.data.entity.Type
-import com.example.sikarma.data.entity.TypeAndRule
+import com.example.sikarma.data.entity.relations.SymptomsWithRule
+import com.example.sikarma.data.entity.relations.TypeAndRule
 import com.example.sikarma.domain.repository.IRuleRepository
 import kotlinx.coroutines.flow.Flow
 import javax.inject.Inject

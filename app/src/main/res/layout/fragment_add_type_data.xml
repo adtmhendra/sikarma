@@ -21,7 +21,7 @@
             app:endIconMode="clear_text"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent"
-            app:prefixText="P0"
+            app:prefixText="P"
             app:prefixTextColor="?attr/colorPrimaryVariant">
 
             <com.google.android.material.textfield.TextInputEditText
