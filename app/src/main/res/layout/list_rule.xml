@@ -37,7 +37,7 @@
                 <TextView
                     android:id="@+id/tv_rule_code"
                     style="@style/TextAppearance.MaterialComponents.Body2"
-                    android:layout_width="match_parent"
+                    android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_alignParentStart="true"
                     android:layout_marginEnd="@dimen/dimen_8dp"
@@ -49,11 +49,11 @@
                 <TextView
                     android:id="@+id/tv_type_name"
                     style="@style/TextAppearance.MaterialComponents.Body2"
-                    android:layout_width="match_parent"
+                    android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_below="@+id/tv_rule_code"
                     android:layout_alignParentStart="true"
-                    android:layout_marginTop="@dimen/dimen_16dp"
+                    android:layout_marginTop="@dimen/dimen_8dp"
                     android:layout_marginEnd="@dimen/dimen_8dp"
                     android:ellipsize="end"
                     android:gravity="center_vertical"
@@ -61,18 +61,18 @@
                     android:text="@string/title_type_name" />
 
                 <TextView
-                    android:id="@+id/tv_symptom_code"
+                    android:id="@+id/tv_symptom_name"
                     style="@style/TextAppearance.MaterialComponents.Body2"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:layout_below="@+id/tv_type_name"
                     android:layout_alignParentStart="true"
-                    android:layout_marginTop="@dimen/dimen_16dp"
+                    android:layout_marginTop="@dimen/dimen_8dp"
                     android:layout_marginEnd="@dimen/dimen_8dp"
                     android:ellipsize="end"
                     android:gravity="center_vertical"
                     android:maxLines="1"
-                    android:text="@string/title_symptom_code" />
+                    android:text="@string/title_symptom_name" />
 
                 <ImageButton
                     android:layout_width="wrap_content"

@@ -13,4 +13,5 @@ interface IRuleUseCase {
     fun getRuleWithSymptoms(): Flow<List<SymptomsWithRule>>
     fun getRuleName(ruleCode: String, typeId: String): Boolean
     fun getTypeDescription(typeName: String): Flow<String>
+    fun getRules(): Flow<List<Rule>>
 }

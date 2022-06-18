@@ -14,6 +14,8 @@ class RuleViewModel @Inject constructor(
     private val useCase: RuleUseCaseImpl,
 ) : ViewModel() {
 
+    val getListRuleData = useCase.getRules().asLiveData()
+
     val getTypesAndRules = useCase.getTypesAndRules().asLiveData()
 
     val getRuleWithSymptoms = useCase.getRuleWithSymptoms().asLiveData()
@@ -31,13 +33,13 @@ class RuleViewModel @Inject constructor(
         idType: String,
         idSymptoms: String,
         ruleCode: String,
-        descriprion: String,
+        description: String,
     ) =
         Rule(
             id_type = idType,
             id_symptoms = idSymptoms,
             rule_code = ruleCode,
-            description = descriprion
+            description = description
         )
 
     private fun getRuleName(ruleCode: String, typeId: String) =
@@ -48,7 +50,7 @@ class RuleViewModel @Inject constructor(
             idType = idType,
             idSymptoms = idSymptoms,
             ruleCode = ruleCode,
-            descriprion = descriprion
+            description = descriprion
         )
         insertRule(newRule)
     }

@@ -18,6 +18,9 @@ interface RuleDao {
     @Delete
     suspend fun deleteRule(rule: Rule)
 
+    @Query("SELECT * FROM tb_rule ORDER BY rule_code ASC")
+    fun getRules(): Flow<List<Rule>>
+
     @Transaction
     @Query("SELECT * FROM tb_type")
     fun getTypesAndRules(): Flow<List<TypeAndRule>>

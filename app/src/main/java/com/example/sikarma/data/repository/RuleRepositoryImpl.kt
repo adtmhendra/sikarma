@@ -31,4 +31,7 @@ class RuleRepositoryImpl @Inject constructor(private val appDatabase: AppDatabas
 
     override fun getTypeDescription(typeName: String): Flow<String> =
         appDatabase.ruleDao.getTypeDescription(typeName)
+
+    override fun getRules(): Flow<List<Rule>> =
+        appDatabase.ruleDao.getRules()
 }

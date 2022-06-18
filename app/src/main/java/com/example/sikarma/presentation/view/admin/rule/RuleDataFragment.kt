@@ -4,10 +4,13 @@ import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import android.widget.Toast
 import androidx.fragment.app.Fragment
 import androidx.fragment.app.activityViewModels
 import androidx.navigation.fragment.findNavController
+import androidx.recyclerview.widget.LinearLayoutManager
 import com.example.sikarma.databinding.FragmentRuleDataBinding
+import com.example.sikarma.presentation.adapter.RuleDataFragmentAdapter
 import com.example.sikarma.presentation.viewmodel.RuleViewModel
 
 class RuleDataFragment : Fragment() {
@@ -28,11 +31,25 @@ class RuleDataFragment : Fragment() {
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
 
-        binding.fab.setOnClickListener { goToAddRuleDataFragment() }
+        getListRuleData()
 
-//        viewModel.getRuleAndType().observe(viewLifecycleOwner) {
-//            Log.d("RuleDataFragment", it[1].toString())
-//        }
+        binding.fab.setOnClickListener { goToAddRuleDataFragment() }
+    }
+
+    private fun getListRuleData() {
+        val adapter = RuleDataFragmentAdapter() { rule ->
+            Toast.makeText(requireContext(), rule.id_type, Toast.LENGTH_SHORT).show()
+        }
+
+        binding.rvRuleData.apply {
+            layoutManager =
+                LinearLayoutManager(requireContext(), LinearLayoutManager.VERTICAL, false)
+            this.adapter = adapter
+        }
+
+        viewModel.getListRuleData.observe(viewLifecycleOwner) { listRule ->
+            listRule.let { adapter.submitList(listRule) }
+        }
     }
 
     private fun goToAddRuleDataFragment() {

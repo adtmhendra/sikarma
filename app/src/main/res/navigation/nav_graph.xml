@@ -237,10 +237,14 @@
         android:id="@+id/addRuleDataFragment"
         android:name="com.example.sikarma.presentation.view.admin.rule.AddRuleDataFragment"
         android:label="@string/title_add_rule_data"
-        tools:layout="@layout/fragment_add_rule_data" >
+        tools:layout="@layout/fragment_add_rule_data">
         <action
             android:id="@+id/action_addRuleDataFragment_to_ruleDataFragment"
             app:destination="@id/ruleDataFragment"
+            app:enterAnim="@anim/anim_slide_in_right"
+            app:exitAnim="@anim/anim_slide_out_left"
+            app:popEnterAnim="@anim/anim_slide_in_left"
+            app:popExitAnim="@anim/anim_slide_out_right"
             app:popUpTo="@id/ruleDataFragment"
             app:popUpToInclusive="true" />
     </fragment>
