@@ -45,17 +45,49 @@ class RuleViewModel @Inject constructor(
             description = description
         )
 
+    private fun getUpdatedRuleEntry(
+        id: Int,
+        idType: String,
+        idSymptoms: String,
+        ruleCode: String,
+        description: String,
+    ) =
+        Rule(
+            id_rule = id,
+            id_type = idType,
+            id_symptoms = idSymptoms,
+            rule_code = ruleCode,
+            description = description,
+        )
+
     private fun getRuleName(ruleCode: String, typeId: String) =
         useCase.getRuleName(ruleCode, typeId)
 
-    fun addNewRule(idType: String, idSymptoms: String, ruleCode: String, descriprion: String) {
+    fun addNewRule(idType: String, idSymptoms: String, ruleCode: String, description: String) {
         val newRule = getNewRuleEntry(
             idType = idType,
             idSymptoms = idSymptoms,
-            ruleCode = ruleCode,
-            description = descriprion
+            description = description,
+            ruleCode = ruleCode
         )
         insertRule(newRule)
+    }
+
+    fun updateRule(
+        id: Int,
+        idType: String,
+        idSymptoms: String,
+        description: String,
+        ruleCode: String,
+    ) {
+        val updateRule = getUpdatedRuleEntry(
+            id = id,
+            idType = idType,
+            idSymptoms = idSymptoms,
+            ruleCode = ruleCode,
+            description = description
+        )
+        updateRule(updateRule)
     }
 
     fun getTypeDescription(typeName: String) = useCase.getTypeDescription(typeName)

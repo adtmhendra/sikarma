@@ -9,6 +9,7 @@ import androidx.fragment.app.Fragment
 import androidx.fragment.app.activityViewModels
 import androidx.navigation.fragment.findNavController
 import androidx.navigation.fragment.navArgs
+import com.example.sikarma.R
 import com.example.sikarma.data.entity.Rule
 import com.example.sikarma.databinding.FragmentDetailRuleDataBinding
 import com.example.sikarma.presentation.viewmodel.RuleViewModel
@@ -39,7 +40,7 @@ class DetailRuleDataFragment : Fragment() {
         getItemDetail(navigationArgs.idRule)
 
         binding.btnDelete.setOnClickListener { showConfirmationDialog(rule) }
-        binding.btnUpdate.setOnClickListener { }
+        binding.btnUpdate.setOnClickListener { goToAddRuleDataFragment(navigationArgs.idRule) }
     }
 
     private fun deleteItem(rule: Rule) {
@@ -70,6 +71,13 @@ class DetailRuleDataFragment : Fragment() {
                 Toast.makeText(requireContext(), "Data berhasil dihapus", Toast.LENGTH_SHORT).show()
             }
             .show()
+    }
+
+    private fun goToAddRuleDataFragment(id: Int) {
+        findNavController().navigate(DetailRuleDataFragmentDirections.actionDetailRuleDataFragmentToAddRuleDataFragment(
+            idRule = id,
+            title = getString(R.string.title_edit_rule_data)
+        ))
     }
 
     override fun onDestroy() {

@@ -243,7 +243,7 @@
     <fragment
         android:id="@+id/addRuleDataFragment"
         android:name="com.example.sikarma.presentation.view.admin.rule.AddRuleDataFragment"
-        android:label="@string/title_add_rule_data"
+        android:label="{title}"
         tools:layout="@layout/fragment_add_rule_data">
         <action
             android:id="@+id/action_addRuleDataFragment_to_ruleDataFragment"
@@ -254,6 +254,12 @@
             app:popExitAnim="@anim/anim_slide_out_right"
             app:popUpTo="@id/ruleDataFragment"
             app:popUpToInclusive="true" />
+        <argument
+            android:name="id_rule"
+            app:argType="integer"
+            android:defaultValue="-1" />
+        <argument android:name="title"
+            app:argType="string" />
     </fragment>
     <fragment
         android:id="@+id/patientTypeFragment"
@@ -301,5 +307,12 @@
             app:popExitAnim="@anim/anim_slide_out_right"
             app:popUpTo="@id/ruleDataFragment"
             app:popUpToInclusive="true" />
+        <action
+            android:id="@+id/action_detailRuleDataFragment_to_addRuleDataFragment"
+            app:destination="@id/addRuleDataFragment"
+            app:enterAnim="@anim/anim_slide_in_right"
+            app:exitAnim="@anim/anim_slide_out_left"
+            app:popEnterAnim="@anim/anim_slide_in_left"
+            app:popExitAnim="@anim/anim_slide_out_right"/>
     </fragment>
 </navigation>

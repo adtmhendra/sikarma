@@ -40,7 +40,7 @@ class DetailTypeDataFragment : Fragment() {
         getItemDetail(navigationArgs.idType)
 
         binding.btnDelete.setOnClickListener { showConfirmationDialog(type) }
-        binding.btnUpdate.setOnClickListener { goToAddSymptomsDataFragment(navigationArgs.idType) }
+        binding.btnUpdate.setOnClickListener { goToAddTypeDataFragment(navigationArgs.idType) }
     }
 
     private fun deleteItem(type: Type) {
@@ -74,7 +74,7 @@ class DetailTypeDataFragment : Fragment() {
             .show()
     }
 
-    private fun goToAddSymptomsDataFragment(id: Int) {
+    private fun goToAddTypeDataFragment(id: Int) {
         findNavController().navigate(DetailTypeDataFragmentDirections.actionDetailTypeDataFragmentToAddTypeDataFragment(
             idType = id,
             title = getString(R.string.title_edit_type_data)

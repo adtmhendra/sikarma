@@ -8,6 +8,7 @@ import androidx.fragment.app.Fragment
 import androidx.fragment.app.activityViewModels
 import androidx.navigation.fragment.findNavController
 import androidx.recyclerview.widget.LinearLayoutManager
+import com.example.sikarma.R
 import com.example.sikarma.databinding.FragmentRuleDataBinding
 import com.example.sikarma.presentation.adapter.RuleDataFragmentAdapter
 import com.example.sikarma.presentation.viewmodel.RuleViewModel
@@ -54,7 +55,9 @@ class RuleDataFragment : Fragment() {
     }
 
     private fun goToAddRuleDataFragment() {
-        findNavController().navigate(RuleDataFragmentDirections.actionRuleDataFragmentToAddRuleDataFragment())
+        findNavController().navigate(RuleDataFragmentDirections.actionRuleDataFragmentToAddRuleDataFragment(
+            title = getString(R.string.title_add_rule_data)
+        ))
     }
 
     override fun onDestroy() {

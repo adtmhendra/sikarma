@@ -4,20 +4,22 @@ import android.content.Context
 import android.os.Bundle
 import android.text.Editable
 import android.text.TextWatcher
-import android.util.Log
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import android.view.inputmethod.InputMethodManager
 import android.widget.ArrayAdapter
 import android.widget.AutoCompleteTextView
+import android.widget.TextView
 import android.widget.Toast
 import androidx.fragment.app.Fragment
 import androidx.fragment.app.activityViewModels
 import androidx.lifecycle.asLiveData
 import androidx.navigation.fragment.findNavController
+import androidx.navigation.fragment.navArgs
 import androidx.recyclerview.widget.LinearLayoutManager
 import com.example.sikarma.R
+import com.example.sikarma.data.entity.Rule
 import com.example.sikarma.databinding.FragmentAddRuleDataBinding
 import com.example.sikarma.presentation.adapter.SymptomNameListAdapter
 import com.example.sikarma.presentation.viewmodel.RuleViewModel
@@ -44,6 +46,10 @@ class AddRuleDataFragment : Fragment() {
     private lateinit var selectedItem: MutableList<String>
     private lateinit var typeName: String
 
+    private val navigationArgs: AddRuleDataFragmentArgs by navArgs()
+
+    private lateinit var rule: Rule
+
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?,
@@ -68,22 +74,57 @@ class AddRuleDataFragment : Fragment() {
 
         getRuleWithSymptoms()
 
+        if (navigationArgs.idRule > 0) {
+            edtRuleCode.isEnabled = false
+            acTvType.isEnabled = false
+            ruleCode.prefixText = ""
+            viewModel.retrieveRule(navigationArgs.idRule).observe(this.viewLifecycleOwner) {
+                rule = it
+                bind(rule, navigationArgs.idRule)
+            }
+        } else {
+            btnSave.setOnClickListener {
+                viewModel.getTypeDescription(typeName).asLiveData()
+                    .observe(viewLifecycleOwner) { typeDesc ->
+                        addNewRule(typeName, selectedItem.joinToString { it }, typeDesc)
+                    }
+            }
+        }
+    }
+
+    private fun bind(rule: Rule, id: Int) {
+        edtRuleCode.setText(rule.rule_code, TextView.BufferType.SPANNABLE)
+        acTvType.setText(rule.id_type, TextView.BufferType.SPANNABLE)
         btnSave.setOnClickListener {
-            viewModel.getTypeDescription(typeName).asLiveData()
-                .observe(viewLifecycleOwner) { typeDesc ->
-                    Log.d("CheckDesc", typeDesc)
-                    addNewRule(typeName, selectedItem.joinToString { it }, typeDesc)
-                }
+            updateRule(id)
         }
     }
 
     private fun addNewRule(typeName: String, symptomName: String, description: String) {
         getRuleCode = prefix + binding.edtRuleCode.text.toString()
-        if (!isDataExist(getRuleCode, binding.acTvType.text.toString().trim().lowercase())) {
+        if (!isDataExist(getRuleCode, acTvType.text.toString().trim().lowercase())) {
             viewModel.addNewRule(typeName, symptomName, getRuleCode, description)
             Toast.makeText(activity, "Data berhasil disimpan", Toast.LENGTH_SHORT)
                 .show()
             findNavController().navigate(R.id.action_addRuleDataFragment_to_ruleDataFragment)
+        } else {
+            hideKeyboard()
+            Snackbar.make(btnSave, "Data telah tersedia", Snackbar.LENGTH_SHORT).show()
+        }
+    }
+
+    private fun updateRule(ruleId: Int) {
+        getRuleCode = edtRuleCode.text.toString()
+        if (isDataExist(getRuleCode, acTvType.text.toString().trim().lowercase())) {
+            viewModel.updateRule(
+                id = ruleId,
+                idType = rule.id_type,
+                idSymptoms = selectedItem.joinToString { it },
+                ruleCode = rule.rule_code,
+                description = rule.description
+            )
+            Toast.makeText(activity, "Berhasil memperbarui data", Toast.LENGTH_SHORT).show()
+            findNavController().navigate(AddRuleDataFragmentDirections.actionAddRuleDataFragmentToRuleDataFragment())
         } else {
             hideKeyboard()
             Snackbar.make(btnSave, "Data telah tersedia", Snackbar.LENGTH_SHORT).show()
