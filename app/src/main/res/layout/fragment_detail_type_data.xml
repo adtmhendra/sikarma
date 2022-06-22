@@ -95,19 +95,6 @@
         app:layout_constraintTop_toBottomOf="@+id/textView3" />
 
     <com.google.android.material.button.MaterialButton
-        android:id="@+id/btn_update"
-        android:layout_width="@dimen/dimen_0dp"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="@dimen/dimen_8dp"
-        android:layout_marginTop="@dimen/dimen_24dp"
-        android:stateListAnimator="@null"
-        android:text="@string/label_edit_data"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.5"
-        app:layout_constraintStart_toEndOf="@+id/btn_delete"
-        app:layout_constraintTop_toBottomOf="@+id/tv_type_solution" />
-
-    <com.google.android.material.button.MaterialButton
         android:id="@+id/btn_delete"
         style="?attr/materialButtonOutlinedStyle"
         android:layout_width="@dimen/dimen_0dp"
@@ -119,6 +106,19 @@
         app:layout_constraintEnd_toStartOf="@+id/btn_update"
         app:layout_constraintHorizontal_bias="0.5"
         app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/tv_type_solution" />
+
+    <com.google.android.material.button.MaterialButton
+        android:id="@+id/btn_update"
+        android:layout_width="@dimen/dimen_0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="@dimen/dimen_8dp"
+        android:layout_marginTop="@dimen/dimen_24dp"
+        android:stateListAnimator="@null"
+        android:text="@string/label_edit_data"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.5"
+        app:layout_constraintStart_toEndOf="@+id/btn_delete"
         app:layout_constraintTop_toBottomOf="@+id/tv_type_solution" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>

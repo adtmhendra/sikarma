@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
-<androidx.core.widget.NestedScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
@@ -7,167 +7,42 @@
     android:padding="@dimen/dimen_16dp"
     tools:context=".presentation.view.patient.ConsultationFragment">
 
-    <androidx.constraintlayout.widget.ConstraintLayout
+    <TextView
+        android:id="@+id/tvQuestion"
         android:layout_width="match_parent"
-        android:layout_height="match_parent">
+        android:layout_height="wrap_content"
+        android:text="Question"
+        android:textAppearance="@style/TextAppearance.MaterialComponents.Body1"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
 
-        <RelativeLayout
-            android:id="@+id/rl_list_symptoms"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toTopOf="parent">
+    <com.google.android.material.button.MaterialButton
+        android:id="@+id/btn_no"
+        android:layout_width="@dimen/dimen_0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="24dp"
+        android:layout_marginEnd="@dimen/dimen_8dp"
+        android:stateListAnimator="@null"
+        android:text="@string/label_button_no"
+        app:cornerRadius="@dimen/dimen_10dp"
+        app:layout_constraintEnd_toStartOf="@+id/btn_yes"
+        app:layout_constraintHorizontal_bias="0.5"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/tvQuestion" />
 
-            <CheckBox
-                android:id="@+id/cb_symptom"
-                style="@style/TextAppearance.MaterialComponents.Body2"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_marginBottom="@dimen/dimen_8dp"
-                android:minHeight="@dimen/dimen_48dp"
-                android:paddingStart="@dimen/dimen_8dp"
-                app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toTopOf="parent"
-                tools:ignore="RtlSymmetry"
-                tools:text="question 1" />
+    <com.google.android.material.button.MaterialButton
+        android:id="@+id/btn_yes"
+        android:layout_width="@dimen/dimen_0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="@dimen/dimen_8dp"
+        android:stateListAnimator="@null"
+        android:text="@string/label_button_yes"
+        app:cornerRadius="@dimen/dimen_10dp"
+        app:layout_constraintBottom_toBottomOf="@+id/btn_no"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.5"
+        app:layout_constraintStart_toEndOf="@+id/btn_no"
+        app:layout_constraintTop_toTopOf="@+id/btn_no" />
 
-            <CheckBox
-                android:id="@+id/cb_symptom2"
-                style="@style/TextAppearance.MaterialComponents.Body2"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_below="@+id/cb_symptom"
-                android:layout_marginBottom="@dimen/dimen_8dp"
-                android:minHeight="@dimen/dimen_48dp"
-                android:paddingStart="@dimen/dimen_8dp"
-                tools:ignore="RtlSymmetry"
-                tools:text="question 2" />
-
-            <CheckBox
-                android:id="@+id/cb_symptom3"
-                style="@style/TextAppearance.MaterialComponents.Body2"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_below="@+id/cb_symptom2"
-                android:layout_marginBottom="@dimen/dimen_8dp"
-                android:minHeight="@dimen/dimen_48dp"
-                android:paddingStart="@dimen/dimen_8dp"
-                tools:ignore="RtlSymmetry"
-                tools:text="question 3" />
-
-            <CheckBox
-                android:id="@+id/cb_symptom4"
-                style="@style/TextAppearance.MaterialComponents.Body2"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_below="@+id/cb_symptom3"
-                android:layout_marginBottom="@dimen/dimen_8dp"
-                android:minHeight="@dimen/dimen_48dp"
-                android:paddingStart="@dimen/dimen_8dp"
-                tools:ignore="RtlSymmetry"
-                tools:text="question 4" />
-
-            <CheckBox
-                android:id="@+id/cb_symptom5"
-                style="@style/TextAppearance.MaterialComponents.Body2"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_below="@+id/cb_symptom4"
-                android:layout_marginBottom="@dimen/dimen_8dp"
-                android:minHeight="@dimen/dimen_48dp"
-                android:paddingStart="@dimen/dimen_8dp"
-                tools:ignore="RtlSymmetry"
-                tools:text="question 5" />
-
-            <CheckBox
-                android:id="@+id/cb_symptom6"
-                style="@style/TextAppearance.MaterialComponents.Body2"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_below="@+id/cb_symptom5"
-                android:layout_marginBottom="@dimen/dimen_8dp"
-                android:minHeight="@dimen/dimen_48dp"
-                android:paddingStart="@dimen/dimen_8dp"
-                tools:ignore="RtlSymmetry"
-                tools:text="question 6" />
-
-            <CheckBox
-                android:id="@+id/cb_symptom7"
-                style="@style/TextAppearance.MaterialComponents.Body2"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_below="@+id/cb_symptom6"
-                android:layout_marginBottom="@dimen/dimen_8dp"
-                android:minHeight="@dimen/dimen_48dp"
-                android:paddingStart="@dimen/dimen_8dp"
-                tools:ignore="RtlSymmetry"
-                tools:text="question 7" />
-
-            <CheckBox
-                android:id="@+id/cb_symptom8"
-                style="@style/TextAppearance.MaterialComponents.Body2"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_below="@+id/cb_symptom7"
-                android:layout_marginBottom="@dimen/dimen_8dp"
-                android:minHeight="@dimen/dimen_48dp"
-                android:paddingStart="@dimen/dimen_8dp"
-                tools:ignore="RtlSymmetry"
-                tools:text="question 8" />
-
-            <CheckBox
-                android:id="@+id/cb_symptom9"
-                style="@style/TextAppearance.MaterialComponents.Body2"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_below="@+id/cb_symptom8"
-                android:layout_marginBottom="@dimen/dimen_8dp"
-                android:minHeight="@dimen/dimen_48dp"
-                android:paddingStart="@dimen/dimen_8dp"
-                tools:ignore="RtlSymmetry"
-                tools:text="question 9" />
-
-            <CheckBox
-                android:id="@+id/cb_symptom10"
-                style="@style/TextAppearance.MaterialComponents.Body2"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_below="@+id/cb_symptom9"
-                android:layout_marginBottom="@dimen/dimen_8dp"
-                android:minHeight="@dimen/dimen_48dp"
-                android:paddingStart="@dimen/dimen_8dp"
-                tools:ignore="RtlSymmetry"
-                tools:text="question 10" />
-
-            <CheckBox
-                android:id="@+id/cb_symptom11"
-                style="@style/TextAppearance.MaterialComponents.Body2"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_below="@+id/cb_symptom10"
-                android:layout_marginBottom="@dimen/dimen_8dp"
-                android:minHeight="@dimen/dimen_48dp"
-                android:paddingStart="@dimen/dimen_8dp"
-                tools:ignore="RtlSymmetry"
-                tools:text="question 11" />
-
-        </RelativeLayout>
-
-        <com.google.android.material.button.MaterialButton
-            android:id="@+id/btn_diagnose"
-            android:layout_width="@dimen/dimen_0dp"
-            android:layout_height="wrap_content"
-            android:layout_marginTop="@dimen/dimen_16dp"
-            android:layout_marginEnd="@dimen/dimen_8dp"
-            android:stateListAnimator="@null"
-            android:text="@string/label_button_diagnose"
-            app:cornerRadius="@dimen/dimen_20dp"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintHorizontal_bias="0.5"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/rl_list_symptoms" />
-
-    </androidx.constraintlayout.widget.ConstraintLayout>
-
-</androidx.core.widget.NestedScrollView>
+</androidx.constraintlayout.widget.ConstraintLayout>

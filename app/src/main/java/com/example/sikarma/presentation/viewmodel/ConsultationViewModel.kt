@@ -9,11 +9,11 @@ import javax.inject.Inject
 
 @HiltViewModel
 class ConsultationViewModel @Inject constructor(
-    private val symptomUseCase: SymptomsUseCaseImpl,
-    private val ruleUseCase: RuleUseCaseImpl,
+    symptomUseCase: SymptomsUseCaseImpl,
+    ruleUseCase: RuleUseCaseImpl,
 ) : ViewModel() {
 
-    val getListSymptomData = symptomUseCase.getSymptoms().asLiveData()
+    val getSymptoms = symptomUseCase.getSymptoms().asLiveData()
 
-    val getListRuleData = ruleUseCase.getRules().asLiveData()
+    val getRules = ruleUseCase.getRules().asLiveData()
 }

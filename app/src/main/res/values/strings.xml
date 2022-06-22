@@ -40,6 +40,8 @@
     <string name="label_button_print_data">Cetak hasil diagnosa</string>
     <string name="label_button_finish">Selesai</string>
     <string name="label_button_diagnose">Diagnosis</string>
+    <string name="label_button_yes">Ya</string>
+    <string name="label_button_no">Tidak</string>
     <string name="label_hint_input_symptom_code">Masukkan kode gejala</string>
     <string name="label_hint_input_symptom_name">Masukkan gejala</string>
     <string name="label_save_data">Simpan data</string>
@@ -51,4 +53,5 @@
     <string name="label_hint_input_solution">Masukkan solusi</string>
     <string name="label_hint_input_rule_code">Masukkan kode rule</string>
     <string name="label_hint_choose_type">Pilih jenis penyakit</string>
+    <string name="label_consultation_question">%s - %s</string>
 </resources>
