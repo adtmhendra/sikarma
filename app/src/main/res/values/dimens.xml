@@ -3,6 +3,7 @@
     <!--region DP (View)-->
     <dimen name="dimen_300dp">300dp</dimen>
     <dimen name="dimen_280dp">280dp</dimen>
+    <dimen name="dimen_250dp">250dp</dimen>
     <dimen name="dimen_256dp">256dp</dimen>
     <dimen name="dimen_218dp">218dp</dimen>
     <dimen name="dimen_203dp">203dp</dimen>

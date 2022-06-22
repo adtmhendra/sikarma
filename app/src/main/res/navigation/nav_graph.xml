@@ -256,9 +256,10 @@
             app:popUpToInclusive="true" />
         <argument
             android:name="id_rule"
-            app:argType="integer"
-            android:defaultValue="-1" />
-        <argument android:name="title"
+            android:defaultValue="-1"
+            app:argType="integer" />
+        <argument
+            android:name="title"
             app:argType="string" />
     </fragment>
     <fragment
@@ -313,6 +314,6 @@
             app:enterAnim="@anim/anim_slide_in_right"
             app:exitAnim="@anim/anim_slide_out_left"
             app:popEnterAnim="@anim/anim_slide_in_left"
-            app:popExitAnim="@anim/anim_slide_out_right"/>
+            app:popExitAnim="@anim/anim_slide_out_right" />
     </fragment>
 </navigation>
