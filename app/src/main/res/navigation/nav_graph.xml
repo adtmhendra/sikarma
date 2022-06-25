@@ -279,7 +279,15 @@
         android:id="@+id/consultationFragment"
         android:name="com.example.sikarma.presentation.view.patient.ConsultationFragment"
         android:label="Konsultasi Penyakit"
-        tools:layout="@layout/fragment_consultation" />
+        tools:layout="@layout/fragment_consultation">
+        <action
+            android:id="@+id/action_consultationFragment_to_diagnosticResultFragment"
+            app:destination="@id/diagnosticResultFragment"
+            app:enterAnim="@anim/anim_slide_in_right"
+            app:exitAnim="@anim/anim_slide_out_left"
+            app:popEnterAnim="@anim/anim_slide_in_left"
+            app:popExitAnim="@anim/anim_slide_out_right" />
+    </fragment>
     <fragment
         android:id="@+id/detailPatientTypeFragment"
         android:name="com.example.sikarma.presentation.view.patient.DetailPatientTypeFragment"
@@ -315,5 +323,55 @@
             app:exitAnim="@anim/anim_slide_out_left"
             app:popEnterAnim="@anim/anim_slide_in_left"
             app:popExitAnim="@anim/anim_slide_out_right" />
+    </fragment>
+    <fragment
+        android:id="@+id/diagnosticResultFragment"
+        android:name="com.example.sikarma.presentation.view.patient.DiagnosticResultFragment"
+        android:label="Hasil Diagnosa"
+        tools:layout="@layout/fragment_diagnostic_result">
+        <argument
+            android:name="name"
+            android:defaultValue="-"
+            app:argType="string"
+            app:nullable="true" />
+        <argument
+            android:name="date"
+            android:defaultValue="-"
+            app:argType="string"
+            app:nullable="true" />
+        <argument
+            android:name="type"
+            android:defaultValue="-"
+            app:argType="string"
+            app:nullable="true" />
+        <argument
+            android:name="desc"
+            android:defaultValue="-"
+            app:argType="string"
+            app:nullable="true" />
+        <action
+            android:id="@+id/action_diagnosticResultFragment_to_homeFragment"
+            app:destination="@id/homeFragment"
+            app:enterAnim="@anim/anim_slide_in_right"
+            app:exitAnim="@anim/anim_slide_out_left"
+            app:popEnterAnim="@anim/anim_slide_in_left"
+            app:popExitAnim="@anim/anim_slide_out_right"
+            app:popUpTo="@id/homeFragment"
+            app:popUpToInclusive="true" />
+        <argument
+            android:name="time"
+            app:argType="string"
+            app:nullable="true"
+            android:defaultValue="-" />
+        <argument
+            android:name="age"
+            app:argType="string"
+            app:nullable="true"
+            android:defaultValue="-" />
+        <argument
+            android:name="gender"
+            app:argType="string"
+            app:nullable="true"
+            android:defaultValue="-" />
     </fragment>
 </navigation>

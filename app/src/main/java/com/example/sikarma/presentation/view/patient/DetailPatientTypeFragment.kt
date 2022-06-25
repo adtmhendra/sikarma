@@ -38,7 +38,6 @@ class DetailPatientTypeFragment : Fragment() {
             binding.apply {
                 tvTypeName.text = it.type_name
                 tvTypeDescription.text = it.type_desc
-                tvTypeSolution.text = it.type_solution
             }
         }
     }

@@ -33,27 +33,23 @@ class TypeViewModel @Inject constructor(private val useCase: TypeUseCaseImpl) : 
         typeCode: String,
         typeName: String,
         typeDesc: String,
-        typeSolution: String,
     ) =
         Type(type_code = typeCode,
             type_name = typeName,
-            type_desc = typeDesc,
-            type_solution = typeSolution)
+            type_desc = typeDesc)
 
     private fun getUpdatedTypeEntry(
         id: Int, typeCode: String,
         typeName: String,
         typeDesc: String,
-        typeSolution: String,
     ) =
         Type(id_type = id,
             type_code = typeCode,
             type_name = typeName,
-            type_desc = typeDesc,
-            type_solution = typeSolution)
+            type_desc = typeDesc)
 
-    fun addNewType(typeCode: String, typeName: String, typeDesc: String, typeSolution: String) {
-        val newType = getNewTypeEntry(typeCode, typeName, typeDesc, typeSolution)
+    fun addNewType(typeCode: String, typeName: String, typeDesc: String) {
+        val newType = getNewTypeEntry(typeCode, typeName, typeDesc)
         insertType(newType)
     }
 
@@ -62,9 +58,8 @@ class TypeViewModel @Inject constructor(private val useCase: TypeUseCaseImpl) : 
         typeCode: String,
         typeName: String,
         typeDesc: String,
-        typeSolution: String,
     ) {
-        val updateType = getUpdatedTypeEntry(id, typeCode, typeName, typeDesc, typeSolution)
+        val updateType = getUpdatedTypeEntry(id, typeCode, typeName, typeDesc)
         updateType(updateType)
     }
 

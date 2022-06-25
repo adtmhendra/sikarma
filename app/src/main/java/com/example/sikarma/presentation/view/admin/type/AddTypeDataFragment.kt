@@ -34,7 +34,6 @@ class AddTypeDataFragment : Fragment() {
     private lateinit var edtTypeCode: TextInputEditText
     private lateinit var edtTypeName: TextInputEditText
     private lateinit var edtTypeDesc: TextInputEditText
-    private lateinit var edtTypeSolution: TextInputEditText
     private lateinit var typeCode: TextInputLayout
     private lateinit var btnSave: MaterialButton
 
@@ -55,7 +54,6 @@ class AddTypeDataFragment : Fragment() {
         edtTypeCode = binding.edtTypeCode
         edtTypeName = binding.edtTypeName
         edtTypeDesc = binding.edtTypeDescription
-        edtTypeSolution = binding.edtTypeSolution
         btnSave = binding.btnSave
 
         prefix = typeCode.prefixText.toString()
@@ -97,7 +95,6 @@ class AddTypeDataFragment : Fragment() {
                 getTypeCode,
                 edtTypeName.text.toString().trim().lowercase(),
                 edtTypeDesc.text.toString().trim().lowercase(),
-                edtTypeSolution.text.toString().trim().lowercase(),
             )
             Toast.makeText(activity, "Data berhasil disimpan", Toast.LENGTH_SHORT).show()
             findNavController().navigate(AddTypeDataFragmentDirections.actionAddTypeDataFragmentToTypeDataFragment())
@@ -115,7 +112,6 @@ class AddTypeDataFragment : Fragment() {
                 getTypeCode,
                 edtTypeName.text.toString().trim().lowercase(),
                 edtTypeDesc.text.toString().trim().lowercase(),
-                edtTypeSolution.text.toString().trim().lowercase(),
             )
             Toast.makeText(activity, "Berhasil memperbarui data", Toast.LENGTH_SHORT).show()
             findNavController().navigate(AddTypeDataFragmentDirections.actionAddTypeDataFragmentToTypeDataFragment())

@@ -19,6 +19,4 @@ data class Type(
     val type_name: String,
     @ColumnInfo(name = "type_description")
     val type_desc: String,
-    @ColumnInfo(name = "type_solution")
-    val type_solution: String,
 )

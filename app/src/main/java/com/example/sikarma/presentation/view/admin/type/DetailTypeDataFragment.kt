@@ -55,7 +55,6 @@ class DetailTypeDataFragment : Fragment() {
                 tvTypeCode.text = it.type_code
                 tvTypeName.text = it.type_name
                 tvTypeDescription.text = it.type_desc
-                tvTypeSolution.text = it.type_solution
             }
         }
     }
