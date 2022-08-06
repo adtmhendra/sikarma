@@ -18,6 +18,7 @@ import com.example.sikarma.data.entity.Type
 import com.example.sikarma.databinding.FragmentAddTypeDataBinding
 import com.example.sikarma.presentation.viewmodel.TypeViewModel
 import com.google.android.material.button.MaterialButton
+import com.google.android.material.dialog.MaterialAlertDialogBuilder
 import com.google.android.material.snackbar.Snackbar
 import com.google.android.material.textfield.TextInputEditText
 import com.google.android.material.textfield.TextInputLayout
@@ -85,7 +86,7 @@ class AddTypeDataFragment : Fragment() {
     private fun bind(type: Type, id: Int) {
         edtTypeCode.setText(type.type_code, TextView.BufferType.SPANNABLE)
         edtTypeName.setText(type.type_name, TextView.BufferType.SPANNABLE)
-        btnSave.setOnClickListener { updateType(id) }
+        btnSave.setOnClickListener { showConfirmationDialog(id) }
     }
 
     private fun addNewType() {
@@ -141,6 +142,16 @@ class AddTypeDataFragment : Fragment() {
                 activity?.getSystemService(Context.INPUT_METHOD_SERVICE) as InputMethodManager
             inputMethodManager.hideSoftInputFromWindow(view.windowToken, 0)
         }
+    }
+
+    private fun showConfirmationDialog(typeId: Int) {
+        MaterialAlertDialogBuilder(requireContext())
+            .setTitle("Konfirmasi")
+            .setMessage("Yakin ingin mengubah data?")
+            .setCancelable(false)
+            .setNegativeButton("Batal") { _, _ -> }
+            .setPositiveButton("Ubah") { _, _ -> updateType(typeId) }
+            .show()
     }
 
     override fun onDestroy() {

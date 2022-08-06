@@ -19,6 +19,7 @@ import com.example.sikarma.data.entity.Symptoms
 import com.example.sikarma.databinding.FragmentAddSymptomsDataBinding
 import com.example.sikarma.presentation.viewmodel.SymptomsViewModel
 import com.google.android.material.button.MaterialButton
+import com.google.android.material.dialog.MaterialAlertDialogBuilder
 import com.google.android.material.snackbar.Snackbar
 import com.google.android.material.textfield.TextInputEditText
 import com.google.android.material.textfield.TextInputLayout
@@ -116,7 +117,7 @@ class AddSymptomsDataFragment : Fragment() {
     private fun bind(symptoms: Symptoms) {
         edtSymptomCode.setText(symptoms.symptoms_code, TextView.BufferType.SPANNABLE)
         edtSymptomName.setText(symptoms.symptoms_name, TextView.BufferType.SPANNABLE)
-        btnSave.setOnClickListener { updateSymptoms() }
+        btnSave.setOnClickListener { showConfirmationDialog() }
     }
 
     // Check is data exists?
@@ -141,6 +142,16 @@ class AddSymptomsDataFragment : Fragment() {
                 activity?.getSystemService(Context.INPUT_METHOD_SERVICE) as InputMethodManager
             inputMethodManager.hideSoftInputFromWindow(view.windowToken, 0)
         }
+    }
+
+    private fun showConfirmationDialog() {
+        MaterialAlertDialogBuilder(requireContext())
+            .setTitle("Konfirmasi")
+            .setMessage("Yakin ingin mengubah data?")
+            .setCancelable(false)
+            .setNegativeButton("Batal") { _, _ -> }
+            .setPositiveButton("Ubah") { _, _ -> updateSymptoms() }
+            .show()
     }
 
     override fun onDestroy() {

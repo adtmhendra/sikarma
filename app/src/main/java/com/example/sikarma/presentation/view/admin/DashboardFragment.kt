@@ -64,9 +64,7 @@ class DashboardFragment : Fragment() {
             .setMessage("Ingin keluar admin?")
             .setCancelable(false)
             .setNegativeButton("Batal") { _, _ -> }
-            .setPositiveButton("Keluar") { _, _ ->
-                goToLoginFragment()
-            }
+            .setPositiveButton("Keluar") { _, _ -> goToLoginFragment() }
             .show()
     }
 

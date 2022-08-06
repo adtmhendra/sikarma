@@ -24,6 +24,7 @@ import com.example.sikarma.databinding.FragmentAddRuleDataBinding
 import com.example.sikarma.presentation.adapter.SymptomNameListAdapter
 import com.example.sikarma.presentation.viewmodel.RuleViewModel
 import com.google.android.material.button.MaterialButton
+import com.google.android.material.dialog.MaterialAlertDialogBuilder
 import com.google.android.material.snackbar.Snackbar
 import com.google.android.material.textfield.TextInputEditText
 import com.google.android.material.textfield.TextInputLayout
@@ -95,9 +96,7 @@ class AddRuleDataFragment : Fragment() {
     private fun bind(rule: Rule, id: Int) {
         edtRuleCode.setText(rule.rule_code, TextView.BufferType.SPANNABLE)
         acTvType.setText(rule.id_type, TextView.BufferType.SPANNABLE)
-        btnSave.setOnClickListener {
-            updateRule(id)
-        }
+        btnSave.setOnClickListener { showConfirmationDialog(id) }
     }
 
     private fun addNewRule(typeName: String, symptomName: String, description: String) {
@@ -185,6 +184,16 @@ class AddRuleDataFragment : Fragment() {
                 activity?.getSystemService(Context.INPUT_METHOD_SERVICE) as InputMethodManager
             inputMethodManager.hideSoftInputFromWindow(view.windowToken, 0)
         }
+    }
+
+    private fun showConfirmationDialog(ruleId: Int) {
+        MaterialAlertDialogBuilder(requireContext())
+            .setTitle("Konfirmasi")
+            .setMessage("Yakin ingin mengubah data?")
+            .setCancelable(false)
+            .setNegativeButton("Batal") { _, _ -> }
+            .setPositiveButton("Ubah") { _, _ -> updateRule(ruleId) }
+            .show()
     }
 
     override fun onDestroy() {
