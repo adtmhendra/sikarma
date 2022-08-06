@@ -131,7 +131,7 @@
     <fragment
         android:id="@+id/ruleDataFragment"
         android:name="com.example.sikarma.presentation.view.admin.rule.RuleDataFragment"
-        android:label="Data Rule Penyakit"
+        android:label="Data Aturan Penyakit"
         tools:layout="@layout/fragment_rule_data">
         <action
             android:id="@+id/action_ruleDataFragment_to_addRuleDataFragment"

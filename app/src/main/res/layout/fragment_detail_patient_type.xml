@@ -51,26 +51,4 @@
         app:layout_constraintStart_toStartOf="@+id/tv_type_name"
         app:layout_constraintTop_toBottomOf="@+id/tv_desc_title" />
 
-    <TextView
-        android:id="@+id/tv_solution_title"
-        style="@style/TextAppearance.MaterialComponents.Body2"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="@dimen/dimen_8dp"
-        android:gravity="center"
-        android:minHeight="@dimen/dimen_48dp"
-        android:text="@string/title_solution"
-        app:layout_constraintStart_toStartOf="@+id/tv_type_description"
-        app:layout_constraintTop_toBottomOf="@+id/tv_type_description" />
-
-    <TextView
-        android:id="@+id/tv_type_solution"
-        style="@style/TextAppearance.MaterialComponents.Body1"
-        android:layout_width="@dimen/dimen_0dp"
-        android:layout_height="wrap_content"
-        android:text="@string/title_solution"
-        app:layout_constraintEnd_toEndOf="@+id/tv_type_description"
-        app:layout_constraintStart_toStartOf="@+id/tv_type_description"
-        app:layout_constraintTop_toBottomOf="@+id/tv_solution_title" />
-
 </androidx.constraintlayout.widget.ConstraintLayout>

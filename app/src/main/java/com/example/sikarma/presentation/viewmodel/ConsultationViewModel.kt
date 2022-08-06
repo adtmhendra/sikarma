@@ -13,7 +13,9 @@ class ConsultationViewModel @Inject constructor(
     ruleUseCase: RuleUseCaseImpl,
 ) : ViewModel() {
 
+    // Deklarasi variabel berisi data list gejala
     val getSymptoms = symptomUseCase.getSymptoms().asLiveData()
 
+    // Deklarasi variabel berisi data list rule
     val getRules = ruleUseCase.getRules().asLiveData()
 }

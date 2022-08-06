@@ -7,7 +7,6 @@ import android.graphics.drawable.ColorDrawable
 import android.os.Bundle
 import android.text.Editable
 import android.text.TextWatcher
-import android.util.Log
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
@@ -33,19 +32,22 @@ class ConsultationFragment : Fragment() {
     private var _binding: FragmentConsultationBinding? = null
     private val binding get() = _binding!!
 
+    // Deklarasi ViewModel konsultasi
     private val viewModel: ConsultationViewModel by activityViewModels()
 
+    // Deklarasi lambat view group
     private lateinit var edtName: TextInputEditText
     private lateinit var edtAge: TextInputEditText
     private lateinit var acTvGender: AutoCompleteTextView
-    private lateinit var currentGender: String
     private lateinit var btnStart: MaterialButton
     private lateinit var btnCancel: MaterialButton
     private lateinit var patientName: String
     private lateinit var patientAge: String
     private lateinit var currentDate: String
+    private lateinit var currentGender: String
     private lateinit var currentTime: String
 
+    // Deklarasi lambat data gejala dan data rule
     private lateinit var symptoms: List<Symptoms>
     private lateinit var rules: List<Rule>
 
@@ -58,6 +60,7 @@ class ConsultationFragment : Fragment() {
     ): View {
         _binding = FragmentConsultationBinding.inflate(inflater, container, false)
 
+        // Mendapatkan data tanggal dan waktu terkini
         val current = LocalDateTime.now()
         val date = DateTimeFormatter.ofPattern("dd-MM-yyyy")
         val time = DateTimeFormatter.ofPattern("HH:mm:ss")
@@ -72,6 +75,7 @@ class ConsultationFragment : Fragment() {
 
         showDialog()
 
+        // Mengakses properti getSymptoms pada ViewModel konsultasi
         viewModel.getSymptoms.observe(viewLifecycleOwner) { symptoms ->
             this.symptoms = symptoms
 
@@ -83,7 +87,6 @@ class ConsultationFragment : Fragment() {
                 btnYes.setOnClickListener {
                     checkSymptoms.add(true)
                     goToNextQuestion()
-                    Log.d("ConsultationFragment", patientName)
                 }
 
                 btnNo.setOnClickListener {
@@ -93,21 +96,25 @@ class ConsultationFragment : Fragment() {
             }
         }
 
+        // Mengakses properti getRules pada ViewModel konsultasi
         viewModel.getRules.observe(viewLifecycleOwner) { rules ->
             this.rules = rules
         }
     }
 
+    // Pindah pertanyaan gejala
     private fun goToNextQuestion() {
         currentQuestion++
+        // Kondisi jika pertanyaan saat ini < total pertanyaan gejala
         if (currentQuestion < symptoms.size) {
             binding.tvQuestion.text = getString(R.string.label_consultation_question,
                 symptoms[currentQuestion].symptoms_code,
                 symptoms[currentQuestion].symptoms_name)
-        } else showDiagnoseResult()
+        } else showResult()
     }
 
-    private fun showDiagnoseResult() {
+    // Penerapan algoritma forward chaining
+    private fun showResult() {
         if (checkSymptoms[0] && checkSymptoms[1] && checkSymptoms[2] && checkSymptoms[4] && checkSymptoms[8]) {
             showDiagnosticResult(rules[0].id_type, rules[0].description)
         } else if (checkSymptoms[0] && checkSymptoms[1] && checkSymptoms[2] && checkSymptoms[4] && checkSymptoms[9]) {
@@ -129,13 +136,14 @@ class ConsultationFragment : Fragment() {
         } else if (checkSymptoms[0] && checkSymptoms[1] && checkSymptoms[2] && checkSymptoms[3] && checkSymptoms[4] && checkSymptoms[5] && checkSymptoms[6] && checkSymptoms[7]) {
             showDiagnosticResult(rules[9].id_type, rules[9].description)
         } else {
-            showDiagnosticResult("Penyakit tidak ditemukan", "-")
+            showDiagnosticResult(getString(R.string.label_no_result), "-")
         }
     }
 
+    // Berpindah ke halaman Hasil Diagnosa dengan membawa data hasil diagnosa
     private fun showDiagnosticResult(
-        result: String? = "Undefined",
-        desc: String? = "Undefined",
+        result: String? = getString(R.string.label_undefined),
+        desc: String? = getString(R.string.label_undefined),
     ) {
         findNavController().navigate(ConsultationFragmentDirections.actionConsultationFragmentToDiagnosticResultFragment(
             name = patientName,
@@ -148,6 +156,7 @@ class ConsultationFragment : Fragment() {
         ))
     }
 
+    // Menampilkan dialog form konsultasi
     private fun showDialog() {
         val dialog = Dialog(requireContext())
         dialog.apply {
@@ -179,8 +188,9 @@ class ConsultationFragment : Fragment() {
         }.show()
     }
 
+    // Mengatur list gender ke dalam combo box view
     private fun setUpGender() {
-        val gender = listOf("Pria", "Wanita")
+        val gender = listOf(getString(R.string.label_man), R.string.label_woman)
         (acTvGender as? AutoCompleteTextView)?.setAdapter(ArrayAdapter(
             requireContext(),
             R.layout.list_type_dropdown,
@@ -191,6 +201,7 @@ class ConsultationFragment : Fragment() {
         getGenderData()
     }
 
+    // Mendapatkan data gender yang dipilih oleh user
     private fun getGenderData() {
         acTvGender.setOnItemClickListener { adapterView, _, i, _ ->
             currentGender = adapterView.getItemAtPosition(i).toString()
@@ -207,6 +218,7 @@ class ConsultationFragment : Fragment() {
         override fun afterTextChanged(p0: Editable?) {}
     }
 
+    // Pindah ke halaman utama aplikasi
     private fun goToMainActivity() {
         activity?.let {
             val intent = Intent(it, MainActivity::class.java)
