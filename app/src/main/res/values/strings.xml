@@ -4,6 +4,12 @@
     <string name="title_add_symptom_data">Tambah Data Gejala</string>
     <string name="title_edit_symptom_data">Ubah Data Gejala</string>
     <string name="title_add_type_data">Tambah Data Penyakit</string>
+    <string name="title_symptom_data">Data Gejala Penyakit</string>
+    <string name="title_type_data">Data Jenis Penyakit</string>
+    <string name="title_detail_type_data">Detail Jenis Penyakit</string>
+    <string name="title_rule_data">Data Aturan Penyakit</string>
+    <string name="title_detail_rule_data">Detail Aturan</string>
+    <string name="title_list_type_data">Daftar Jenis Penyakit Asma</string>
     <string name="title_edit_type_data">Ubah Data Penyakit</string>
     <string name="title_add_rule_data">Tambah Data Aturan</string>
     <string name="title_edit_rule_data">Ubah Data Aturan</string>
@@ -67,4 +73,14 @@
     <string name="label_woman">Wanita</string>
     <string name="label_no_result">Penyakit tidak ditemukan</string>
     <string name="label_undefined">Undefined</string>
+    <string name="label_confirmation">Konfirmasi</string>
+    <string name="label_logout">Ingin keluar admin?</string>
+    <string name="label_delete_confirmation">Yakin ingin menghapus?</string>
+    <string name="label_deleted_successfully">Data berhasil dihapus</string>
+    <string name="label_updated_successfully">Data berhasil diubah</string>
+    <string name="label_update_confirmation">Yakin ingin mengubah data?</string>
+    <string name="label_add_successfully">Data berhasil disimpan</string>
+    <string name="label_data_exist">Data telah tersedia</string>
+    <string name="label_account_registered">Akun telah terdaftar</string>
+    <string name="label_account_register_successfully">Register akun berhasil. Silahkan login menggunakan akun yang telah terdaftar</string>
 </resources>

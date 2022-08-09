@@ -60,11 +60,11 @@ class DashboardFragment : Fragment() {
 
     private fun showConfirmationDialog() {
         MaterialAlertDialogBuilder(requireContext())
-            .setTitle("Konfirmasi")
-            .setMessage("Ingin keluar admin?")
+            .setTitle(resources.getString(R.string.label_confirmation))
+            .setMessage(resources.getString(R.string.label_logout))
             .setCancelable(false)
-            .setNegativeButton("Batal") { _, _ -> }
-            .setPositiveButton("Keluar") { _, _ -> goToLoginFragment() }
+            .setNegativeButton(resources.getString(R.string.label_button_cancel)) { _, _ -> }
+            .setPositiveButton(resources.getString(R.string.label_button_yes)) { _, _ -> goToLoginFragment() }
             .show()
     }
 

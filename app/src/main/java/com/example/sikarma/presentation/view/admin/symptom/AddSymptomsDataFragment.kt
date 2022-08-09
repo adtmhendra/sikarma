@@ -90,12 +90,16 @@ class AddSymptomsDataFragment : Fragment() {
                 getSymptomCode,
                 edtSymptomName.text.toString().trim().lowercase(),
             )
-            Toast.makeText(activity, "Data berhasil disimpan", Toast.LENGTH_SHORT)
+            Toast.makeText(activity,
+                resources.getString(R.string.label_add_successfully),
+                Toast.LENGTH_SHORT)
                 .show()
             findNavController().navigate(R.id.action_addSymptomsDataFragment_to_symptomsDataFragment)
         } else {
             hideKeyboard()
-            Snackbar.make(btnSave, "Data telah tersedia", Snackbar.LENGTH_SHORT).show()
+            Snackbar.make(btnSave,
+                resources.getString(R.string.label_data_exist),
+                Snackbar.LENGTH_SHORT).show()
         }
     }
 
@@ -106,11 +110,15 @@ class AddSymptomsDataFragment : Fragment() {
                 this.navigationArgs.idSymptoms,
                 getSymptomCode,
                 edtSymptomName.text.toString().trim().lowercase())
-            Toast.makeText(activity, "Berhasil memperbarui data", Toast.LENGTH_SHORT).show()
+            Toast.makeText(activity,
+                resources.getString(R.string.label_updated_successfully),
+                Toast.LENGTH_SHORT).show()
             findNavController().navigate(AddSymptomsDataFragmentDirections.actionAddSymptomsDataFragmentToSymptomsDataFragment())
         } else {
             hideKeyboard()
-            Snackbar.make(btnSave, "Data telah tersedia", Snackbar.LENGTH_SHORT).show()
+            Snackbar.make(btnSave,
+                resources.getString(R.string.label_data_exist),
+                Snackbar.LENGTH_SHORT).show()
         }
     }
 
@@ -146,11 +154,11 @@ class AddSymptomsDataFragment : Fragment() {
 
     private fun showConfirmationDialog() {
         MaterialAlertDialogBuilder(requireContext())
-            .setTitle("Konfirmasi")
-            .setMessage("Yakin ingin mengubah data?")
+            .setTitle(resources.getString(R.string.label_confirmation))
+            .setMessage(resources.getString(R.string.label_update_confirmation))
             .setCancelable(false)
-            .setNegativeButton("Batal") { _, _ -> }
-            .setPositiveButton("Ubah") { _, _ -> updateSymptoms() }
+            .setNegativeButton(resources.getString(R.string.label_button_cancel)) { _, _ -> }
+            .setPositiveButton(resources.getString(R.string.label_button_yes)) { _, _ -> updateSymptoms() }
             .show()
     }
 

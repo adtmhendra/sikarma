@@ -14,6 +14,7 @@ import androidx.fragment.app.Fragment
 import androidx.fragment.app.activityViewModels
 import androidx.navigation.fragment.findNavController
 import androidx.navigation.fragment.navArgs
+import com.example.sikarma.R
 import com.example.sikarma.data.entity.Type
 import com.example.sikarma.databinding.FragmentAddTypeDataBinding
 import com.example.sikarma.presentation.viewmodel.TypeViewModel
@@ -97,11 +98,15 @@ class AddTypeDataFragment : Fragment() {
                 edtTypeName.text.toString().trim().lowercase(),
                 edtTypeDesc.text.toString().trim().lowercase(),
             )
-            Toast.makeText(activity, "Data berhasil disimpan", Toast.LENGTH_SHORT).show()
+            Toast.makeText(activity,
+                resources.getString(R.string.label_add_successfully),
+                Toast.LENGTH_SHORT).show()
             findNavController().navigate(AddTypeDataFragmentDirections.actionAddTypeDataFragmentToTypeDataFragment())
         } else {
             hideKeyboard()
-            Snackbar.make(btnSave, "Data telah tersedia", Snackbar.LENGTH_SHORT).show()
+            Snackbar.make(btnSave,
+                resources.getString(R.string.label_data_exist),
+                Snackbar.LENGTH_SHORT).show()
         }
     }
 
@@ -114,11 +119,15 @@ class AddTypeDataFragment : Fragment() {
                 edtTypeName.text.toString().trim().lowercase(),
                 edtTypeDesc.text.toString().trim().lowercase(),
             )
-            Toast.makeText(activity, "Berhasil memperbarui data", Toast.LENGTH_SHORT).show()
+            Toast.makeText(activity,
+                resources.getString(R.string.label_updated_successfully),
+                Toast.LENGTH_SHORT).show()
             findNavController().navigate(AddTypeDataFragmentDirections.actionAddTypeDataFragmentToTypeDataFragment())
         } else {
             hideKeyboard()
-            Snackbar.make(btnSave, "Data telah tersedia", Snackbar.LENGTH_SHORT).show()
+            Snackbar.make(btnSave,
+                resources.getString(R.string.label_data_exist),
+                Snackbar.LENGTH_SHORT).show()
         }
     }
 
@@ -146,11 +155,13 @@ class AddTypeDataFragment : Fragment() {
 
     private fun showConfirmationDialog(typeId: Int) {
         MaterialAlertDialogBuilder(requireContext())
-            .setTitle("Konfirmasi")
-            .setMessage("Yakin ingin mengubah data?")
+            .setTitle(resources.getString(R.string.label_confirmation))
+            .setMessage(resources.getString(R.string.label_update_confirmation))
             .setCancelable(false)
-            .setNegativeButton("Batal") { _, _ -> }
-            .setPositiveButton("Ubah") { _, _ -> updateType(typeId) }
+            .setNegativeButton(resources.getString(R.string.label_button_cancel)) { _, _ -> }
+            .setPositiveButton(resources.getString(R.string.label_button_yes)) { _, _ ->
+                updateType(typeId)
+            }
             .show()
     }
 

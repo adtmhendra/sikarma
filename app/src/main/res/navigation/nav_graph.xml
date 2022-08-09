@@ -91,7 +91,7 @@
     <fragment
         android:id="@+id/symptomsDataFragment"
         android:name="com.example.sikarma.presentation.view.admin.symptom.SymptomsDataFragment"
-        android:label="Data Gejala Penyakit"
+        android:label="@string/title_symptom_data"
         tools:layout="@layout/fragment_symptoms_data">
         <action
             android:id="@+id/action_symptomsDataFragment_to_addSymptomsDataFragment"
@@ -104,7 +104,7 @@
     <fragment
         android:id="@+id/typeDataFragment"
         android:name="com.example.sikarma.presentation.view.admin.type.TypeDataFragment"
-        android:label="Data Jenis Penyakit"
+        android:label="@string/title_type_data"
         tools:layout="@layout/fragment_type_data">
         <action
             android:id="@+id/action_typeDataFragment_to_addTypeDataFragment"
@@ -131,7 +131,7 @@
     <fragment
         android:id="@+id/ruleDataFragment"
         android:name="com.example.sikarma.presentation.view.admin.rule.RuleDataFragment"
-        android:label="Data Aturan Penyakit"
+        android:label="@string/title_rule_data"
         tools:layout="@layout/fragment_rule_data">
         <action
             android:id="@+id/action_ruleDataFragment_to_addRuleDataFragment"
@@ -202,7 +202,7 @@
     <fragment
         android:id="@+id/detailTypeDataFragment"
         android:name="com.example.sikarma.presentation.view.admin.type.DetailTypeDataFragment"
-        android:label="Detail Jenis Penyakit"
+        android:label="@string/title_detail_type_data"
         tools:layout="@layout/fragment_detail_type_data">
         <action
             android:id="@+id/action_detailTypeDataFragment_to_addTypeDataFragment"
@@ -265,7 +265,7 @@
     <fragment
         android:id="@+id/patientTypeFragment"
         android:name="com.example.sikarma.presentation.view.patient.PatientTypeFragment"
-        android:label="Daftar Jenis Penyakit Asma"
+        android:label="@string/title_list_type_data"
         tools:layout="@layout/fragment_patient_type">
         <action
             android:id="@+id/action_patientTypeFragment_to_detailPatientTypeFragment"
@@ -291,7 +291,7 @@
     <fragment
         android:id="@+id/detailPatientTypeFragment"
         android:name="com.example.sikarma.presentation.view.patient.DetailPatientTypeFragment"
-        android:label="Detail Jenis Penyakit"
+        android:label="@string/title_detail_type_data"
         tools:layout="@layout/fragment_detail_patient_type">
         <argument
             android:name="id_type"
@@ -301,7 +301,7 @@
     <fragment
         android:id="@+id/detailRuleDataFragment"
         android:name="com.example.sikarma.presentation.view.admin.rule.DetailRuleDataFragment"
-        android:label="Detail Aturan"
+        android:label="@string/title_detail_rule_data"
         tools:layout="@layout/fragment_detail_rule_data">
         <argument
             android:name="id_rule"

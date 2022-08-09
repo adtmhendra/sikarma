@@ -4,7 +4,6 @@ import android.content.Context
 import android.os.Bundle
 import android.text.Editable
 import android.text.TextWatcher
-import android.util.Log
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
@@ -13,6 +12,7 @@ import android.widget.Toast
 import androidx.fragment.app.Fragment
 import androidx.fragment.app.activityViewModels
 import androidx.navigation.fragment.findNavController
+import com.example.sikarma.R
 import com.example.sikarma.databinding.FragmentRegisterBinding
 import com.example.sikarma.presentation.viewmodel.LoginViewModel
 import com.google.android.material.button.MaterialButton
@@ -61,13 +61,14 @@ class RegisterFragment : Fragment() {
                 edtPassword.text.toString().trim().lowercase()
             )
             Toast.makeText(activity,
-                "Register akun berhasil. Silahkan login menggunakan akun yang telah terdaftar",
+                resources.getString(R.string.label_account_register_successfully),
                 Toast.LENGTH_SHORT).show()
-            Log.d("RegisterFragment", "Berhasil registrasi akun")
             findNavController().navigate(RegisterFragmentDirections.actionRegisterFragmentToLoginFragment())
         } else {
             hideKeyboard()
-            Snackbar.make(btnRegister, "Akun telah terdaftar", Snackbar.LENGTH_SHORT).show()
+            Snackbar.make(btnRegister,
+                resources.getString(R.string.label_account_registered),
+                Snackbar.LENGTH_SHORT).show()
         }
     }
 

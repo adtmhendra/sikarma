@@ -61,14 +61,14 @@ class DetailTypeDataFragment : Fragment() {
 
     private fun showConfirmationDialog(type: Type) {
         MaterialAlertDialogBuilder(requireContext())
-            .setTitle("Yakin ingin menghapus?")
-            .setMessage("Kode penyakit : ${type.type_code}\n" +
-                    "Nama penyakit : ${type.type_name}\n\n")
+            .setTitle(resources.getString(R.string.label_delete_confirmation))
+            .setMessage("${resources.getString(R.string.title_type_code)} : ${type.type_code}\n" +
+                    "${resources.getString(R.string.title_type_name)} : ${type.type_name}\n\n")
             .setCancelable(false)
-            .setNegativeButton("Batal") { _, _ -> }
-            .setPositiveButton("Hapus") { _, _ ->
+            .setNegativeButton(resources.getString(R.string.label_button_cancel)) { _, _ -> }
+            .setPositiveButton(resources.getString(R.string.label_button_yes)) { _, _ ->
                 deleteItem(type)
-                Toast.makeText(requireContext(), "Data berhasil dihapus", Toast.LENGTH_SHORT).show()
+                Toast.makeText(requireContext(), resources.getString(R.string.label_deleted_successfully), Toast.LENGTH_SHORT).show()
             }
             .show()
     }

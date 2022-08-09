@@ -75,14 +75,16 @@ class SymptomsDataFragment : Fragment() {
 
     private fun showConfirmationDialog(symptoms: Symptoms) {
         MaterialAlertDialogBuilder(requireContext())
-            .setTitle("Yakin ingin menghapus?")
-            .setMessage("Kode gejala : ${symptoms.symptoms_code}\n" +
-                    "Nama gejala : ${symptoms.symptoms_name}")
+            .setTitle(resources.getString(R.string.label_delete_confirmation))
+            .setMessage("${resources.getString(R.string.title_symptom_code)} : ${symptoms.symptoms_code}\n" +
+                    "${resources.getString(R.string.title_symptom_name)} : ${symptoms.symptoms_name}")
             .setCancelable(false)
-            .setNegativeButton("Batal") { _, _ -> }
-            .setPositiveButton("Hapus") { _, _ ->
+            .setNegativeButton(resources.getString(R.string.label_button_cancel)) { _, _ -> }
+            .setPositiveButton(resources.getString(R.string.label_button_yes)) { _, _ ->
                 deleteItem(symptoms)
-                Toast.makeText(requireContext(), "Data berhasil dihapus", Toast.LENGTH_SHORT).show()
+                Toast.makeText(requireContext(),
+                    resources.getString(R.string.label_deleted_successfully),
+                    Toast.LENGTH_SHORT).show()
             }
             .show()
     }

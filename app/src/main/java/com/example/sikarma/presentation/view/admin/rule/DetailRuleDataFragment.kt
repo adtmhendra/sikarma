@@ -61,14 +61,16 @@ class DetailRuleDataFragment : Fragment() {
 
     private fun showConfirmationDialog(rule: Rule) {
         MaterialAlertDialogBuilder(requireContext())
-            .setTitle("Yakin ingin menghapus?")
-            .setMessage("Kode rule : ${rule.rule_code}\n" +
-                    "Nama penyakit : ${rule.id_type}\n\n")
+            .setTitle(resources.getString(R.string.label_delete_confirmation))
+            .setMessage("${resources.getString(R.string.title_rule_code)} : ${rule.rule_code}\n" +
+                    "${resources.getString(R.string.title_type_name)} : ${rule.id_type}\n\n")
             .setCancelable(false)
-            .setNegativeButton("Batal") { _, _ -> }
-            .setPositiveButton("Hapus") { _, _ ->
+            .setNegativeButton(resources.getString(R.string.label_button_cancel)) { _, _ -> }
+            .setPositiveButton(resources.getString(R.string.label_button_yes)) { _, _ ->
                 deleteItem(rule)
-                Toast.makeText(requireContext(), "Data berhasil dihapus", Toast.LENGTH_SHORT).show()
+                Toast.makeText(requireContext(),
+                    resources.getString(R.string.label_deleted_successfully),
+                    Toast.LENGTH_SHORT).show()
             }
             .show()
     }
