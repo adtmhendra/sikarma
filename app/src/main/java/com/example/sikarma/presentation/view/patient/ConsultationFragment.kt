@@ -184,13 +184,12 @@ class ConsultationFragment : Fragment() {
 
             edtName.addTextChangedListener(inputPatientDataTextWatcher)
             edtAge.addTextChangedListener(inputPatientDataTextWatcher)
-
         }.show()
     }
 
-    // Mengatur list gender ke dalam combo box view
+    // Mengatur list gender ke dalam combo box
     private fun setUpGender() {
-        val gender = listOf(getString(R.string.label_man), R.string.label_woman)
+        val gender = listOf(getString(R.string.label_male), getString(R.string.label_female))
         (acTvGender as? AutoCompleteTextView)?.setAdapter(ArrayAdapter(
             requireContext(),
             R.layout.list_type_dropdown,

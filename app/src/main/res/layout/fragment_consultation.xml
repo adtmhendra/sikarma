@@ -37,10 +37,13 @@
                 android:id="@+id/tvDetailAnnouncement"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_margin="@dimen/dimen_16dp"
+                android:layout_marginStart="@dimen/dimen_16dp"
+                android:layout_marginTop="@dimen/dimen_16dp"
+                android:layout_marginEnd="@dimen/dimen_16dp"
+                android:layout_marginBottom="@dimen/dimen_16dp"
                 android:layout_toEndOf="@+id/imgInfo"
                 android:lineSpacingExtra="1.5dp"
-                android:text="Harap pilih gejala asma yang sedang atau pernah Anda rasakan" />
+                android:text="@string/label_consultation_alert" />
 
         </RelativeLayout>
 

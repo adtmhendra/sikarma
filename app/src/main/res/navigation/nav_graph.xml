@@ -278,7 +278,7 @@
     <fragment
         android:id="@+id/consultationFragment"
         android:name="com.example.sikarma.presentation.view.patient.ConsultationFragment"
-        android:label="Konsultasi Penyakit"
+        android:label="@string/label_consultation"
         tools:layout="@layout/fragment_consultation">
         <action
             android:id="@+id/action_consultationFragment_to_diagnosticResultFragment"
@@ -327,7 +327,7 @@
     <fragment
         android:id="@+id/diagnosticResultFragment"
         android:name="com.example.sikarma.presentation.view.patient.DiagnosticResultFragment"
-        android:label="Hasil Diagnosa"
+        android:label="@string/title_diagnostic_result"
         tools:layout="@layout/fragment_diagnostic_result">
         <argument
             android:name="name"
@@ -360,18 +360,18 @@
             app:popUpToInclusive="true" />
         <argument
             android:name="time"
+            android:defaultValue="-"
             app:argType="string"
-            app:nullable="true"
-            android:defaultValue="-" />
+            app:nullable="true" />
         <argument
             android:name="age"
+            android:defaultValue="-"
             app:argType="string"
-            app:nullable="true"
-            android:defaultValue="-" />
+            app:nullable="true" />
         <argument
             android:name="gender"
+            android:defaultValue="-"
             app:argType="string"
-            app:nullable="true"
-            android:defaultValue="-" />
+            app:nullable="true" />
     </fragment>
 </navigation>

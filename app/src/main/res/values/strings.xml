@@ -27,6 +27,13 @@
     <string name="title_age">Usia</string>
     <string name="title_gender">Jenis kelamin</string>
     <string name="title_full_name">Nama lengkap</string>
+    <string name="title_consultation">Konsultasi</string>
+    <string name="title_diagnostic_result">Hasil Diagnosa</string>
+    <string name="title_patient_data">Data pasien</string>
+    <string name="title_early_diagnosis">Hasil diagnosa awal</string>
+    <string name="title_early_diagnosis_caps">*Hasil Diagnosa Awal*</string>
+    <string name="title_type_of_asthma">Jenis asma</string>
+    <string name="title_dialog_share">Salin atau Bagikan Hasil Diagnosa</string>
 
     <string name="label_result">: %s</string>
     <string name="label_age">: %s tahun</string>
@@ -46,6 +53,7 @@
     <string name="label_set_symptom">Atur gejala penyakit</string>
     <string name="label_set_type">Atur jenis penyakit</string>
     <string name="label_set_rule">Atur rule penyakit</string>
+    <string name="label_button_start_consultation">Mulai konsultasi</string>
     <string name="label_button_set_symptom">Button atur gejala asma</string>
     <string name="label_button_set_type">Button atur jenis asma</string>
     <string name="label_button_set_rule">Button atur rule asma</string>
@@ -83,4 +91,10 @@
     <string name="label_data_exist">Data telah tersedia</string>
     <string name="label_account_registered">Akun telah terdaftar</string>
     <string name="label_account_register_successfully">Register akun berhasil. Silahkan login menggunakan akun yang telah terdaftar</string>
+    <string name="label_form_alert">Isi form di bawah ini dengan benar untuk melanjutkan sesi konsultasi</string>
+    <string name="label_consultation_alert">Harap pilih gejala asma yang sedang atau pernah Anda rasakan</string>
+    <string name="label_male">Laki-laki</string>
+    <string name="label_female">Perempuan</string>
+    <string name="label_example_name">Cth: Ari Lesmana</string>
+    <string name="label_example_age">Cth: 20</string>
 </resources>

@@ -28,9 +28,16 @@
     <string name="title_age">Age</string>
     <string name="title_gender">Gender</string>
     <string name="title_full_name">Full name</string>
+    <string name="title_consultation">Consultation</string>
+    <string name="title_diagnostic_result">Diagnosis Result</string>
+    <string name="title_patient_data">Patient data</string>
+    <string name="title_early_diagnosis">Asthma early diagnosis</string>
+    <string name="title_early_diagnosis_caps">*Asthma Early Diagnosis*</string>
+    <string name="title_type_of_asthma">Type of asthma</string>
+    <string name="title_dialog_share">Copy or Share the Diagnosis Result</string>
 
     <string name="label_result">: %s</string>
-    <string name="label_age">: %s year old</string>
+    <string name="label_age">: %s years old</string>
     <string name="label_login_admin">Login admin</string>
     <string name="label_register_admin">Register admin</string>
     <string name="label_consultation">Consultation</string>
@@ -47,6 +54,7 @@
     <string name="label_set_symptom">Set symptom</string>
     <string name="label_set_type">Set type</string>
     <string name="label_set_rule">Set rule</string>
+    <string name="label_button_start_consultation">Start</string>
     <string name="label_button_set_symptom">Button set symptom</string>
     <string name="label_button_set_type">Button set type</string>
     <string name="label_button_set_rule">Button set rule</string>
@@ -84,4 +92,10 @@
     <string name="label_data_exist">Data is exist</string>
     <string name="label_account_registered">Account has been registered</string>
     <string name="label_account_register_successfully">Account successfully registered. Please login using a registered account</string>
+    <string name="label_form_alert">Fill in the form below correctly to continue the consultation session</string>
+    <string name="label_consultation_alert">Please select the asthma symptoms you are currently or have ever felt</string>
+    <string name="label_male">Male</string>
+    <string name="label_female">Female</string>
+    <string name="label_example_name">Ex: Ari Lesmana</string>
+    <string name="label_example_age">Ex: 20</string>
 </resources>

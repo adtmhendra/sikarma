@@ -1,5 +1,6 @@
 package com.example.sikarma.presentation.view.patient
 
+import android.content.Intent
 import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
@@ -38,6 +39,24 @@ class DiagnosticResultFragment : Fragment() {
             tvDiagnosticDesc.text = navigationArgs.desc
 
             btnFinished.setOnClickListener { goToHomeFragment() }
+            btnShare.setOnClickListener {
+                val sendIntent = Intent().apply {
+                    action = Intent.ACTION_SEND
+                    type = "text/plain"
+                    putExtra(Intent.EXTRA_TITLE, getString(R.string.title_dialog_share))
+                    putExtra(Intent.EXTRA_TEXT,
+                        getString(R.string.title_early_diagnosis_caps) +
+                                "\n\n${getString(R.string.title_full_name)} : ${navigationArgs.name}" +
+                                "\n${getString(R.string.title_age)} : ${navigationArgs.age}" +
+                                "\n${getString(R.string.title_gender)} : ${navigationArgs.gender}" +
+                                "\n${getString(R.string.title_date)} : ${navigationArgs.date}" +
+                                "\n${getString(R.string.title_time)}: ${navigationArgs.time}" +
+                                "\n\nType of Asthma : ${navigationArgs.type}" +
+                                "\n${getString(R.string.title_description)} : ${navigationArgs.desc}")
+                }
+                val shareIntent = Intent.createChooser(sendIntent, null)
+                startActivity(shareIntent)
+            }
         }
     }
 
